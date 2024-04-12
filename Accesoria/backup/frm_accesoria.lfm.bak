@@ -1,0 +1,104 @@
+object frmaccesoria: Tfrmaccesoria
+  Left = 331
+  Height = 317
+  Top = 186
+  Width = 656
+  BorderStyle = bsDialog
+  Caption = 'Administración de '
+  ClientHeight = 317
+  ClientWidth = 656
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.6.2.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 317
+    Top = 0
+    Width = 656
+    Align = alClient
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Descripción'
+        Width = 600
+        FieldName = 'DESCRIPCION'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Century Gothic'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 214
+    top = 65
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'DESCRIPCION'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    AfterDelete = SQLQuery1AfterPost
+    AfterInsert = SQLQuery1AfterInsert
+    AfterPost = SQLQuery1AfterPost
+    BeforePost = SQLQuery1BeforePost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select * From ESTADO'
+    )
+    InsertSQL.Strings = (
+      'Insert Into ESTADO (Id, Descripcion)'
+      'Values (:Id, :Descripcion)'
+    )
+    UpdateSQL.Strings = (
+      'Update ESTADO'
+      'Set Descripcion = :Descripcion'
+      'Where Id = :Old_Id'
+    )
+    DeleteSQL.Strings = (
+      'Delete From ESTADO'
+      'Where Id = :Id'
+    )
+    RefreshSQL.Strings = (
+      ''
+    )
+    Options = []
+    Params = <>
+    UpdateMode = upWhereAll
+    Sequence.IncrementBy = 0
+    left = 288
+    top = 66
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    Options = []
+    Params = <>
+    left = 288
+    top = 128
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caCommitRetaining
+    Options = []
+    left = 288
+    top = 192
+  end
+end

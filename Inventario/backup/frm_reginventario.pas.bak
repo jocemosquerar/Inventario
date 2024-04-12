@@ -1,0 +1,365 @@
+unit frm_reginventario;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls,
+  Buttons, ComCtrls, ActnList, StdCtrls, DbCtrls, DBExtCtrls, DBGrids,
+  Dm_Reginventario, IBConnection, db, lcltype, frm_buscadorelemento, frm_observacion;
+
+type
+
+  { Tfrmreginventario }
+
+  Tfrmreginventario = class(TForm)
+    D_Poliza: TDataSource;
+    DBLookupComboBox7: TDBLookupComboBox;
+    D_Movimiento: TDataSource;
+    DBEdit6: TDBEdit;
+    D_funcionario: TDataSource;
+    D_Dependencia: TDataSource;
+    DBLookupComboBox6: TDBLookupComboBox;
+    D_Proveedor: TDataSource;
+    D_Estado: TDataSource;
+    D_Marca: TDataSource;
+    D_Categoria: TDataSource;
+    D_Elemento: TDataSource;
+    DBDateEdit1: TDBDateEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBGrid1: TDBGrid;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBLookupComboBox4: TDBLookupComboBox;
+    DBLookupComboBox5: TDBLookupComboBox;
+    DBMemo1: TDBMemo;
+    Buscar: TAction;
+    Cancelar: TAction;
+    Grabar: TAction;
+    Editar: TAction;
+    Label1: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Nuevo: TAction;
+    ActionList1: TActionList;
+    ImageList1: TImageList;
+    PageControl1: TPageControl;
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    procedure BuscarExecute(Sender: TObject);
+    procedure CancelarExecute(Sender: TObject);
+    procedure DBDateEdit1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBEdit2KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBGrid1EditButtonClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBLookupComboBox2KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBLookupComboBox4KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBLookupComboBox7KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure D_ElementoStateChange(Sender: TObject);
+    procedure EditarExecute(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure GrabarExecute(Sender: TObject);
+    procedure Label9Click(Sender: TObject);
+    procedure NuevoExecute(Sender: TObject);
+  private
+    { private declarations }
+    Dm : TDmRegInventario;
+    procedure Set_Origenes;
+  public
+    { public declarations }
+  end;
+
+var
+  frmreginventario: Tfrmreginventario;
+
+ procedure RegInventario(const base : TIBConnection);
+
+implementation
+
+{$R *.lfm}
+
+{ Tfrmreginventario }
+
+procedure RegInventario(const base: TIBConnection);
+begin
+  Application.CreateForm(TFrmRegInventario, FrmRegInventario);
+  FrmRegInventario.Dm := TDmRegInventario.Create(nil);
+  FrmRegInventario.Dm.base := Base;
+
+  frmreginventario.D_elemento.DataSet    :=  FrmRegInventario.Dm.Elemento;
+  frmreginventario.D_Categoria.DataSet   :=  FrmRegInventario.Dm.Categoria;
+  frmreginventario.D_marca.DataSet       :=  FrmRegInventario.Dm.marca;
+  frmreginventario.D_estado.DataSet      :=  FrmRegInventario.Dm.estado;
+  frmreginventario.D_proveedor.DataSet   :=  FrmRegInventario.Dm.proveedor;
+  frmreginventario.D_dependencia.DataSet :=  FrmRegInventario.Dm.dependencia;
+  frmreginventario.D_funcionario.DataSet :=  FrmRegInventario.Dm.Funcionario;
+  frmreginventario.D_movimiento.DataSet  :=  FrmRegInventario.Dm.Movimiento;
+  frmreginventario.D_poliza.DataSet      :=  FrmRegInventario.Dm.Aseguradora;
+
+  FrmRegInventario.ShowModal;
+  FrmRegInventario.Free;
+end;
+
+procedure Tfrmreginventario.DBEdit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key=VK_RETURN) then
+   SelectNext(ActiveControl,true, true);
+end;
+
+procedure Tfrmreginventario.BuscarExecute(Sender: TObject);
+var
+  id : integer;
+begin
+ id := buscar_elemento(Dm.Elemento.DataBase As TIBConnection);
+ if id = -1 then
+  MessageDlg('Producto NO existene', mtWarning, [mbOk], 0)
+ else
+  Dm.abrir_elemento(id);
+end;
+
+procedure Tfrmreginventario.CancelarExecute(Sender: TObject);
+begin
+  Dm.Elemento.Cancel;
+end;
+
+procedure Tfrmreginventario.DBDateEdit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (Dm.Elemento.State in [dsInsert, dsEdit]) And (Key=VK_ESCAPE) then
+  Dm.Elemento.FieldByName('fecha_Compra').Clear;
+end;
+
+procedure Tfrmreginventario.DBEdit2KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+end;
+
+procedure Tfrmreginventario.DBGrid1EditButtonClick(Sender: TObject);
+var
+  texto : string;
+begin
+   with Tfrmobservacion.create(nil) do
+    try
+     texto := Dm.Movimiento.FieldByName('observacion').AsString;
+     Memo1.Text := texto;
+     ShowModal;
+     if texto <> Memo1.text then begin
+       if dm.movimiento.state in [dsBrowse] then
+        dm.Movimiento.Edit;
+       dm.Movimiento.FieldByName('observacion').AsString := Memo1.Text;
+       dm.Movimiento.Post;
+      end;
+    finally
+      free;
+    end;
+end;
+
+procedure Tfrmreginventario.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+ texto : string;
+begin
+end;
+
+procedure Tfrmreginventario.DBLookupComboBox2KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+ Cad : string;
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (Dm.Elemento.State in [dsInsert, dsEdit]) then begin
+
+   if (Key=VK_ESCAPE) then
+    Dm.Elemento.FieldByName('Id_Marca').Clear;
+
+   if (Key=VK_INSERT) then begin
+     Cad := InputBox('Creación de marca', 'Nombre de la marca', '');
+
+     if Trim(Cad) = EmptyStr then begin
+       MessageDlg('Descripción incompleta', mtwarning, [mbOk], 0);
+       exit;
+      end;
+
+     if not Dm.Insertar_Accesoria('Marca', Trim(AnsiUpperCase(Cad)), 'Gen_Marca', Dm.Marca) then
+      MessageDlg('No fue posible insertar el registro', mtwarning, [mbOk], 0);
+    end;
+  end;
+end;
+
+procedure Tfrmreginventario.DBLookupComboBox4KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+ cad : string;
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (Dm.Elemento.State in [dsInsert, dsEdit]) then begin
+
+   if (Key=VK_ESCAPE) then
+    Dm.Elemento.FieldByName('Id_Proveedor').Clear;
+
+   if (Key=VK_INSERT) then begin
+     Cad := InputBox('Creación de proveedor', 'Nombre del proveedor', '');
+
+     if Trim(Cad) = EmptyStr then begin
+       MessageDlg('Descripción incompleta', mtwarning, [mbOk], 0);
+       exit;
+      end;
+
+     if not Dm.Insertar_Accesoria('Proveedor', Trim(AnsiUpperCase(Cad)), 'Gen_Proveedor', Dm.Proveedor) then
+      MessageDlg('No fue posible insertar el registro', mtwarning, [mbOk], 0);
+    end;
+  end;
+end;
+
+procedure Tfrmreginventario.DBLookupComboBox7KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+ cad : string;
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (Dm.Elemento.State in [dsInsert, dsEdit]) then begin
+
+   if (Key=VK_ESCAPE) then
+    Dm.Elemento.FieldByName('Id_Aseguradora').Clear;
+
+   if (Key=VK_INSERT) then begin
+     Cad := InputBox('Creación de Aseguradora', 'Póliza y Nombre de aseguradora', '');
+
+     if Trim(Cad) = EmptyStr then begin
+       MessageDlg('Descripción incompleta', mtwarning, [mbOk], 0);
+       exit;
+      end;
+
+     if not Dm.Insertar_Accesoria('Aseguradora', Trim(AnsiUpperCase(Cad)), 'Gen_Aseguradora', Dm.Aseguradora) then
+      MessageDlg('No fue posible insertar el registro', mtwarning, [mbOk], 0);
+    end;
+  end;
+end;
+
+procedure Tfrmreginventario.D_ElementoStateChange(Sender: TObject);
+begin
+  DBLookupComboBox3.enabled := not (Dm.Elemento.state in [dsEdit]);   // Estado
+  DBLookupComboBox5.enabled := not (Dm.Elemento.state in [dsEdit]);   // Responsable
+//  DBLookupComboBox6.enabled := not (Dm.Elemento.state in [dsEdit]);   // Dependencia
+
+  if Dm.Elemento.state in [dsInsert, dsEdit] then begin
+    Buscar.Enabled := False;
+    SpeedButton1.Action := Grabar;
+    SpeedButton2.Action := Cancelar;
+   end
+  else begin
+    Buscar.Enabled := True;
+    SpeedButton1.Action := Nuevo;
+    SpeedButton2.Action := Editar;
+   end;
+end;
+
+procedure Tfrmreginventario.EditarExecute(Sender: TObject);
+begin
+  if dm.Movimiento.state in [dsInsert, dsEdit] then begin
+    MessageDlg('Actualice o cancele el registro de novedades antes de continuar', mtWarning, [mbOk], 0);
+    exit;
+   end;
+
+  if Dm.Elemento.IsEmpty then
+   MessageDlg('Seleccione primero un elemento', mtWarning, [mbOk], 0)
+  else begin
+    Dm.Elemento.Edit;
+    PageControl1.ActivePageIndex:=0;
+    DBEdit1.SetFocus;
+  end;
+end;
+
+procedure Tfrmreginventario.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+ FrmRegInventario := nil;
+end;
+
+procedure Tfrmreginventario.FormCreate(Sender: TObject);
+begin
+ PageControl1.ActivePageIndex:=0;
+end;
+
+procedure Tfrmreginventario.GrabarExecute(Sender: TObject);
+var
+  msg : string;
+begin
+  msg := Dm.validar_datos;
+  if Msg = EmptyStr then begin
+    Dm.Elemento.Post;
+    Dm.Elemento.Close;
+   end
+  else
+    MessageDlg('Corrija lo siguiente antes de continuar' + #13+#10 + Msg, mtError, [mbOk], 0);
+end;
+
+procedure Tfrmreginventario.Label9Click(Sender: TObject);
+begin
+
+end;
+
+procedure Tfrmreginventario.NuevoExecute(Sender: TObject);
+begin
+  if dm.Movimiento.state in [dsInsert, dsEdit] then begin
+    MessageDlg('Actualice o cancele el registro de novedades antes de continuar', mtWarning, [mbOk], 0);
+    exit;
+   end;
+
+  dm.abrir_elemento(-1);
+  dm.Elemento.Insert;
+
+  PageControl1.ActivePageIndex := 0;
+  DBEdit1.SetFocus;
+end;
+
+procedure Tfrmreginventario.Set_Origenes;
+begin
+  D_Elemento.DataSet := Dm.Elemento;
+end;
+
+end.
+

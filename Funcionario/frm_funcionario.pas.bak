@@ -1,0 +1,122 @@
+unit frm_funcionario;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, sqldb, db, FileUtil, Forms, Controls, Graphics, Dialogs,
+  DBGrids, ibconnection;
+
+type
+
+  { Tfrmfuncionario }
+
+  Tfrmfuncionario = class(TForm)
+    D_Funcionario: TDataSource;
+    DBGrid1: TDBGrid;
+    Funcionario: TSQLQuery;
+    Dependencia: TSQLQuery;
+    FuncionarioAPELLIDOS: TStringField;
+    FuncionarioID: TLongintField;
+    FuncionarioIDENTIFICACION: TStringField;
+    FuncionarioID_DEPENDENCIA: TLongintField;
+    FuncionarioNOMBRES: TStringField;
+    SQLQuery3: TSQLQuery;
+    SQLTransaction1: TSQLTransaction;
+    StringField1: TStringField;
+    procedure FormDestroy(Sender: TObject);
+    procedure FuncionarioAfterPost(DataSet: TDataSet);
+    procedure FuncionarioBeforePost(DataSet: TDataSet);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  frmfuncionario: Tfrmfuncionario;
+
+ procedure persona(const Base : TIBConnection);
+
+implementation
+
+{$R *.lfm}
+
+procedure persona(const Base : TIBConnection);
+begin
+ Application.createform(tfrmfuncionario, frmfuncionario);
+
+ frmfuncionario.SQLTransaction1.DataBase := base;
+ frmfuncionario.Funcionario.DataBase     := base;
+ frmfuncionario.Dependencia.DataBase     := base;
+ frmfuncionario.SQLQuery3.DataBase       := base;
+
+ frmfuncionario.Dependencia.Open;
+ frmfuncionario.Funcionario.open;
+
+ frmfuncionario.showmodal;
+end;
+
+{ Tfrmfuncionario }
+
+procedure Tfrmfuncionario.FormDestroy(Sender: TObject);
+begin
+ frmfuncionario := nil;
+end;
+
+procedure Tfrmfuncionario.FuncionarioAfterPost(DataSet: TDataSet);
+begin
+  Funcionario.ApplyUpdates(-1);
+  SQLTransaction1.CommitRetaining;
+end;
+
+procedure Tfrmfuncionario.FuncionarioBeforePost(DataSet: TDataSet);
+var
+ mensaje : string;
+///
+   function val_identificacion : string;
+   begin
+    if Funcionario.fieldbyname('identificacion').IsNull then
+     result := 'Identificación incompleta' + #13+#10
+    else begin
+      SQLQuery3.Close;
+      SQLQuery3.Sql.Text := 'Select count(*) from funcionario where identificacion = '  + QuotedStr(Funcionario.fieldbyname('identificacion').AsString);
+      if Funcionario.State in [dsEdit] then
+        SqlQuery3.Sql.Text := SqlQuery3.Sql.Text + ' And Id <> ' + Funcionario.fieldbyname('id').Asstring;
+      SqlQuery3.Open;
+      if SQLQuery3.fields[0].AsInteger > 0 then
+       result := 'Identificación YA registrada' + #13+#10
+      else
+       result := Emptystr;
+     end;
+   end;
+///
+   function val_nombres : string;
+   begin
+    if (funcionario.fieldbyname('Apellidos').IsNull) or (funcionario.fieldbyname('Nombres').IsNull) then
+     result := 'Apellidos / Nombres incompletos' + #13 + #10
+    else
+     result := Emptystr;
+   end;
+///
+   function val_dependencia : string;
+   begin
+    if (funcionario.fieldbyname('Id_dependencia').IsNull) then
+     result := 'Dependencia incompleta' + #13 + #10
+     else
+      result := Emptystr;
+   end;
+///
+begin
+ mensaje := val_identificacion;
+ mensaje := mensaje + val_nombres;
+ mensaje := mensaje + val_dependencia;
+
+ if mensaje <> emptystr then
+  Raise exception.create('Corrija lo siguiente antes de continuar : ' + #13+#10 + mensaje);
+end;
+
+
+end.
+

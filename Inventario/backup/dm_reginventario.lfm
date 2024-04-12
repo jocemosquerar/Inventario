@@ -1,0 +1,408 @@
+object dmreginventario: Tdmreginventario
+  OldCreateOrder = False
+  Height = 322
+  HorizontalOffset = -357
+  VerticalOffset = 160
+  Width = 321
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caCommitRetaining
+    Options = []
+    left = 40
+    top = 16
+  end
+  object Elemento: TSQLQuery
+    FieldDefs = <>
+    AfterInsert = ElementoAfterInsert
+    AfterOpen = ElementoAfterOpen
+    AfterPost = ElementoAfterPost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select *'
+      'from ELEMENTO'
+      'Where Id = :Id'
+    )
+    InsertSQL.Strings = (
+      'insert into elemento'
+      '(id, id_Categoria, descripcion, caracteristicas, modelo, serie, inventario, id_proveedor, fecha_compra,'
+      'numero_factura, valor_compra, id_marca, id_funcionario, id_estado, id_dependencia, id_aseguradora)'
+      'values'
+      '(:id, :id_Categoria, :descripcion, :caracteristicas, :modelo, :serie, :inventario, :id_proveedor, :fecha_compra,'
+      ':numero_factura, :valor_compra, :id_marca, :id_funcionario, :id_estado, :id_dependencia, :id_aseguradora)'
+      ''
+    )
+    UpdateSQL.Strings = (
+      'update ELEMENTO'
+      'set'
+      'id = :id,'
+      'id_categoria = :id_categoria,'
+      'descripcion = :descripcion,'
+      'caracteristicas = :caracteristicas,'
+      'modelo = :modelo,'
+      'serie = :serie,'
+      'inventario = :inventario,'
+      'id_proveedor = :id_proveedor,'
+      'fecha_compra = :fecha_compra,'
+      'numero_factura = :numero_factura,'
+      'valor_compra = :valor_compra,'
+      'id_marca = :id_marca,'
+      'id_funcionario = :id_funcionario,'
+      'id_estado = :id_Estado,'
+      'id_dependencia = :Id_Dependencia,'
+      'id_aseguradora = :Id_Aseguradora'
+      'where'
+      'id = :Old_id'
+    )
+    RefreshSQL.Strings = (
+      'Select *'
+      'from ELEMENTO'
+      'Where Id = gen_id(gen_elemento, 0)'
+      ''
+    )
+    Options = [sqoRefreshUsingSelect]
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptInput
+      end>
+    Sequence.IncrementBy = 0
+    left = 40
+    top = 81
+  end
+  object Categoria: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from categoria'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 112
+    top = 81
+  end
+  object Marca: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from marca'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 176
+    top = 81
+  end
+  object Proveedor: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from proveedor'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 40
+    top = 152
+  end
+  object Funcionario: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, apellidos || '' '' || nombres funcionario'
+      'from funcionario'
+      'order by apellidos, nombres'
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 112
+    top = 152
+  end
+  object Estado: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from estado'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 176
+    top = 152
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    Options = []
+    Params = <>
+    left = 40
+    top = 224
+  end
+  object Movimiento: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ID_ELEMENTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'OBSERVACION'
+        DataType = ftString
+        Precision = -1
+        Size = 256
+      end    
+      item
+        Name = 'ID_ESTADO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ID_FUNCIONARIO'
+        DataType = ftSmallint
+        Precision = -1
+      end>
+    AfterInsert = MovimientoAfterInsert
+    AfterPost = MovimientoAfterPost
+    BeforeEdit = MovimientoBeforeInsert
+    BeforeInsert = MovimientoBeforeInsert
+    BeforePost = MovimientoBeforePost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select *'
+      'from movimiento'
+      'where id_elemento = :id'
+      'Order by fecha desc'
+    )
+    InsertSQL.Strings = (
+      'insert into movimiento'
+      '(id, id_elemento, fecha, observacion, id_estado, id_funcionario)'
+      'values'
+      '(:id, :id_elemento, :fecha, :observacion, :id_estado, :id_funcionario)'
+      ''
+    )
+    UpdateSQL.Strings = (
+      'update movimiento'
+      'set id = :id,'
+      'id_elemento = :id_elemento,'
+      'fecha = :fecha,'
+      'observacion = :observacion,'
+      'id_funcionario = :id_funcionario,'
+      'id_estado = :id_estado'
+      'where id = :OLD_id'
+    )
+    DeleteSQL.Strings = (
+      'delete from movimiento'
+      'where id = :OLD_id'
+    )
+    RefreshSQL.Strings = (
+      'Select *'
+      'from movimiento'
+      'where id = gen_id(gen_movimiento, 0)'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    left = 112
+    top = 224
+    object MovimientoID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoID_ELEMENTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID_ELEMENTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoFECHA: TDateField
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoOBSERVACION: TStringField
+      FieldKind = fkData
+      FieldName = 'OBSERVACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 256
+    end
+    object MovimientoID_ESTADO: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID_ESTADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoID_FUNCIONARIO: TSmallintField
+      FieldKind = fkData
+      FieldName = 'ID_FUNCIONARIO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object StringField2: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ESTADO'
+      Index = 6
+      KeyFields = 'ID_ESTADO'
+      LookupCache = False
+      LookupDataSet = SqlEstado
+      LookupKeyFields = 'ID'
+      LookupResultField = 'ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object StringField1: TStringField
+      FieldKind = fkLookup
+      FieldName = 'FUNCIONARIO'
+      Index = 7
+      KeyFields = 'ID_FUNCIONARIO'
+      LookupCache = False
+      LookupDataSet = SqlFuncionario
+      LookupKeyFields = 'ID'
+      LookupResultField = 'FUNCIONARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 81
+    end
+  end
+  object Dependencia: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from Dependencia'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 176
+    top = 224
+  end
+  object SqlFuncionario: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'FUNCIONARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 81
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, apellidos || '' '' || nombres funcionario'
+      'from funcionario'
+      'order by apellidos, nombres'
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 248
+    top = 152
+  end
+  object SqlEstado: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion Estado'
+      'from estado'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 248
+    top = 224
+  end
+  object Aseguradora: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from aseguradora'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 248
+    top = 80
+  end
+end

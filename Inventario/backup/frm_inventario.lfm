@@ -1,0 +1,930 @@
+object frminventario: Tfrminventario
+  Left = 415
+  Height = 479
+  Top = 133
+  Width = 878
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Registro de Inventario'
+  ClientHeight = 479
+  ClientWidth = 878
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.6.2.0'
+  object Panel2: TPanel
+    Left = 0
+    Height = 51
+    Top = 24
+    Width = 878
+    Align = alTop
+    ClientHeight = 51
+    ClientWidth = 878
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Height = 17
+      Top = 16
+      Width = 75
+      Caption = 'Descripción'
+      ParentColor = False
+    end
+    object DBEdit1: TDBEdit
+      Left = 96
+      Height = 25
+      Top = 12
+      Width = 458
+      DataField = 'descripcion'
+      DataSource = D_Elemento
+      CharCase = ecUppercase
+      MaxLength = 0
+      TabOrder = 0
+      OnKeyDown = DBEdit1KeyDown
+    end
+    object Label6: TLabel
+      Left = 571
+      Height = 17
+      Top = 16
+      Width = 142
+      Caption = 'Número de Inventario'
+      ParentColor = False
+    end
+    object DBEdit4: TDBEdit
+      Left = 723
+      Height = 25
+      Top = 12
+      Width = 136
+      DataField = 'inventario'
+      DataSource = D_Elemento
+      CharCase = ecUppercase
+      MaxLength = 0
+      TabOrder = 1
+      OnExit = DBEdit4Exit
+      OnKeyDown = DBEdit4KeyDown
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 404
+    Top = 75
+    Width = 878
+    ActivePage = TabSheet3
+    Align = alClient
+    TabIndex = 2
+    TabOrder = 1
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Características'
+      ClientHeight = 374
+      ClientWidth = 870
+      object Label2: TLabel
+        Left = 64
+        Height = 17
+        Top = 28
+        Width = 67
+        Caption = 'Categoría'
+        ParentColor = False
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 144
+        Height = 25
+        Top = 24
+        Width = 424
+        DataField = 'id_categoria'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Categoria
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object Label3: TLabel
+        Left = 90
+        Height = 17
+        Top = 56
+        Width = 41
+        Caption = 'Marca'
+        ParentColor = False
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 144
+        Height = 25
+        Hint = 'INS - Agregar nueva marca'
+        Top = 56
+        Width = 424
+        DataField = 'id_marca'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Marca
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox2KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object Label4: TLabel
+        Left = 82
+        Height = 17
+        Top = 93
+        Width = 49
+        Caption = 'Modelo'
+        ParentColor = False
+      end
+      object DBEdit2: TDBEdit
+        Left = 145
+        Height = 25
+        Top = 88
+        Width = 423
+        DataField = 'modelo'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 2
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label5: TLabel
+        Left = 98
+        Height = 17
+        Top = 124
+        Width = 33
+        Caption = 'Serial'
+        ParentColor = False
+      end
+      object DBEdit3: TDBEdit
+        Left = 145
+        Height = 25
+        Top = 120
+        Width = 423
+        DataField = 'serie'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 3
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label11: TLabel
+        Left = 35
+        Height = 17
+        Top = 201
+        Width = 96
+        Caption = 'Características'
+        ParentColor = False
+      end
+      object DBMemo1: TDBMemo
+        Left = 145
+        Height = 146
+        Top = 193
+        Width = 662
+        DataField = 'caracteristicas'
+        DataSource = D_Elemento
+        OnExit = DBMemo1Exit
+        TabOrder = 5
+      end
+      object Label13: TLabel
+        Left = 87
+        Height = 17
+        Top = 157
+        Width = 44
+        Caption = 'Estado'
+        ParentColor = False
+      end
+      object DBLookupComboBox5: TDBLookupComboBox
+        Left = 144
+        Height = 25
+        Top = 154
+        Width = 424
+        DataField = 'id_estado'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Estado
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 4
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Responsable / Proveedor'
+      ClientHeight = 374
+      ClientWidth = 870
+      object Label7: TLabel
+        Left = 89
+        Height = 17
+        Top = 69
+        Width = 67
+        Caption = 'Proveedor'
+        ParentColor = False
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 168
+        Height = 25
+        Hint = 'ESC - Limpiar'
+        Top = 67
+        Width = 424
+        DataField = 'id_proveedor'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Proveedor
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox3KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object DBDateEdit1: TDBDateEdit
+        Left = 168
+        Height = 25
+        Top = 99
+        Width = 144
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsNoMonthChange]
+        DateOrder = doDMY
+        DateFormat = 'dd/mm/yyyy'
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 10
+        OnKeyDown = DBEdit1KeyDown
+        TabOrder = 2
+        Text = '  /  /    '
+        DataField = 'fecha_compra'
+        DataSource = D_Elemento
+      end
+      object Label8: TLabel
+        Left = 40
+        Height = 17
+        Top = 106
+        Width = 116
+        Caption = 'Fecha de compra'
+        ParentColor = False
+      end
+      object Label9: TLabel
+        Left = 45
+        Height = 17
+        Top = 136
+        Width = 111
+        Caption = 'Valor de compra'
+        ParentColor = False
+      end
+      object DBEdit5: TDBEdit
+        Left = 168
+        Height = 25
+        Top = 133
+        Width = 144
+        DataField = 'valor_compra'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 3
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label10: TLabel
+        Left = 32
+        Height = 17
+        Top = 172
+        Width = 124
+        Caption = 'Número de factura'
+        ParentColor = False
+      end
+      object DBEdit6: TDBEdit
+        Left = 168
+        Height = 25
+        Top = 169
+        Width = 144
+        DataField = 'numero_factura'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 4
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label12: TLabel
+        Left = 72
+        Height = 17
+        Top = 34
+        Width = 81
+        Caption = 'Responsable'
+        ParentColor = False
+      end
+      object DBLookupComboBox4: TDBLookupComboBox
+        Left = 168
+        Height = 25
+        Top = 32
+        Width = 424
+        DataField = 'id_funcionario'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'funcionario'
+        ListFieldIndex = 0
+        ListSource = D_Funcionario
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Observaciones'
+      ClientHeight = 374
+      ClientWidth = 870
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 374
+        Top = 0
+        Width = 870
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Fecha'
+            FieldName = 'FECHA'
+          end        
+          item
+            ButtonStyle = cbsEllipsis
+            Title.Alignment = taCenter
+            Title.Caption = 'Observación'
+            Width = 700
+            FieldName = 'OBSERVACION'
+          end>
+        DataSource = D_Movimiento
+        TabOrder = 0
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Height = -13
+        TitleFont.Name = 'Century Gothic'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+        OnKeyDown = DBGrid1KeyDown
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 878
+    AutoSize = True
+    Caption = 'ToolBar1'
+    Images = ImageList1
+    List = True
+    ShowCaptions = True
+    TabOrder = 2
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = Buscar
+    end
+    object ToolButton2: TToolButton
+      Left = 73
+      Top = 2
+      Action = Nuevo
+    end
+    object ToolButton3: TToolButton
+      Left = 147
+      Top = 2
+      Action = Editar
+    end
+    object ToolButton5: TToolButton
+      Left = 142
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton5'
+      Style = tbsDivider
+    end
+    object ToolButton4: TToolButton
+      Left = 68
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton4'
+      Style = tbsDivider
+    end
+  end
+  object ImageList1: TImageList
+    left = 680
+    top = 128
+    Bitmap = {
+      4C69050000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FC00FFFFF700806D5EFF7C614CFF7C614CFF806D5EFFFFFFF700FFFFFC00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FB00FFFFF2007C614CFFE8CDB8FFE8CDB8FF7C614CFFFFFFF200FFFFFA00FFFF
+      FF00FFFFFE00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFC00FFFFFB00FFFF
+      F500FFFFED00836248FFEACEB6FFEACEB6FF836248FFFFFFEB00FFFFF500FFFF
+      F900FFFFFC00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFF700FFFFF200FFFF
+      EB00FFFFE6008A6245FFECCEB5FFECCEB5FF8A6245FFFFFFE600FFFFEB00FFFF
+      F100FFFFF700FFFFFF00FFFFFF00FFFFFF00FFFFFF00806D5EFF7A624CFF8362
+      48FF8A6343FF8A6343FFEDCFB4FFEDCFB4FF8C6343FF8C6342FF856346FF7F63
+      4BFF816F5EFFFFFFFF00FFFFFF00FFFFFF00FFFFFF007C614CFFEED4BCFFEFD2
+      B7FFF2D2B5FFF1CFB2FFEDCFB2FFEFCFB2FFF5CFB1FFF4CEB0FFEFCDB0FFEBCD
+      B2FF7F634BFFFFFFFF00FFFFFF00FFFFFF00FFFFFF007C614CFFE6CCB4FFD3B5
+      9CFFD4B497FFD5B395FFD4B294FFCFAC8BFFCFA989FFCCA688FFC6A487FFDCBE
+      A3FF7E614CFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00806D5EFF7C614DFF8362
+      48FF8A6343FF8E6342FFD2AC8AFFD4AB8AFF906341FF8E6342FF876246FF7E62
+      4AFF826D5EFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFF800FFFFF200FFFF
+      ED00FFFFE6008E6342FFF6D0AEFFD2AC8AFF8E6342FFFFFFE600FFFFED00FFFF
+      F200FFFFF700FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFC00FFFFFB00FFFF
+      F500FFFFED00856346FFEFCFB2FFCBAB8EFF856346FFFFFFEB00FFFFF500FFFF
+      FB00FFFFFC00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FB00FFFFF2007C614CFFECCEB5FFECCEB5FF7C614CFFFFFFF200FFFFFB00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FC00FFFFF700806D5EFF7B604BFF7D624DFF806D5EFFFFFFF700FFFFFC00FDFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006360
+      F80AFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF007774FF1F7774
+      FF2BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00625FF82B5D5B
+      F76F5956F53EFFFFFF00FFFFFF00FFFFFF00FFFFFF007774FF1F7A77FFFF7976
+      FEFF726FFD2BFFFFFF00FFFFFF00FFFFFF00FFFFFF00615EF82B6461F8FF6A68
+      F9FF5451F3A84F4DF229FFFFFF00FFFFFF007774FF1F7A77FFFF817EFFFF817E
+      FEFF7471FDFF6C69FB2BFFFFFF00FFFFFF00605DF72B625FF8FF6F6DFBFF7E7C
+      FFFF625FF8FF4A47F06F4542EE02FFFFFF007673FF087471FEFD7D7AFEFF8A87
+      FFFF7C79FDFF6C69FBFF6361F92B5F5CF72B615EF8FF6E6CFAFF7D7AFFFF615F
+      F7FF4946F0FC4441EE05FFFFFF00FFFFFF00FFFFFF00716EFD086E6BFCFC7774
+      FDFF8682FFFF7673FCFF6462F8FF605DF7FF6D6AFAFF7B79FFFF605DF7FF4845
+      EFFC4341EE08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006967FB086663
+      F9FC706DFBFF807EFFFF7E7BFFFF7C79FFFF7977FFFF5E5CF7FF4744EFFC4240
+      EE08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00615E
+      F8085D5AF6FD7D79FFFF5E5BFFFF5B58FFFF7674FFFF4643EFFD413FED08FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005C59
+      F62B5D5BF7FF7976FFFF5956FFFF5754FFFF7270FFFF4846F0FF3C39EB2BFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005B58F62B5C5A
+      F6FF6764FAFF7472FFFF7370FFFF706EFFFF6E6CFFFF5755F7FF3F3DEEFF3230
+      E82BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005A57F52B5B59F6FF6663
+      FAFF7471FFFF5A58F6FF4341EEFC3E3CECFD504DF4FF6867FFFF504EF5FF3634
+      EBFF2A27E52BFFFFFF00FFFFFF00FFFFFF005956F52B5B58F6FF6562FAFF7170
+      FFFF5956F6FF4240EEFC3E3BEC083937EB083532E9FC4745F2FF6362FFFF4A48
+      F4FF2F2DE9FF2220E32BFFFFFF00FFFFFF005451F3415856F5FF6361FAFF5855
+      F6FF413FEDFC3D3AEC08FFFFFF00FFFFFF00302DE7082C2AE6FC413FF1FF4C4A
+      F6FF312FEAFF1F1DE241FFFFFF00FFFFFF00FFFFFF004A47F0414F4CF2FF403E
+      EDFD3C39EB08FFFFFF00FFFFFF00FFFFFF00FFFFFF002725E5082422E4FC312F
+      EAFF1F1DE241FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF003F3DED413B38
+      EB08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00211FE3081E1C
+      E241FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBAE4094FAADBEA5093
+      CAFD4E90C8FF2F9DD2DF35A4DE19FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0050A8D9FF6AA5D8FFC9E1
+      F7FFCBE3F8FF4295CAFF3182C2AEFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFA7D4F4FFC5E1F8FFCCE3
+      F9FFCCE3F9FFBDDBF7FF4F90C9FDFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF002FBAE4FFC3EDF8FFA8E2F8FF6CAEDDFFA5CF
+      F4FFA5CFF4FFBDDBF7FF5393CBF7FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF002FBAE4FFC3EDF8FFB3F4FCFF68D9F5FF6FCFF3FF599D
+      D0FF73ABDDFF4F91C9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF002FBAE4FFC3EDF8FFB3F4FCFF60DCF5FF44D6F4FF8EEEFAFF5DB4
+      E6FF3B8FD9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF002FBAE4FFC3EDF8FFB3F4FCFF60DCF5FF44D6F4FF8EEEFAFF5DB4E6FF3B8F
+      D9FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002790
+      BFFFC3EDF8FFB3F4FCFF60DCF5FF44D6F4FF8EEEFAFF5DB4E6FF3B8FD9FFFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002689B9FFBEE6
+      F2FFB3F4FCFF60DCF5FF44D6F4FF8EEEFAFF5DB4E6FF3B8FD9FFFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00206398202689B9FFB0CBE1FF67A9
+      C8FF60DCF5FF44D6F4FF8EEEFAFF5DB4E6FF3B8FD9FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001E6D93FFC8E1F2FFD1E7FAFF347D
+      B5FF3199C3FF6DC4DCFF4A9CCFFF3483C7FFFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001E6D93FFCBE3F9FF61AAECFF4098
+      E8FF1567C2FF1660AAFF2C76B4FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00124259FF5D9CD4FFA6CFF5FFA9CF
+      ECFF488BC1FF2C76B4FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00134058FF15425EFF25699CFF2C76
+      B4FF3B8BBAADFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00BC6B3671BC6B3690BC6B36CCBC6B36EEBC6B
+      36FABB6B36FEBB6B36FFBB6A36FFBB6A36FFBC6C39FFBD6E3BFFBB6D3AFFBB6B
+      38EFBB703ECBB6693554FFFFFF00BC6B369BF6E0D1FFF7E0D1FFFEFBF8FFFEFB
+      F7FFFDF9F6FFFCF5F0FFFAF0EAFFFBF2EDFFFDF9F6FFFDFAF7FFFBF1EBFFF8E9
+      DFFEECD0BDFBC9895EECB5693563BC6B36D8F6DFD1FFE9AA80FFFEFAF6FFFDFA
+      F6FFC88C64FFFBF3EEFFFBF1EAFFFCF6F2FFFEFBF8FFFCF6F1FFF9ECE2FFF8E7
+      DBFFEED0BAFFECD0BDFFBB703EF8BC6B36F0F6DFD0FFE8A87EFFFCF6F1FFFCF6
+      F1FFC88C64FFFAF1E9FFFBF4EEFFFDFAF7FFFDF9F6FFFAF0E8FFF8E8DDFFF7E6
+      DBFFE1A37AFFEFD5C3FFB76935FEBC6B36FAF5DDCCFFE7A87EFFFAF0E8FFFAF0
+      E8FFC98D66FFFAF0E9FFFDF8F3FFFEFAF8FFFCF4EFFFF9E9DFFFF7E7DBFFF7E5
+      D9FFE0A278FFE7C2A9FFB66835FFBB6B36FEF4DCC9FFE7A77DFFF9ECE1FFF9EC
+      E1FFF9EDE3FFFCF4EEFFFDFAF7FFFDF7F3FFFAEDE5FFF7E7DBFFF7E5D9FFF6E5
+      D8FFDEA077FFE4BEA4FFB46734FFBB6B36FFF4D9C7FFE6A67DFFC88C64FFC98D
+      65FFC98E67FFCB926CFFCB926DFFCA9069FFC88C65FFC88C64FFC88C64FFC88C
+      64FFDA9C74FFE1BA9FFFB36634FFBB6A36FFF2D8C5FFE3A47BFFE3A37AFFE3A4
+      7AFFE2A47BFFE2A37BFFE1A37BFFE1A279FFDFA077FFDE9F76FFDD9E74FFDB9C
+      72FFDC9D74FFDDB59AFFB16534FFBB6A36FFF2D5C2FFE3A37AFFE3A37AFFE2A3
+      7BFFE2A37BFFE2A47BFFE1A279FFE0A178FFDEA077FFDE9E75FFDC9D74FFDA9B
+      73FFD99B73FFDAB095FFAF6433FFBB6A36FFF0D2BEFFE2A37AFFE2A37AFFE1A3
+      7AFFE2A37BFFE1A37BFFE0A178FFDE9F77FFDD9F76FFDC9D74FFD99B72FFD899
+      71FFD69970FFD5AB8EFFAD6333FFBA6A36FFEFD0BBFFE2A27AFFFEFBF8FFFEFB
+      F8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+      F8FFD3966DFFD2A78AFFAB6232FFBB6B38FFEFCEB8FFE1A279FFFEFAF7FF62C0
+      88FF62C088FF62C088FF62C088FF62C088FF62C088FF62C088FF62C088FFFDF9
+      F6FFCF936AFFCEA384FFAA6132FFBB6C38FFEECCB6FFE1A27AFFFEFAF7FFBFDC
+      C2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFFDF9
+      F6FFCD9068FFCC9E81FFA86132FFBA6B37FEEDCAB3FFE0A27AFFFEFAF7FF62C0
+      88FF62C088FF62C088FF62C088FF62C088FF62C088FF62C088FF62C088FFFDF9
+      F6FFCA8D65FFC99B7CFFA76031FEBA6A35DEEBC6ADFFEAC5ADFFFEFBF8FFFEFB
+      F8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+      F8FFC89A7CFFC79879FFA76031EDBA6A3600B96935B5B86935EEB76835FFB568
+      35FFB46734FFB26634FFB06533FFAE6433FFAC6332FFAA6232FFA96132FFA860
+      31FFA76031FEA66031F1A86131C4FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF009C8F
+      83E2BCB0A4FF9D9185FFFFFFFF00AEA093FF9D9185FF655D55DAFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF008E83
+      78E2C3B8AEFF655D55FFFFFFFF007C7268FFA89B8EFF9C8F83E4FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00746B62FFA4978AFF9589
+      7DFF9F9286FF3E3934FFFFFFFF004C4640FF7E746AFF857A70FF3E3934FF453F
+      3AA72522200C15131102FFFFFF00B9ACA008877D72489B8E82FF9D9185FF867B
+      71FF564F48FF504A44FF80766CFF6E665DFF826C58FFA6917DFF948474FF564F
+      48FF0C0B0B7A07070601FFFFFF00AB9D9004AFA194E1BAAEA2FF82776DFF8277
+      6DFFAA917BFFBAA794FFB7A48EFAB09781FF9F8D7DFF836D5BFF716357FF9589
+      7DFF040403E000000003FFFFFF009F9286059D9185FFB1A396FF7F756BFF7C72
+      68FF776D64FF6C635BFF2E2A26FF564F48FF80766CFF7C7268FF776D64FF7067
+      5EFF000000FE00000005FFFFFF00797066055C554EF9423D38FF58514AFF3D38
+      33FF332F2BFF23201DE5171614301E1C19B51A1816FF252220FF191715FF0F0E
+      0DFF010101EE00000002FFFFFF00FFFFFF005A524CC39F9286FFCCC3BAFFC0B4
+      AAFFA6988BFF3E3934A8FFFFFF002C2925A8908479FFC2B8ADFFC0B4AAFFA89B
+      8EFF110F0EC3FFFFFF00FFFFFF00FFFFFF00534C46FC83786FFFCCC3BAFF7970
+      66FF71685FFF37332ED5FFFFFF00252220D5857A70FFC2B8ADFF786F65FF7B71
+      67FF0A0908FCFFFFFF00FFFFFF00FFFFFF004D4741FF83786FFFCCC3BAFF786F
+      65FF7B7167FF2F2B28F9272421011D1B18EE95897DFFC2B8ADFF786F65FF7C72
+      68FF060505FFFFFFFF00FFFFFF00FFFFFF0046413BFF857A70FFC3B8AEFF7C72
+      68FF7F756BFF36322DFF1E1C190F282522D495897DFFBAAEA2FF7C7268FF7F75
+      6BFF010101FFFFFFFF00FFFFFF00FFFFFF003E3934FF393430FF332F2BFF2C29
+      25FF272421FF201D1BFF1716141A110F0EDB0B0A09FF070706FF040403FF0000
+      00FF000000FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00
+    }
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    left = 616
+    top = 128
+    object Buscar: TAction
+      Caption = 'Buscar'
+      ImageIndex = 4
+      OnExecute = BuscarExecute
+    end
+    object Editar: TAction
+      Caption = 'Editar'
+      ImageIndex = 2
+      OnExecute = EditarExecute
+    end
+    object Nuevo: TAction
+      Caption = 'Nuevo'
+      ImageIndex = 0
+      OnExecute = NuevoExecute
+    end
+    object Grabar: TAction
+      Caption = 'Grabar'
+      ImageIndex = 3
+      OnExecute = GrabarExecute
+    end
+    object Cancelar: TAction
+      Caption = 'Cancelar'
+      ImageIndex = 1
+      OnExecute = CancelarExecute
+    end
+  end
+  object D_Elemento: TDataSource
+    AutoEdit = False
+    DataSet = Elemento
+    OnStateChange = D_ElementoStateChange
+    left = 272
+    top = 360
+  end
+  object D_Categoria: TDataSource
+    AutoEdit = False
+    DataSet = Categoria
+    left = 344
+    top = 360
+  end
+  object D_Marca: TDataSource
+    AutoEdit = False
+    DataSet = Marca
+    left = 416
+    top = 360
+  end
+  object D_Proveedor: TDataSource
+    AutoEdit = False
+    DataSet = Proveedor
+    left = 488
+    top = 360
+  end
+  object D_Movimiento: TDataSource
+    AutoEdit = False
+    DataSet = Movimiento
+    left = 560
+    top = 360
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caRollbackRetaining
+    Options = []
+    left = 720
+    top = 216
+  end
+  object Elemento: TSQLQuery
+    FieldDefs = <>
+    AfterInsert = ElementoAfterInsert
+    AfterOpen = ElementoAfterOpen
+    AfterPost = ElementoAfterPost
+    BeforePost = ElementoBeforePost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, id_Categoria, descripcion,'
+      'caracteristicas, modelo, serie, inventario,'
+      'id_proveedor, fecha_compra,'
+      'numero_factura, valor_compra, id_marca,'
+      'id_funcionario, id_estado'
+      'from ELEMENTO'
+      'Where Id = :Id'
+    )
+    InsertSQL.Strings = (
+      'insert into elemento'
+      '(id, id_Categoria, descripcion, caracteristicas, modelo, serie, inventario, id_proveedor, fecha_compra,'
+      'numero_factura, valor_compra, id_marca, id_funcionario, id_estado)'
+      'values'
+      '(:id, :id_Categoria, :descripcion, :caracteristicas, :modelo, :serie, :inventario, :id_proveedor, :fecha_compra,'
+      ':numero_factura, :valor_compra, :id_marca, :id_funcionario, :id_estado)'
+      ''
+    )
+    UpdateSQL.Strings = (
+      'update ELEMENTO'
+      'set'
+      'id = :id,'
+      'id_categoria = :id_categoria,'
+      'descripcion = :descripcion,'
+      'caracteristicas = :caracteristicas,'
+      'modelo = :modelo,'
+      'serie : serie,'
+      'inventario = :inventario,'
+      'id_proveedor = :id_proveedor,'
+      'fecha_compra = :fecha_compra,'
+      'numero_factura = :numero_factura,'
+      'valor_compra = :valor_compra,'
+      'id_marca = :id_marca,'
+      'id_funcionario = :id_funcionario,'
+      'id_estado = :id_Estado'
+      'where'
+      'id = :OLD_id'
+    )
+    RefreshSQL.Strings = (
+      'Select id, id_Categoria, descripcion,'
+      'caracteristicas, modelo, serie, inventario,'
+      'id_proveedor, fecha_compra,'
+      'numero_factura, valor_compra, id_marca,'
+      'id_funcionario, id_estado'
+      'from ELEMENTO'
+      'Where Id = :Id'
+      ''
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptInput
+      end>
+    Sequence.FieldName = 'id'
+    Sequence.SequenceName = 'gen_elemento'
+    left = 272
+    top = 296
+  end
+  object Categoria: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from categoria'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 344
+    top = 296
+  end
+  object Marca: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from marca'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 421
+    top = 295
+  end
+  object Proveedor: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from proveedor'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 488
+    top = 296
+  end
+  object Movimiento: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ID_ELEMENTO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'ID_FUNCIONARIO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ID_ESTADO'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'OBSERVACION'
+        DataType = ftString
+        Precision = -1
+        Size = 256
+      end>
+    AfterInsert = MovimientoAfterInsert
+    AfterPost = MovimientoAfterPost
+    BeforeInsert = MovimientoBeforeInsert
+    BeforePost = MovimientoBeforePost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, id_elemento, fecha, observacion'
+      'from movimiento'
+      'where id_elemento = :id'
+    )
+    InsertSQL.Strings = (
+      'insert into movimiento'
+      '(id, id_elemento, fecha, observacion)'
+      'values'
+      '(:id, :id_elemento, :fecha, :observacion)'
+      ''
+    )
+    UpdateSQL.Strings = (
+      'update movimiento'
+      'set id = :id,'
+      'id_elemento = :id_elemento,'
+      'fecha = :fecha,'
+      'observacion = :observacion'
+      'where id = :OLD_id'
+    )
+    DeleteSQL.Strings = (
+      'delete from movimiento'
+      'where id = :OLD_id'
+    )
+    RefreshSQL.Strings = (
+      'Select id, id_elemento, fecha, observacion'
+      'from movimiento'
+      'where id_elemento = :id'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    Sequence.FieldName = 'id'
+    Sequence.SequenceName = 'gen_movimiento'
+    left = 560
+    top = 295
+    object MovimientoID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoID_ELEMENTO: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID_ELEMENTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoFECHA: TDateField
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MovimientoOBSERVACION: TStringField
+      FieldKind = fkData
+      FieldName = 'OBSERVACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 256
+    end
+  end
+  object Funcionario: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, apellidos || '' '' || nombres funcionario'
+      'from funcionario'
+      'order by apellidos, nombres'
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 640
+    top = 295
+  end
+  object D_Funcionario: TDataSource
+    DataSet = Funcionario
+    left = 640
+    top = 360
+  end
+  object Estado: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, descripcion'
+      'from estado'
+      'order by descripcion'
+    )
+    Options = []
+    Params = <>
+    left = 720
+    top = 295
+  end
+  object D_Estado: TDataSource
+    DataSet = Estado
+    left = 720
+    top = 360
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    Options = []
+    Params = <>
+    left = 792
+    top = 296
+  end
+end

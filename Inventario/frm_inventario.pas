@@ -1,0 +1,503 @@
+unit frm_inventario;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, db, Forms, Controls, Dialogs, ExtCtrls,
+  ComCtrls, ActnList, Buttons, StdCtrls, DbCtrls, DBExtCtrls,
+  DBGrids, IBConnection, sqldb, lcltype, frm_observacion;
+
+type
+
+  { Tfrminventario }
+
+  Tfrminventario = class(TForm)
+    Cancelar: TAction;
+    DBLookupComboBox4: TDBLookupComboBox;
+    DBLookupComboBox5: TDBLookupComboBox;
+    D_Estado: TDataSource;
+    D_Funcionario: TDataSource;
+    D_Elemento: TDataSource;
+    D_Categoria: TDataSource;
+    D_Marca: TDataSource;
+    D_Proveedor: TDataSource;
+    D_Movimiento: TDataSource;
+    DBDateEdit1: TDBDateEdit;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBGrid1: TDBGrid;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBMemo1: TDBMemo;
+    Grabar: TAction;
+    Label1: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Nuevo: TAction;
+    Editar: TAction;
+    Buscar: TAction;
+    ActionList1: TActionList;
+    ImageList1: TImageList;
+    PageControl1: TPageControl;
+    Panel2: TPanel;
+    Elemento: TSQLQuery;
+    Categoria: TSQLQuery;
+    Marca: TSQLQuery;
+    Proveedor: TSQLQuery;
+    Movimiento: TSQLQuery;
+    Funcionario: TSQLQuery;
+    Estado: TSQLQuery;
+    MovimientoFECHA: TDateField;
+    MovimientoID: TLongintField;
+    MovimientoID_ELEMENTO: TLongintField;
+    MovimientoOBSERVACION: TStringField;
+    SQLQuery1: TSQLQuery;
+    SQLTransaction1: TSQLTransaction;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    procedure BuscarExecute(Sender: TObject);
+    procedure CancelarExecute(Sender: TObject);
+    procedure DBEdit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBEdit4Exit(Sender: TObject);
+    procedure DBEdit4KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure DBLookupComboBox2KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBLookupComboBox3KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBMemo1Exit(Sender: TObject);
+    procedure D_ElementoStateChange(Sender: TObject);
+    procedure EditarExecute(Sender: TObject);
+    procedure ElementoAfterInsert(DataSet: TDataSet);
+    procedure ElementoAfterOpen(DataSet: TDataSet);
+    procedure ElementoAfterPost(DataSet: TDataSet);
+    procedure ElementoBeforePost(DataSet: TDataSet);
+    procedure FormDestroy(Sender: TObject);
+    procedure GrabarExecute(Sender: TObject);
+    procedure MovimientoAfterInsert(DataSet: TDataSet);
+    procedure MovimientoAfterPost(DataSet: TDataSet);
+    procedure MovimientoBeforeInsert(DataSet: TDataSet);
+    procedure MovimientoBeforePost(DataSet: TDataSet);
+    procedure NuevoExecute(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
+  private
+    { private declarations }
+    procedure set_base;
+    procedure abrir_elemento(const valor : integer);
+  public
+    { public declarations }
+  end;
+
+var
+  frminventario: Tfrminventario;
+
+  procedure Inventario(const base : TIBConnection);
+
+implementation
+
+{$R *.lfm}
+
+{ Tfrminventario }
+
+procedure Inventario(const base : TIBConnection);
+begin
+ Application.CreateForm(TFrmInventario, FrmInventario);
+ FrmInventario.SQLTransaction1.DataBase := Base;
+ FrmInventario.set_base;
+ FrmInventario.ShowModal;
+end;
+
+procedure Tfrminventario.ElementoBeforePost(DataSet: TDataSet);
+var
+  mensaje : string;
+///
+   function validar_descripcion : string;
+   begin
+    if Elemento.FieldByName('Descripcion').IsNull then
+     Result := 'Descripción incompleta' + #13 + #10
+    else
+     Result := EmptyStr;
+    end;
+///
+   function validar_inventario : string;
+   begin
+   if Elemento.FieldByName('Inventario').IsNull then
+     Result := 'Número de inventario incompleto' + #13 + #10
+     else begin
+       SQLQuery1.Close;
+       SqlQuery1.Sql.Text := Format('Select count(*) from elemento where inventario = %s', [QuotedStr(Trim(Elemento.FieldByName('Inventario').AsString))]);
+
+       if Elemento.State in [dsEdit] then
+        SqlQuery1.Sql.Text := SqlQuery1.Sql.Text + 'And Id <> ' + Elemento.FieldByName('Id').AsString;
+
+      SqlQuery1.Open;
+      if SQLQuery1.Fields[0].AsInteger > 0 then
+       Result := 'Número de inventario YA registrado' + #13 + #10
+      else
+       Result := EmptyStr;
+     end;
+   end;
+///
+   function validar_categoria : string;
+   begin
+    if Elemento.FieldByName('id_categoria').IsNull then
+     Result := 'Categoria incompleta' + #13 + #10
+    else
+     Result := EmptyStr;
+   end;
+///
+   function validar_marca : string;
+   begin
+    if Elemento.FieldByName('id_marca').IsNull then
+     Result := 'Marca incompleta' + #13 + #10
+    else
+     Result := EmptyStr;
+   end;
+///
+   function validar_fcompra : string;
+   begin
+    if not (Elemento.FieldByName('Fecha_Compra').IsNull) then
+      if (Elemento.FieldByName('Fecha_Compra').Value < StrToDate('01/01/2008')) or (Elemento.FieldByName('Fecha_Compra').Value > Date)  then
+        Result := 'Fecha de compra incorrecta' + #13 + #10
+       else
+        Result := EmptyStr
+    else
+     Result := EmptyStr;
+   end;
+///
+function validar_vcompra : string;
+begin
+ if (Elemento.FieldByName('Valor_Compra').AsInteger < 0)   then
+   Result := 'Valor de compra incorrecto' + #13 + #10
+  else
+   Result := EmptyStr;
+end;
+///
+   function validar_funcionario : string;
+   begin
+    if (Elemento.FieldByName('id_funcionario').AsInteger < 0)   then
+     Result := 'Responsable incompleto' + #13 + #10
+    else
+     Result := EmptyStr;
+    end;
+///
+  function validar_estado : string;
+  begin
+   if (Elemento.FieldByName('id_estado').AsInteger < 0)   then
+    Result := 'Estado incompleto' + #13 + #10
+   else
+    Result := EmptyStr;
+   end;
+///
+
+begin
+ mensaje := EmptyStr;
+ mensaje := mensaje + validar_descripcion;
+ mensaje := mensaje + validar_inventario;
+ mensaje := mensaje + validar_categoria;
+ mensaje := mensaje + validar_marca;
+ mensaje := mensaje + validar_fcompra;
+ mensaje := mensaje + validar_vcompra;
+ mensaje := mensaje + validar_funcionario;
+ mensaje := mensaje + validar_estado;
+
+ if mensaje <> emptystr then begin
+   MessageDlg('Corrija lo siguiente antes de continuar :' + #13+#10 + mensaje, mtError, [mbOk], 0);
+   Abort;
+  end;
+
+end;
+
+procedure Tfrminventario.ElementoAfterInsert(DataSet: TDataSet);
+begin
+  Elemento.FieldByName('Valor_compra').Value := 0;
+end;
+
+procedure Tfrminventario.DBEdit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+end;
+
+procedure Tfrminventario.BuscarExecute(Sender: TObject);
+var
+  cadena : string;
+begin
+ if InputQuery('Búsqueda', 'Número interno de inventario', cadena) then begin
+
+  if trim(cadena) = emptystr then
+    exit;
+
+   SQLQuery1.Close;
+   SqlQuery1.Sql.Text := 'Select Id from elemento where inventario = ' + QuotedStr(cadena);
+   SqlQuery1.Open;
+
+  if SQLQuery1.IsEmpty then
+    MessageDlg('Número interno de inventario NO encontrado', mtWarning, [mbOk], 0)
+  else
+   abrir_elemento(SqlQuery1.Fields[0].AsInteger);
+ end;
+end;
+
+procedure Tfrminventario.CancelarExecute(Sender: TObject);
+begin
+ Elemento.cancel;
+end;
+
+procedure Tfrminventario.DBEdit4Exit(Sender: TObject);
+begin
+ PageControl1.ActivePageIndex := 0;
+ DBLookupComboBox1.SetFocus;
+end;
+
+procedure Tfrminventario.DBEdit4KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+end;
+
+procedure Tfrminventario.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var
+ texto : string;
+begin
+ if (key = VK_RETURN) And (DBGrid1.SelectedField.FieldName = 'OBSERVACION') then begin
+   with Tfrmobservacion.create(nil) do
+    try
+     texto := Movimiento.FieldByName('observacion').AsString;
+     Memo1.Text := texto;
+     ShowModal;
+     if texto <> Memo1.text then begin
+       if movimiento.state in [dsBrowse] then
+        Movimiento.Edit;
+       Movimiento.FieldByName('observacion').AsString := Memo1.Text;
+       Movimiento.Post;
+      end;
+    finally
+      free;
+    end;
+  end;
+end;
+
+procedure Tfrminventario.DBLookupComboBox2KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+ nombre : string;
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (key=VK_INSERT) and (Elemento.State in [dsInsert, dsEdit]) then begin
+   nombre := InputBox('Creación de marca', 'Nombre de la marca', '');
+
+   if trim(nombre) = EmptyStr then begin
+     MessageDlg('Descripción de marca incompleta', mtwarning, [mbOk], 0);
+     exit;
+    end;
+
+   SQLQuery1.close;
+   SQLQuery1.SQL.Text := Format('Select Count(*) From MARCA where descripcion = %s',
+                                [QuotedStr(UpperCase(Trim(nombre)))]);
+   SQLQuery1.Open;
+
+   if SQLQuery1.Fields[0].AsInteger > 0 then begin
+      MessageDlg('Marca ya registrada', mtwarning, [mbOk], 0);
+      exit
+    end;
+
+   SQLQuery1.Close;
+   SQLQuery1.SQL.Text := Format('Insert Into Marca(id, descripcion) values (gen_id(gen_marca, 1), %s)',
+                               [QuotedStr(UpperCase(Trim(nombre)))]);
+   SQLQuery1.ExecSQL;
+
+   SQLTransaction1.CommitRetaining;
+   Marca.Close;
+   Marca.Open;
+  end;
+end;
+
+procedure Tfrminventario.DBLookupComboBox3KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (key=VK_ESCAPE) and (Elemento.state in [dsInsert,dsedit]) then
+  Elemento.FieldByName('Id_proveedor').Clear;
+end;
+
+procedure Tfrminventario.DBMemo1Exit(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  DBLookupComboBox4.SetFocus;
+end;
+
+procedure Tfrminventario.D_ElementoStateChange(Sender: TObject);
+begin
+  if Elemento.State in [dsInsert, dsEdit] then begin
+    Buscar.Enabled := False;
+    ToolButton2.Action := Grabar;
+    ToolButton3.Action := Cancelar;
+   end
+  else begin
+    Buscar.Enabled := True;
+    ToolButton2.Action := Nuevo;
+    ToolButton3.Action := Editar;
+  end;
+end;
+
+procedure Tfrminventario.EditarExecute(Sender: TObject);
+begin
+  if Elemento.IsEmpty then
+   exit
+  else begin
+    Buscar.Enabled        := False;
+    ToolButton2.Action    := Grabar;
+    ToolButton3.Action    := Cancelar;
+
+    D_Elemento.AutoEdit   := True;
+    D_Movimiento.AutoEdit := True;
+  end;
+end;
+
+procedure Tfrminventario.ElementoAfterOpen(DataSet: TDataSet);
+begin
+  Movimiento.Close;
+  Movimiento.ParamByName('Id').AsInteger := Elemento.FieldByName('Id').AsInteger;
+  Movimiento.Open;
+end;
+
+procedure Tfrminventario.ElementoAfterPost(DataSet: TDataSet);
+begin
+  Elemento.ApplyUpdates(-1);
+  SQLTransaction1.CommitRetaining;
+end;
+
+procedure Tfrminventario.FormDestroy(Sender: TObject);
+begin
+   FrmInventario := nil;
+end;
+
+procedure Tfrminventario.GrabarExecute(Sender: TObject);
+begin
+  if Elemento.state in [dsInsert, dsEdit] then
+   Elemento.Post;
+
+ D_Elemento.AutoEdit:=False;
+ D_Movimiento.AutoEdit:=False;
+end;
+
+procedure Tfrminventario.MovimientoAfterInsert(DataSet: TDataSet);
+begin
+  Movimiento.FieldByName('Fecha').Value           := Date;
+  Movimiento.FieldByName('Id_Elemento').AsInteger := Elemento.FieldByName('Id').AsInteger;
+end;
+
+procedure Tfrminventario.MovimientoAfterPost(DataSet: TDataSet);
+begin
+ Movimiento.ApplyUpdates(-1);
+ SQLTransaction1.CommitRetaining;
+end;
+
+procedure Tfrminventario.MovimientoBeforeInsert(DataSet: TDataSet);
+begin
+  if (not Elemento.Active) then begin
+   MessageDlg('Seleccione primero un elemento', mtWarning, [mbOk], 0);
+   Abort;
+  end;
+end;
+
+procedure Tfrminventario.MovimientoBeforePost(DataSet: TDataSet);
+var
+  mensaje : string;
+///
+ function val_fecha : string;
+ begin
+  if Movimiento.FieldByName('Fecha').IsNull then
+   result := 'Fecha incompleta' + #13+#10
+  else
+   if (Movimiento.FieldByName('Fecha').value < strtodate('01/01/2016')) or (Movimiento.FieldByName('Fecha').value > date) then
+    result := 'Fecha incorrecta' + #13+#10
+   else
+    result := EmptyStr;
+ end;
+///
+begin
+ mensaje := emptystr;
+ mensaje := val_fecha;
+
+ if mensaje <> emptystr then begin
+  MessageDlg('Corrija lo siguiente antes de continuar : ' + #13+#10 + mensaje, mtError, [mbOk], 0);
+  Abort;
+ end;
+end;
+
+procedure Tfrminventario.NuevoExecute(Sender: TObject);
+begin
+  abrir_elemento(-1);
+  elemento.insert;
+  DBEdit1.SetFocus;
+end;
+
+procedure Tfrminventario.PageControl1Change(Sender: TObject);
+begin
+
+end;
+
+procedure Tfrminventario.set_base;
+begin
+ Elemento.DataBase    := SQLTransaction1.DataBase;
+ Categoria.DataBase   := SQLTransaction1.DataBase;
+ Marca.DataBase       := SQLTransaction1.DataBase;
+ Proveedor.DataBase   := SQLTransaction1.DataBase;
+ Movimiento.DataBase  := SQLTransaction1.DataBase;
+ Funcionario.DataBase := SQLTransaction1.DataBase;
+ Estado.DataBase      := SQLTransaction1.DataBase;
+ SQLQuery1.DataBase   := SQLTransaction1.DataBase;
+
+ Categoria.Open;
+ Marca.Open;
+ Proveedor.Open;
+ Movimiento.Open;
+ Funcionario.Open;
+ Estado.Open;
+end;
+
+procedure Tfrminventario.abrir_elemento(const valor: integer);
+begin
+  Elemento.Close;
+  Elemento.ParamByName('Id').AsInteger := valor;
+  Elemento.Open;
+end;
+
+end.
+

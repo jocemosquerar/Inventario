@@ -1,0 +1,21 @@
+program Inventario;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms, runtimetypeinfocontrols, frm_menu, frm_accesoria, frm_inventario,
+  frm_observacion, frm_funcionario, frm_reportes, lazreportpdfexport;
+
+{$R *.res}
+
+begin
+  RequireDerivedFormResource:=True;
+  Application.Initialize;
+  Application.CreateForm(Tfrmmenu, frmmenu);
+  Application.Run;
+end.
+

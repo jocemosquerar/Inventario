@@ -1,0 +1,8 @@
+object frmacceso: Tfrmacceso
+  Left = -1262
+  Height = 240
+  Top = 702
+  Width = 320
+  Caption = 'frmacceso'
+  LCLVersion = '1.6.0.4'
+end

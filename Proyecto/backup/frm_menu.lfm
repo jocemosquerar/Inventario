@@ -1,0 +1,151 @@
+object frmmenu: Tfrmmenu
+  Left = -1100
+  Height = 238
+  Top = 212
+  Width = 411
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Control de Inventario'
+  Menu = MainMenu2
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.6.4.0'
+  object IBConnection1: TIBConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Params.Strings = (
+      'lc_ctype=UTF-8'
+    )
+    Transaction = frmreportes.SQLTransaction1
+    Options = []
+    CheckTransactionParams = False
+    left = 72
+    top = 48
+  end
+  object MainMenu1: TMainMenu
+    left = 232
+    top = 48
+    object MenuItem1: TMenuItem
+      Caption = 'Administrar'
+      object MenuItem12: TMenuItem
+        Caption = 'Accesorias'
+        object MenuItem10: TMenuItem
+          Action = admMarca
+          Caption = 'Marca'
+        end
+        object MenuItem5: TMenuItem
+          Action = admProveedor
+        end
+        object MenuItem4: TMenuItem
+          Action = admEstado
+        end
+        object MenuItem3: TMenuItem
+          Action = admDependencia
+        end
+        object MenuItem2: TMenuItem
+          Action = admCategoria
+        end
+        object MenuItem18: TMenuItem
+          Action = admAseguradora
+        end
+      end
+      object MenuItem11: TMenuItem
+        Action = admFuncionario
+        Caption = 'Funcionario'
+      end
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem7: TMenuItem
+        Action = admInventario
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Sistema'
+      object MenuItem15: TMenuItem
+        Action = sisReportes
+      end
+      object MenuItem17: TMenuItem
+        Action = sisAcerca
+      end
+      object MenuItem16: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem9: TMenuItem
+        Action = sisSalir
+      end
+    end
+  end
+  object ActionList1: TActionList
+    left = 168
+    top = 48
+    object admCategoria: TAction
+      Category = 'Administrar'
+      Caption = 'Categoria'
+      OnExecute = admCategoriaExecute
+    end
+    object admDependencia: TAction
+      Category = 'Administrar'
+      Caption = 'Dependencia'
+      OnExecute = admDependenciaExecute
+    end
+    object admEstado: TAction
+      Category = 'Administrar'
+      Caption = 'Estado'
+      OnExecute = admEstadoExecute
+    end
+    object admProveedor: TAction
+      Category = 'Administrar'
+      Caption = 'Proveedor'
+      OnExecute = admProveedorExecute
+    end
+    object sisSalir: TAction
+      Category = 'Sistema'
+      Caption = 'Salir'
+      OnExecute = sisSalirExecute
+    end
+    object admInventario: TAction
+      Category = 'Administrar'
+      Caption = 'Inventario'
+      OnExecute = admInventarioExecute
+    end
+    object admMarca: TAction
+      Category = 'Administrar'
+      Caption = 'admMarca'
+      OnExecute = admMarcaExecute
+    end
+    object admFuncionario: TAction
+      Category = 'Administrar'
+      Caption = 'admFuncionario'
+      OnExecute = admFuncionarioExecute
+    end
+    object sisReportes: TAction
+      Category = 'Sistema'
+      Caption = 'Reportes'
+      OnExecute = sisReportesExecute
+    end
+    object sisAcerca: TAction
+      Category = 'Sistema'
+      Caption = 'Acerca de'
+      OnExecute = sisAcercaExecute
+    end
+    object admAseguradora: TAction
+      Category = 'Administrar'
+      Caption = 'Aseguradora'
+      OnExecute = admAseguradoraExecute
+    end
+  end
+  object MainMenu2: TMainMenu
+    left = 171
+    top = 117
+    object MenuItem13: TMenuItem
+      Caption = 'Acceso'
+      object MenuItem14: TMenuItem
+        Caption = 'Conectar'
+        OnClick = MenuItem14Click
+      end
+    end
+  end
+end

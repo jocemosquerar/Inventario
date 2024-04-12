@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="17">
+      <Unit0>
+        <Filename Value="Inventario.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="35" Y="11"/>
+        <UsageCount Value="74"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="frm_menu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmmenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="135"/>
+        <CursorPos X="45" Y="164"/>
+        <UsageCount Value="74"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\Accesoria\frm_accesoria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmaccesoria"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="92" Y="13"/>
+        <UsageCount Value="74"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frminventario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="340"/>
+        <CursorPos X="36" Y="345"/>
+        <UsageCount Value="65"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Inventario\frm_observacion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmobservacion"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12" Y="10"/>
+        <UsageCount Value="43"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Funcionario\frm_funcionario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmfuncionario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="67" Y="49"/>
+        <UsageCount Value="41"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\Reportes\frm_reportes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmreportes"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="95"/>
+        <CursorPos X="80" Y="100"/>
+        <UsageCount Value="29"/>
+        <Bookmarks Count="1">
+          <Item0 X="12" Y="149" ID="1"/>
+        </Bookmarks>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\Acceso\frm_acceso.pas"/>
+        <ComponentName Value="frmacceso"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="19"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\Distribuidores\Formas\Empresa\frm_empresa.pas"/>
+        <ComponentName Value="frmempresa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="60"/>
+        <CursorPos Y="80"/>
+        <UsageCount Value="7"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\MedAssist\Empresa\frm_empresa.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\..\MedAssist\Empresa\frm_empresa.pas"/>
+        <ComponentName Value="frmempresa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="63"/>
+        <CursorPos X="3" Y="65"/>
+        <UsageCount Value="8"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="C:\lazarus\lcl\include\application.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1420"/>
+        <CursorPos Y="1432"/>
+        <UsageCount Value="8"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2022"/>
+        <CursorPos Y="2034"/>
+        <UsageCount Value="9"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\..\MedAssist\Historia\frm_historia.pas"/>
+        <ComponentName Value="frmhistoria"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
+        <CursorPos X="13" Y="120"/>
+        <UsageCount Value="9"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\..\MedAssist\Menu\frm_menu.pas"/>
+        <ComponentName Value="frmmenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="9" Y="62"/>
+        <UsageCount Value="9"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\..\MedAssist\Login\frm_login.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos Y="68"/>
+        <UsageCount Value="9"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="349"/>
+        <CursorPos Y="366"/>
+        <UsageCount Value="10"/>
+      </Unit16>
+    </Units>
+    <JumpHistory Count="13" HistoryIndex="12">
+      <Position1>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="97" Column="90" TopLine="85"/>
+      </Position1>
+      <Position2>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="98" Column="90" TopLine="86"/>
+      </Position2>
+      <Position3>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="99" Column="90" TopLine="87"/>
+      </Position3>
+      <Position4>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="101" Column="90" TopLine="89"/>
+      </Position4>
+      <Position5>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="114" Column="27" TopLine="112"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="9" Column="77"/>
+      </Position6>
+      <Position7>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="69" Column="22" TopLine="64"/>
+      </Position7>
+      <Position8>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="431" Column="16" TopLine="427"/>
+      </Position8>
+      <Position9>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="222" TopLine="189"/>
+      </Position9>
+      <Position10>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="246" TopLine="241"/>
+      </Position10>
+      <Position11>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="343" TopLine="309"/>
+      </Position11>
+      <Position12>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="317" Column="19" TopLine="299"/>
+      </Position12>
+      <Position13>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <Caret Line="318" TopLine="311"/>
+      </Position13>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="elemento.state"/>
+      </Item1>
+    </Watches>
+  </Debugging>
+</CONFIG>

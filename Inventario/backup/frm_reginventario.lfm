@@ -1,0 +1,838 @@
+object frmreginventario: Tfrmreginventario
+  Left = -1429
+  Height = 416
+  Top = 273
+  Width = 937
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Registro de inventario'
+  ClientHeight = 416
+  ClientWidth = 937
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.6.4.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 937
+    Align = alTop
+    ClientHeight = 40
+    ClientWidth = 937
+    TabOrder = 0
+    object SpeedButton1: TSpeedButton
+      Left = 8
+      Height = 22
+      Top = 8
+      Width = 90
+      Action = Nuevo
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 98
+      Height = 22
+      Top = 8
+      Width = 90
+      Action = Editar
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 188
+      Height = 22
+      Top = 8
+      Width = 90
+      Action = Buscar
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 376
+    Top = 40
+    Width = 937
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Elemento'
+      ClientHeight = 346
+      ClientWidth = 929
+      object Label1: TLabel
+        Left = 30
+        Height = 16
+        Top = 15
+        Width = 77
+        Caption = '# Inventario'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit1: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 11
+        Width = 130
+        DataField = 'inventario'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 0
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label2: TLabel
+        Left = 30
+        Height = 16
+        Top = 46
+        Width = 77
+        Caption = 'Descripción'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit2: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 42
+        Width = 344
+        DataField = 'descripcion'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 2
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label3: TLabel
+        Left = 486
+        Height = 16
+        Top = 46
+        Width = 66
+        Caption = 'Categoría'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold, fsItalic]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Top = 42
+        Width = 344
+        DataField = 'id_categoria'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Categoria
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 3
+      end
+      object Label4: TLabel
+        Left = 508
+        Height = 16
+        Top = 75
+        Width = 43
+        Caption = 'Marca'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 73
+        Width = 344
+        DataField = 'id_marca'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Marca
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox2KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 5
+      end
+      object Label5: TLabel
+        Left = 58
+        Height = 16
+        Top = 75
+        Width = 49
+        Caption = 'Modelo'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit3: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 72
+        Width = 344
+        DataField = 'modelo'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 4
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label6: TLabel
+        Left = 519
+        Height = 16
+        Top = 108
+        Width = 32
+        Caption = 'Serie'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit4: TDBEdit
+        Left = 560
+        Height = 25
+        Top = 104
+        Width = 344
+        DataField = 'serie'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 7
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label7: TLabel
+        Left = 64
+        Height = 16
+        Top = 108
+        Width = 43
+        Caption = 'Estado'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Top = 104
+        Width = 344
+        DataField = 'id_estado'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Estado
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 6
+      end
+      object Label8: TLabel
+        Left = 466
+        Height = 16
+        Top = 136
+        Width = 86
+        Caption = 'Aseguradora'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox4: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 135
+        Width = 344
+        DataField = 'id_aseguradora'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Poliza
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox7KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 9
+      end
+      object Label9: TLabel
+        Left = 489
+        Height = 16
+        Top = 171
+        Width = 63
+        Caption = 'F.Compra'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        OnClick = Label9Click
+      end
+      object DBDateEdit1: TDBDateEdit
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'
+        Top = 168
+        Width = 130
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doDMY
+        DateFormat = 'dd/mm/yyyy'
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 10
+        OnKeyDown = DBDateEdit1KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 11
+        Text = '  /  /    '
+        DataField = 'fecha_compra'
+        DataSource = D_Elemento
+      end
+      object Label10: TLabel
+        Left = 37
+        Height = 16
+        Top = 203
+        Width = 66
+        Caption = 'Nº factura'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit5: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 200
+        Width = 130
+        DataField = 'numero_factura'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 12
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label11: TLabel
+        Left = 24
+        Height = 16
+        Top = 138
+        Width = 83
+        Caption = 'Responsable'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox5: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Top = 135
+        Width = 344
+        DataField = 'id_funcionario'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'funcionario'
+        ListFieldIndex = 0
+        ListSource = D_funcionario
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 8
+      end
+      object Label12: TLabel
+        Left = 9
+        Height = 16
+        Top = 232
+        Width = 98
+        Caption = 'Características'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBMemo1: TDBMemo
+        Left = 112
+        Height = 107
+        Top = 232
+        Width = 792
+        DataField = 'caracteristicas'
+        DataSource = D_Elemento
+        ScrollBars = ssAutoBoth
+        TabOrder = 14
+      end
+      object Label13: TLabel
+        Left = 464
+        Height = 16
+        Top = 12
+        Width = 88
+        Caption = 'Dependencia'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox6: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Top = 11
+        Width = 344
+        DataField = 'id_dependencia'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Dependencia
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object Label14: TLabel
+        Left = 518
+        Height = 16
+        Top = 203
+        Width = 35
+        Caption = 'Valor'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit6: TDBEdit
+        Left = 560
+        Height = 25
+        Top = 200
+        Width = 130
+        DataField = 'valor_compra'
+        DataSource = D_Elemento
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 13
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label15: TLabel
+        Left = 41
+        Height = 16
+        Top = 171
+        Width = 65
+        Caption = 'Proveedor'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox7: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 168
+        Width = 344
+        DataField = 'id_proveedor'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Proveedor
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox4KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 10
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Novedades'
+      ClientHeight = 337
+      ClientWidth = 929
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 337
+        Top = 0
+        Width = 929
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Fecha'
+            Width = 100
+            FieldName = 'fecha'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Funcionario'
+            Width = 250
+            FieldName = 'funcionario'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Estado'
+            Width = 150
+            FieldName = 'estado'
+          end        
+          item
+            ButtonStyle = cbsEllipsis
+            Title.Alignment = taCenter
+            Title.Caption = 'Observación'
+            Width = 380
+            FieldName = 'observacion'
+          end>
+        DataSource = D_Movimiento
+        FixedColor = clCream
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowEditor, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellEllipsis]
+        TabOrder = 0
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Height = -13
+        TitleFont.Name = 'Century Gothic'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+        OnEditButtonClick = DBGrid1EditButtonClick
+        OnKeyDown = DBGrid1KeyDown
+      end
+    end
+  end
+  object ImageList1: TImageList
+    left = 632
+    top = 8
+    Bitmap = {
+      4C69060000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006360
+      F80AFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF007774FF1F7774
+      FF2BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00625FF82B5D5B
+      F76F5956F53EFFFFFF00FFFFFF00FFFFFF00FFFFFF007774FF1F7A77FFFF7976
+      FEFF726FFD2BFFFFFF00FFFFFF00FFFFFF00FFFFFF00615EF82B6461F8FF6A68
+      F9FF5451F3A84F4DF229FFFFFF00FFFFFF007774FF1F7A77FFFF817EFFFF817E
+      FEFF7471FDFF6C69FB2BFFFFFF00FFFFFF00605DF72B625FF8FF6F6DFBFF7E7C
+      FFFF625FF8FF4A47F06F4542EE02FFFFFF007673FF087471FEFD7D7AFEFF8A87
+      FFFF7C79FDFF6C69FBFF6361F92B5F5CF72B615EF8FF6E6CFAFF7D7AFFFF615F
+      F7FF4946F0FC4441EE05FFFFFF00FFFFFF00FFFFFF00716EFD086E6BFCFC7774
+      FDFF8682FFFF7673FCFF6462F8FF605DF7FF6D6AFAFF7B79FFFF605DF7FF4845
+      EFFC4341EE08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006967FB086663
+      F9FC706DFBFF807EFFFF7E7BFFFF7C79FFFF7977FFFF5E5CF7FF4744EFFC4240
+      EE08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00615E
+      F8085D5AF6FD7D79FFFF5E5BFFFF5B58FFFF7674FFFF4643EFFD413FED08FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005C59
+      F62B5D5BF7FF7976FFFF5956FFFF5754FFFF7270FFFF4846F0FF3C39EB2BFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005B58F62B5C5A
+      F6FF6764FAFF7472FFFF7370FFFF706EFFFF6E6CFFFF5755F7FF3F3DEEFF3230
+      E82BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005A57F52B5B59F6FF6663
+      FAFF7471FFFF5A58F6FF4341EEFC3E3CECFD504DF4FF6867FFFF504EF5FF3634
+      EBFF2A27E52BFFFFFF00FFFFFF00FFFFFF005956F52B5B58F6FF6562FAFF7170
+      FFFF5956F6FF4240EEFC3E3BEC083937EB083532E9FC4745F2FF6362FFFF4A48
+      F4FF2F2DE9FF2220E32BFFFFFF00FFFFFF005451F3415856F5FF6361FAFF5855
+      F6FF413FEDFC3D3AEC08FFFFFF00FFFFFF00302DE7082C2AE6FC413FF1FF4C4A
+      F6FF312FEAFF1F1DE241FFFFFF00FFFFFF00FFFFFF004A47F0414F4CF2FF403E
+      EDFD3C39EB08FFFFFF00FFFFFF00FFFFFF00FFFFFF002725E5082422E4FC312F
+      EAFF1F1DE241FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF003F3DED413B38
+      EB08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00211FE3081E1C
+      E241FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E8CEB9C3D7AA
+      7CCDC88C50FEC88C4FFFCA9155F7CB9055F7C5894DFEDDAF8DC1FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C5884DFAF7F2
+      ECFFF8F4EEFFF8F3EDFFF8F3EDFFF8F2ECFFF2E6D7FFE2B27DFFDB9569F6FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C88D52F6F9F5
+      F1FFFCE3CDFFFBE3CDFFF9E0C8FFF8DCC2FFFDFBF8FFFCE6CDFFE2B684FFD5A8
+      84C5FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C88D51F7F9F5
+      F1FFFCE3CFFFFCE4CFFFFAE1CAFFF9DDC4FFF4E9DFFFF7F2ECFFF5EFE9FFC380
+      48FBFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C68C4FF9F9F4
+      F0FFFCE6D3FFFDE7D3FFFBE3CDFFFAE0C8FFF5D6BBFFF3D4B5FFF8F4F0FFC485
+      4AF9FFFFFF00FFFFFF00FFFFFF00FFFFFF00CECECEC2878787F4C5894CFFF9F4
+      EFFFFEE7D7FFFDE7D5FFFCE6D2FFFBE1CCFFF8DCC2FFF6DABDFFFAF4EFFFC483
+      48FF616161F4BCBCBCC2FFFFFF00DDDDDDCD9A9A9AFFCCCCCCFFC78B4EFFF9F4
+      EDFFFEE8D8FFFEE8D7FFFDE5D3FFFCE4D1FFFAE0C7FFF9DDC3FFFAF4EDFFC785
+      4AFFC3C3C3FF747474FFCDCDCDCD979797DAD2D2D2FFE8E8E8FF7D7D7DFF7D7D
+      7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D
+      7DFFE8E8E8FFC4C4C4FF6D6D6DE1848484F9FCFCFCFFFCFCFCFFCBCBCBFFF2F2
+      F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFC6C6
+      C6FFFCFCFCFFFCFCFCFF717171FE7E7E7EFFF9F9F9FFF9F9F9FFABABABFFDFDF
+      DFFFCBCBCBFFCBCBCBFFCBCBCBFFCBCBCBFFCBCBCBFFCBCBCBFFDFDFDFFFA3A3
+      A3FFF9F9F9FFF9F9F9FF616161FF7A7A7AFFD7D7D7FFD7D7D7FF979797FFD8D8
+      D8FFBFBFBFFFBFBFBFFFBFBFBFFFBFBFBFFFBFBFBFFFBFBFBFFFD7D7D7FF8E8E
+      8EFFD7D7D7FFD7D7D7FF3F3F3FFF757575FFBBBBBBFFBBBBBBFF8D8D8DFFD4D4
+      D4FFB9B9B9FFB9B9B9FFB9B9B9FFB9B9B9FFB9B9B9FFB9B9B9FFD3D3D3FF8383
+      83FFBBBBBBFFBBBBBBFF2A2A2AFF707070FFB5B5B5FFB5B5B5FF959595FF8181
+      81FF818181FF797979FF6E6E6EFF616161FF525252FF434343FF424242FF6E6E
+      6EFFB5B5B5FFB5B5B5FF252525FF6B6B6BFDA7A7A7FFB5B5B5FF818181FFAFAC
+      AAFFC5C0BDFFC5C0BDFFC5C0BDFFC5C0BDFFC5C0BDFFC5C0BDFFADAAA8FF2C2C
+      2CFFB5B5B5FF9B9B9BFF232323FFA1A1A1C27A7A7ADA585858FFC79561FFF9F7
+      F6FFF9F1ECFFF9F1EBFFF8F0E9FFF7EDE6FFF4EAE1FFF2E8DEFFFAF8F6FFC794
+      61FF242424FF4B4B4BD9969696BFFFFFFF00FFFFFF00FFFFFF00C89662FDCA98
+      65FFCA9765FFCA9765FFCA9765FFCA9764FFC99764FFC99764FFCA9865FFC895
+      62FDFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D4976EC9D49E7BC9D09871C9D6A4
+      82C9CD8E68C9CD9069C9D09A75C9D19973C9C88B62C9AD5A202BFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CC8D65C9F3CDB0C9FFFFFFC9E3C7
+      B3C9FFFFFFC9FFFFFFC9FFFFFFC9FFFFFFC9EABFA1C9C98960C9FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C7865BC9EFC09EC9D9A27DF8D39D
+      7AF8D5A380F8DAAE8FF8D29A77F8D29B77F8D29C77F8D09771F8C88B62DEAD5A
+      202FFFFFFF00FFFFFF00FFFFFF00FFFFFF00C8885DC9EFBFA1C9D19975F8F4D2
+      B8F8FFFFFFF8E6CDBBF8FFFFFEF8FFFFFFF8FBF6F2F8F8F1EDF8EABFA1DEC989
+      60DEFFFFFF00FFFFFF00FFFFFF00FFFFFF00CA8D65C9EAB899C9C9895FF8EDBD
+      9BF8D4976EFFD49E7BFFD09871FFD6A482FFCD8E68FFCD9069FFD09A75FFD199
+      73FFC88B62FFAD5A2036FFFFFF00FFFFFF00C98B61C9E6B592C9CB8B61F8EEBC
+      9EF8CC8D65FFF3CDB0FFFFFFFFFFE3C7B3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFEABFA1FFC98960FFFFFFFF00FFFFFF00C48154C9EAB697C9CE9873F8EABE
+      A1F8C7865BFFEFC09EFFFFFFFFFFCC936EFFFFFFFFFFFFFFFFFFFFFBF7FFFFF8
+      F1FFE4AF8CFFC78A61FFFFFFFF00FFFFFF00C37F51C9EFB69AC9CC966FF8D6B6
+      91F8C8885DFFEFBFA1FFFDFCFAFFFEFCFBFFFEFDFDFFFEFDFCFFFDFBFAFFFDFC
+      FBFFDDA885FFC17F53FFFFFFFF00FFFFFF00C68355C9EFCEBAC9C78E66F8E0BC
+      9CF8CA8D65FFEAB899FFDDA57EFFDDA680FFDBA37CFFD9A07AFFD9A079FFD89F
+      78FFD89E78FFBF845DFFFFFFFF00FFFFFF00BA68339BC38458C9C58053F8EEB2
+      96F8C98B61FFE6B592FFE2A781FFE1A781FFDEA37DFFDCA17BFFDB9F79FFD99E
+      77FFD49A73FFBB7E57FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00C68355DEEFCE
+      BADEC48154FFEAB697FFF3F3EAFFEDF1E6FFEFF1E6FFEFF0E6FFEDF1E5FFF3F5
+      EDFFD59C79FFB07044FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00BA6833ACC384
+      58DEC37F51FFEFB69AFFEAF3E8FF51BF84FF6FC998FF71C999FF54BF84FFE4F4
+      E9FFDD9C7BFFAA693AFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00C68355FFEFCEBAFFDDFFFFFF87EEC7FFA2F4D7FFA2F6D7FF8CEEC7FFE0FF
+      FFFFDDA285FFAB6A3EFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00BA6833C5C38458FFD38B68FFE18F70FFDC8D6CFFDA8B6DFFD78A6EFFCD8B
+      6CFFAB6D44FFA65F2EFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF009C8F
+      83E2BCB0A4FF9D9185FFFFFFFF00AEA093FF9D9185FF655D55DAFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF008E83
+      78E2C3B8AEFF655D55FFFFFFFF007C7268FFA89B8EFF9C8F83E4FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00746B62FFA4978AFF9589
+      7DFF9F9286FF3E3934FFFFFFFF004C4640FF7E746AFF857A70FF3E3934FF453F
+      3AA72522200C15131102FFFFFF00B9ACA008877D72489B8E82FF9D9185FF867B
+      71FF564F48FF504A44FF80766CFF6E665DFF826C58FFA6917DFF948474FF564F
+      48FF0C0B0B7A07070601FFFFFF00AB9D9004AFA194E1BAAEA2FF82776DFF8277
+      6DFFAA917BFFBAA794FFB7A48EFAB09781FF9F8D7DFF836D5BFF716357FF9589
+      7DFF040403E000000003FFFFFF009F9286059D9185FFB1A396FF7F756BFF7C72
+      68FF776D64FF6C635BFF2E2A26FF564F48FF80766CFF7C7268FF776D64FF7067
+      5EFF000000FE00000005FFFFFF00797066055C554EF9423D38FF58514AFF3D38
+      33FF332F2BFF23201DE5171614301E1C19B51A1816FF252220FF191715FF0F0E
+      0DFF010101EE00000002FFFFFF00FFFFFF005A524CC39F9286FFCCC3BAFFC0B4
+      AAFFA6988BFF3E3934A8FFFFFF002C2925A8908479FFC2B8ADFFC0B4AAFFA89B
+      8EFF110F0EC3FFFFFF00FFFFFF00FFFFFF00534C46FC83786FFFCCC3BAFF7970
+      66FF71685FFF37332ED5FFFFFF00252220D5857A70FFC2B8ADFF786F65FF7B71
+      67FF0A0908FCFFFFFF00FFFFFF00FFFFFF004D4741FF83786FFFCCC3BAFF786F
+      65FF7B7167FF2F2B28F9272421011D1B18EE95897DFFC2B8ADFF786F65FF7C72
+      68FF060505FFFFFFFF00FFFFFF00FFFFFF0046413BFF857A70FFC3B8AEFF7C72
+      68FF7F756BFF36322DFF1E1C190F282522D495897DFFBAAEA2FF7C7268FF7F75
+      6BFF010101FFFFFFFF00FFFFFF00FFFFFF003E3934FF393430FF332F2BFF2C29
+      25FF272421FF201D1BFF1716141A110F0EDB0B0A09FF070706FF040403FF0000
+      00FF000000FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00C7EAD8FFC7EAD8FFFFFFFF00C5C6C6FFC5C6
+      C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5C6
+      C6FFC5C6C6FFC5C6C6FFC5C6C6FFC5E9D6FFC0E6D2FFFFFFFF00BCBEBDFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFBCBEBDFFFFFFFF00FFFFFF00FFFFFF00B4B6B5FFF7F8
+      F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8
+      F8FFF7F8F8FFFEFEFEFFB4B6B5FFA7D7BEFFA2D4BAFFFFFFFF00ACAEADFFF7F8
+      F8FFF7F8F8FF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000
+      FFFFF4F5F5FFFEFEFEFFACAEADFF93CBAEFF8FC9ABFFFFFFFF00A4A6A5FFF7F8
+      F8FFF7F8F8FFF4F5F5FFF4F5F5FFF4F5F5FFF4F5F5FFF4F5F5FFF4F5F5FFF4F5
+      F5FFF7F8F8FFFEFEFEFFA4A6A5FFFFFFFF00FFFFFF00FFFFFF0004733AFFF7F8
+      F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8F8FFF7F8
+      F8FFF7F8F8FFFEFEFEFF9C9E9DFF7BBC9AFF76B996FFFFFFFF006CB38EFF0473
+      3AFFF7F8F8FFF7F8F8FFF7F8F8FF5151FFFF5151FFFF5151FFFF5151FFFF5151
+      FFFFF2F3F3FFFEFEFEFF949695FF6CB38EFF67B08AFFFFFFFF005DAA82FF58A6
+      7EFF04733AFFF7F8F8FFF7F8F8FFF4F5F5FFF4F5F5FFF4F5F5FFF3F4F4FFF2F3
+      F3FFF4F5F5FFFEFEFEFF8C8E8DFF5DAA82FF58A77EFF53A37AFF4FA076FF4A9D
+      72FF459A6EFF04733AFFF7F8F8FFF7F8F8FFF6F7F7FFF5F6F6FFF4F5F5FFF3F4
+      F4FFF3F3F3FFFEFEFEFF848786FF4FA176FF4A9D72FF459A6EFF40976AFF3B94
+      66FF369162FF318E5EFF04733AFF7171FFFF7171FFFF7171FFFF7171FFFF7171
+      FFFFF1F2F2FFFEFEFEFF7C7F7EFF40976AFF3B9466FF369162FF318E5EFF2C8B
+      5AFF278856FF04733AFFF2F3F3FFF1F2F2FFF0F1F1FFEFF0F0FFEEEFEFFFEDEE
+      EEFFF0F0F0FFFEFEFEFF747776FFFFFFFF00FFFFFF00FFFFFF00228552FF1D82
+      4EFF04733AFFF4F5F5FFF3F4F4FFF2F3F3FFF2F2F2FFF1F1F1FFF0F0F0FFEFF0
+      F0FFEEEFEFFFFEFEFEFF6C6F6EFFFFFFFF00FFFFFF00FFFFFF00137C46FF0473
+      3AFFF4F4F4FFF3F3F3FFF2F3F3FFF1F2F2FF8A8AFFFF8A8AFFFF8A8AFFFF8A8A
+      FFFFEAEAEAFFFEFEFEFF646766FFFFFFFF00FFFFFF00FFFFFF0004733AFFF3F4
+      F4FFF2F3F3FFF1F2F2FFF0F1F1FFF0F0F0FFECECECFFEBEBEBFFEAEAEAFFE9E9
+      E9FFEBECECFFFEFEFEFF5C5F5EFFFFFFFF00FFFFFF00FFFFFF00545756FFFEFE
+      FEFFFEFEFEFFFEFEFEFFFEFEFEFFFEFEFEFFFEFEFEFFFEFEFEFFFEFEFEFFFEFE
+      FEFFFEFEFEFFFFFFFFFF545756FFFFFFFF00FFFFFF00FFFFFF004E4F4FFF4E4F
+      4FFF4E4F4FFF4E4F4FFF4E4F4FFF4E4F4FFF4E4F4FFF4E4F4FFF4E4F4FFF4E4F
+      4FFF4E4F4FFF4E4F4FFF4E4F4FFFFFFFFF00FFFFFF00ACAEADFF8C8E8DFF8C8E
+      8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFFACAE
+      ADFF00000002FFFFFF00FFFFFF00FFFFFF00FFFFFF008C8E8DFFFAFAFAF0FCFC
+      FCFDFDFDFDFFFDFDFDFFFCFCFCFFFDFDFDFFFCFCFCFFFDFDFDFFFAFAFAFF8C8E
+      8DFFACAEADFF00000002FFFFFF00FFFFFF00FFFFFF008C8E8DFFFCFCFCFDF6F6
+      F6FFF7F7F7FFF8F8F8FFF7F7F7FFF5F5F5FFF3F3F3FFEEEEEEFFFCFCFCFFECEC
+      ECFF8C8E8DFFACAEADFF00000002FFFFFF00000000018C8E8DFFFDFDFDFFF9F9
+      F9FFFAFAFAFFF9F9F9FFF9F9F9FFF6F6F6FFF4F4F4FFEFEFEFFFFDFDFDFFF8F8
+      F8FFF7F7F7FF8C8E8DFFACAEADFFFFFFFF00000000018C8E8DFFFCFCFCFFACAE
+      ADFFACAEADFFACAEADFFACAEADFFACAEADFFACAEADFFACAEADFFACAEADFFACAE
+      ADFFFCFCFCFFFDFDFDFF8C8E8DFFFFFFFF00000000018C8E8DFFFCFCFCFFFCFC
+      FCFFFCFCFCFF858A88FF858A88FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4
+      F4FFF4F4F4FFFCFCFCFF8C8E8DFFFFFFFF00000000018C8E8DFFFDFDFDFFBCBC
+      BCFF858A88FFE2E3E5FFE2E3E5FF858A88FFBCBCBCFFBCBCBCFFBCBCBCFFBCBC
+      BCFFF1F1F1FFFDFDFDFF8C8E8DFFFFFFFF00000000018C8E8DFFFCFCFCFFFCFC
+      FCFF858A88FFE2E3E5FF858A88FFE2E3E5FF858A88FFFCFCFCFFF8F8F8FFF6F6
+      F6FFF5F5F5FFFDFDFDFF8C8E8DFFFFFFFF00000000018C8E8DFFFCFCFCFFC8C8
+      C8FF858A88FFE2E3E5FF858A88FF858A88FFE2E3E5FF858A88FFCACACAFFC8C8
+      C8FFF8F8F8FFFDFDFDFF8C8E8DFFFFFFFF00000000018C8E8DFFFBFBFBFF858A
+      88FFB7B8B9FFE2E3E5FFE2E3E5FFE2E3E5FFE2E3E5FF858A88FFFAFAFAFFFAFA
+      FAFFF9F9F9FFFDFDFDFF8C8E8DFFFFFFFF0000000001D6C0B2DE874A20FF858A
+      88FFE2E3E5FFB7B8B9FF858A88FF858A88FF858A88FFB4B4B4FFD4D4D4FFD2D2
+      D2FFF9F9F9FFFDFDFDFF8C8E8DFFFFFFFF00DFCFC400874A20FFCCBBADFF874A
+      20FF858A88FF858A88FFFCFCFCFFFCFCFCFFFBFBFBFFFBFBFBFFFBFBFBFFFBFB
+      FBFFFBFBFBFFFCFCFCFF8C8E8DFFDFCFC400874A20FFCCBBADFFB5957AFFA48D
+      78FF874A20FFE3E3E3FFE1E1E1FFE0E0E0FFDEDEDEFFDDDDDDFFDEDEDEFFDDDD
+      DDFFFCFCFCFFFCFCFCFF8C8E8DFF874A20FFCCBBADFFB5957AFFA48D78FF874A
+      20FFDFCFC400FDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFFCFCFCFFFDFDFDFFFDFD
+      FDFFFDFDFDFFFDFDFDFD8C8E8DFF874A20FFB5957AFFA48D78FF874A20FFDFCF
+      C400FDFDFDFFFDFDFDFFFCFCFCFFFDFDFDFFFDFDFDFFFCFCFCFFFDFDFDFFFCFC
+      FCFFFDFDFDFDFBFBFBF38C8E8DFFDFCFC400874A20FF874A20FFDFCFC4008C8E
+      8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E8DFF8C8E
+      8DFF8C8E8DFF8C8E8DFFACAEADFF
+    }
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    left = 568
+    top = 8
+    object Nuevo: TAction
+      Caption = 'Nuevo'
+      ImageIndex = 4
+      OnExecute = NuevoExecute
+    end
+    object Editar: TAction
+      Caption = 'Editar'
+      ImageIndex = 5
+      OnExecute = EditarExecute
+    end
+    object Grabar: TAction
+      Caption = 'Grabar'
+      ImageIndex = 2
+      OnExecute = GrabarExecute
+    end
+    object Cancelar: TAction
+      Caption = 'Cancelar'
+      ImageIndex = 0
+      OnExecute = CancelarExecute
+    end
+    object Buscar: TAction
+      Caption = 'Buscar'
+      ImageIndex = 3
+      OnExecute = BuscarExecute
+    end
+  end
+  object D_Elemento: TDataSource
+    AutoEdit = False
+    OnStateChange = D_ElementoStateChange
+    left = 144
+    top = 347
+  end
+  object D_Categoria: TDataSource
+    AutoEdit = False
+    left = 216
+    top = 347
+  end
+  object D_Marca: TDataSource
+    AutoEdit = False
+    left = 296
+    top = 347
+  end
+  object D_Estado: TDataSource
+    AutoEdit = False
+    left = 368
+    top = 347
+  end
+  object D_Proveedor: TDataSource
+    AutoEdit = False
+    left = 440
+    top = 347
+  end
+  object D_Dependencia: TDataSource
+    AutoEdit = False
+    left = 520
+    top = 347
+  end
+  object D_funcionario: TDataSource
+    AutoEdit = False
+    left = 616
+    top = 347
+  end
+  object D_Movimiento: TDataSource
+    left = 720
+    top = 343
+  end
+  object D_Poliza: TDataSource
+    left = 805
+    top = 343
+  end
+end

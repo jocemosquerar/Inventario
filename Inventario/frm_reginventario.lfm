@@ -1,0 +1,926 @@
+object frmreginventario: Tfrmreginventario
+  Left = 2846
+  Height = 633
+  Top = 344
+  Width = 937
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Registro de inventario'
+  ClientHeight = 633
+  ClientWidth = 937
+  DesignTimePPI = 120
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.6.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 584
+    Top = 49
+    Width = 937
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Elemento'
+      ClientHeight = 554
+      ClientWidth = 929
+      object Label1: TLabel
+        Left = 30
+        Height = 16
+        Top = 15
+        Width = 77
+        Caption = '# Inventario'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit1: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 11
+        Width = 130
+        DataField = 'inventario'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 0
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label2: TLabel
+        Left = 30
+        Height = 16
+        Top = 46
+        Width = 77
+        Caption = 'Descripción'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit2: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 42
+        Width = 344
+        DataField = 'descripcion'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 2
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label3: TLabel
+        Left = 486
+        Height = 16
+        Top = 46
+        Width = 66
+        Caption = 'Categoría'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold, fsItalic]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Top = 42
+        Width = 344
+        DataField = 'id_categoria'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Categoria
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 3
+      end
+      object Label4: TLabel
+        Left = 508
+        Height = 16
+        Top = 75
+        Width = 43
+        Caption = 'Marca'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 73
+        Width = 344
+        DataField = 'id_marca'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Marca
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox2KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 5
+      end
+      object Label5: TLabel
+        Left = 58
+        Height = 16
+        Top = 75
+        Width = 49
+        Caption = 'Modelo'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit3: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 72
+        Width = 344
+        DataField = 'modelo'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 4
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label6: TLabel
+        Left = 519
+        Height = 16
+        Top = 108
+        Width = 32
+        Caption = 'Serie'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit4: TDBEdit
+        Left = 560
+        Height = 25
+        Top = 104
+        Width = 344
+        DataField = 'serie'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 7
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label7: TLabel
+        Left = 64
+        Height = 16
+        Top = 108
+        Width = 43
+        Caption = 'Estado'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Top = 104
+        Width = 344
+        DataField = 'id_estado'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Estado
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 6
+      end
+      object Label8: TLabel
+        Left = 466
+        Height = 16
+        Top = 136
+        Width = 86
+        Caption = 'Aseguradora'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox4: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 135
+        Width = 344
+        DataField = 'id_aseguradora'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Poliza
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox7KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 9
+      end
+      object Label9: TLabel
+        Left = 489
+        Height = 16
+        Top = 171
+        Width = 63
+        Caption = 'F.Compra'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBDateEdit1: TDBDateEdit
+        Left = 560
+        Height = 25
+        Hint = 'ESC Limpiar'
+        Top = 168
+        Width = 130
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doDMY
+        DateFormat = 'dd/mm/yyyy'
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 10
+        OnKeyDown = DBDateEdit1KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 11
+        Text = '  /  /    '
+        DataField = 'fecha_compra'
+        DataSource = D_Elemento
+      end
+      object Label10: TLabel
+        Left = 37
+        Height = 16
+        Top = 203
+        Width = 66
+        Caption = 'Nº factura'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBEdit5: TDBEdit
+        Left = 112
+        Height = 25
+        Top = 200
+        Width = 130
+        DataField = 'numero_factura'
+        DataSource = D_Elemento
+        CharCase = ecUppercase
+        MaxLength = 0
+        TabOrder = 12
+        OnKeyDown = DBEdit1KeyDown
+      end
+      object Label11: TLabel
+        Left = 24
+        Height = 16
+        Top = 138
+        Width = 83
+        Caption = 'Responsable'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox5: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Top = 135
+        Width = 344
+        DataField = 'id_funcionario'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'funcionario'
+        ListFieldIndex = 0
+        ListSource = D_funcionario
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 8
+      end
+      object Label12: TLabel
+        Left = 9
+        Height = 16
+        Top = 268
+        Width = 98
+        Caption = 'Características'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBMemo1: TDBMemo
+        Left = 112
+        Height = 136
+        Top = 268
+        Width = 792
+        DataField = 'caracteristicas'
+        DataSource = D_Elemento
+        ScrollBars = ssAutoBoth
+        TabOrder = 14
+      end
+      object Label13: TLabel
+        Left = 464
+        Height = 16
+        Top = 12
+        Width = 88
+        Caption = 'Dependencia'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox6: TDBLookupComboBox
+        Left = 560
+        Height = 25
+        Top = 11
+        Width = 344
+        DataField = 'id_dependencia'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Dependencia
+        LookupCache = False
+        OnKeyDown = DBEdit1KeyDown
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object Label14: TLabel
+        Left = 518
+        Height = 16
+        Top = 203
+        Width = 35
+        Caption = 'Valor'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label15: TLabel
+        Left = 41
+        Height = 16
+        Top = 171
+        Width = 65
+        Caption = 'Proveedor'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox7: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 168
+        Width = 344
+        DataField = 'id_proveedor'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Proveedor
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox4KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 10
+      end
+      object RxDBCurrEdit1: TRxDBCurrEdit
+        Left = 560
+        Height = 25
+        Top = 199
+        Width = 132
+        Alignment = taRightJustify
+        DecimalPlaces = 0
+        DisplayFormat = '$###,###'
+        Enabled = False
+        TabOrder = 13
+        OnKeyDown = DBEdit1KeyDown
+        DataField = 'valor_compra'
+        DataSource = D_Elemento
+      end
+      object Label16: TLabel
+        Left = 41
+        Height = 16
+        Top = 235
+        Width = 66
+        Caption = 'Ubicación'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Century Gothic'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBLookupComboBox8: TDBLookupComboBox
+        Left = 112
+        Height = 25
+        Hint = 'ESC Limpiar'#13#10'INS Insertar'
+        Top = 232
+        Width = 344
+        DataField = 'id_ubicacion'
+        DataSource = D_Elemento
+        KeyField = 'id'
+        ListField = 'descripcion'
+        ListFieldIndex = 0
+        ListSource = D_Ubicacion
+        LookupCache = False
+        OnKeyDown = DBLookupComboBox8KeyDown
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 15
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Novedades'
+      ClientHeight = 554
+      ClientWidth = 929
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 554
+        Top = 0
+        Width = 929
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Fecha'
+            Width = 90
+            FieldName = 'Fecha'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Funcionario'
+            Width = 300
+            FieldName = 'funcionario'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Estado'
+            Width = 150
+            FieldName = 'estado'
+          end        
+          item
+            ButtonStyle = cbsEllipsis
+            Title.Alignment = taCenter
+            Title.Caption = 'Observaciones'
+            Width = 325
+            FieldName = 'observacion'
+          end>
+        DataSource = D_Movimiento
+        TabOrder = 0
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Height = -13
+        TitleFont.Name = 'Century Gothic'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+        OnEditButtonClick = DBGrid1EditButtonClick
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Salidas'
+      ClientHeight = 554
+      ClientWidth = 929
+      object DBGrid2: TDBGrid
+        Left = 0
+        Height = 554
+        Top = 0
+        Width = 250
+        Align = alLeft
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Salida'
+            Width = 95
+            FieldName = 'fecha_salida'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Regreso'
+            Width = 95
+            FieldName = 'fecha_regreso'
+          end>
+        DataSource = D_Salidas
+        TabOrder = 0
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Height = -13
+        TitleFont.Name = 'Century Gothic'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+      end
+      object Panel1: TPanel
+        Left = 250
+        Height = 554
+        Top = 0
+        Width = 679
+        Align = alClient
+        ClientHeight = 554
+        ClientWidth = 679
+        TabOrder = 1
+        object GroupBox1: TGroupBox
+          Left = 1
+          Height = 187
+          Top = 1
+          Width = 677
+          Align = alTop
+          Caption = '[ Observaciones de salida ]'
+          ClientHeight = 165
+          ClientWidth = 673
+          TabOrder = 0
+          object DBMemo2: TDBMemo
+            Left = 0
+            Height = 165
+            Top = 0
+            Width = 673
+            Align = alClient
+            DataField = 'observaciones_salida'
+            DataSource = D_Salidas
+            TabOrder = 0
+          end
+        end
+        object GroupBox2: TGroupBox
+          Left = 1
+          Height = 365
+          Top = 188
+          Width = 677
+          Align = alClient
+          Caption = '[ Observaciones de regreso ]'
+          ClientHeight = 343
+          ClientWidth = 673
+          TabOrder = 1
+          object DBMemo3: TDBMemo
+            Left = 0
+            Height = 343
+            Top = 0
+            Width = 673
+            Align = alClient
+            DataField = 'observaciones_regreso'
+            DataSource = D_Salidas
+            TabOrder = 0
+          end
+        end
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Mantenimiento'
+      ClientHeight = 554
+      ClientWidth = 929
+      object DBGrid3: TDBGrid
+        Left = 0
+        Height = 554
+        Top = 0
+        Width = 464
+        Align = alLeft
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Fecha'
+            Width = 100
+            FieldName = 'Fecha'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Responsable'
+            Width = 300
+            FieldName = 'Descripcion'
+          end>
+        DataSource = D_Mantenimiento
+        Flat = True
+        TabOrder = 0
+      end
+      object GroupBox3: TGroupBox
+        Left = 464
+        Height = 554
+        Top = 0
+        Width = 465
+        Align = alClient
+        Caption = '[ Observaciones ]'
+        ClientHeight = 532
+        ClientWidth = 461
+        TabOrder = 1
+        object DBMemo4: TDBMemo
+          Left = 0
+          Height = 532
+          Top = 0
+          Width = 461
+          Align = alClient
+          DataField = 'observaciones'
+          DataSource = D_Mantenimiento
+          OnExit = DBMemo4Exit
+          TabOrder = 0
+        end
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 49
+    Top = 0
+    Width = 937
+    ButtonHeight = 45
+    ButtonWidth = 40
+    Caption = 'ToolBar1'
+    Images = ImageList1
+    ShowCaptions = True
+    TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = Nuevo
+    end
+    object ToolButton2: TToolButton
+      Left = 61
+      Top = 2
+      Action = Editar
+    end
+    object ToolButton3: TToolButton
+      Left = 115
+      Top = 2
+      Action = Buscar
+    end
+    object ToolButton4: TToolButton
+      Left = 53
+      Height = 45
+      Top = 2
+      Caption = 'ToolButton4'
+      Style = tbsSeparator
+    end
+    object ToolButton5: TToolButton
+      Left = 107
+      Height = 45
+      Top = 2
+      Caption = 'ToolButton5'
+      Style = tbsSeparator
+    end
+  end
+  object ImageList1: TImageList
+    Left = 632
+    Top = 8
+    Bitmap = {
+      4C7A060000001000000010000000060B00000000000078DACD98095455D51AC7
+      B5B46878B55ABDE62C537996585AF62C35451C90472AA2A228A2010AA84C5750
+      0404651205412D010527C4C4E5FC4ACC01C3048483600528A85D6450621E2FF7
+      9E3BFEDFB74F9EDB65B80E6BF5D67B67ADFFBAFBEEBD7FDFFEBEFFDEE7700F00
+      FAE031E4F215FFACB1317F3FBC4B323336EEBC8437737450782F98D739A13736
+      D01F0858A3C32A6F6D8F184E8B79B3A54E3C56B82B31D7B6E3B0CD8CF60FBAB3
+      A1214C3AF849B4F058AED6C7F8CA5161466BC3DB538D9075006B5B4F6BF59E3A
+      A9F90936BEC617267E129D36385087E828605D80C0C3C54969B66491C28CD686
+      97870AC18180D31205FE65D9AA9962D1DCDF303F8997D6C46BA546E3EFA7C5C6
+      30608DAF064B9D79D0DAF05CA142500084B6D5D416CD648B6693DEFC59EEA636
+      7175516A7C28CF0D544B4810CB853CA1DA162F5260DA9416CDA489BDB3063E99
+      382E946B83895BEC0038D8532E7E80E5E416AD857993C9C3F677D10239DB23DA
+      0760C13C60FE5C60950F6065D98A2FC634983D8875B0979B2D5A2887DB5215FC
+      5601BEC4F97881BCA338760A988F6FC627236B7B8DB1707EA799C302395C5D88
+      95000BEDE5209F3413BE68D4CE9A2183BB1B306B6627467FDA806143EF758941
+      E7C98CD6C6326715243E2C6F39C827CD84718D26633E6B30F9E727759A6953DB
+      E1E20C585BC930E2C33A0C1A58AD8F41E7C9C27E5E27EDB70AF67672904F9AF1
+      631BF55E8DFCF07793E1C36A3416E66D986E2DC7C723EAF1EE802A0BC31CE83C
+      59D84C6FC7C4094D5AF2A987CF434DEF990C197457D31B2BCA7C7C93C5B8CF1B
+      8CEED17BEF569BBCF376EFEC5FA1DA6BE7B24A8FAC2BCCDB324B97B7C506F9DB
+      ED1457B7D9297236CFD0494FC6FEF4303E67D30C95A2BD11BCAC197C47D31FA2
+      EFED35A5A8FA2E18B7E397CB1FC4E7C5CE962B3BDBA0A92E849AA4ACC803FFDB
+      6568D53C343585A83A1381EB8723728CF3B68A3FF89FA1B9FB335495F9504AB3
+      21ABBB039657674B1DB23658A98DF157B6D82895B2565AAB18DADF8B851C5494
+      43E78D0BE82849A7BA5A911D69ADECCE5DBB76ED725454942C67F37428652DD0
+      FD5E4AFC758A53047565815083FCD645A8682C3BDC0A4E4E4EB28C8C8CCB8C95
+      4AA585494949282828406ECC4CE29BA0AB2D23518C7BC554C7AF94432ED59145
+      7C137223AD919595053F3F3F14D295989878ABA8A808B5B5B5080E0E7E24B1B9
+      D9D9D9F0F4F4AC8C8888506A341A305DBD7A15EDEDED0FD4952B5720CE974824
+      BA90901028954A41478F1EC59D3B778438BD898DA5A6A6EAE7930F080C0C4469
+      69A920AA05656565C8CCCCEC556C4E5C5C9C7EBEB9B93956AF5E8D0B172E088A
+      8D8D45494909CE9D3BD7AB8A8B8B111E1EAE9F3F6CD830F8F8F8203D3D5D507C
+      7C3C42434305050404C0CBCB4BC871F6ECD9983C7932264D9A24F489F34D4D4D
+      B172E54A6D5A5A9AF09D71278F1D41CEA58BBDEAF891C3183E7CB83037393919
+      83070F464A4ACA65F2E096BDBD3D72E39DA054C8A16C6B2435806FAD83A2A906
+      B2FA4AB4D79643C5CB91BBC30943860CC1975F7E7933212121B3CBF94F70D6E6
+      EF5C86FC44432D05775F6C2C2FDE59FB573F374A12BDB892BD41DC2F3B25DC8D
+      83615C619C3B57B86D39F74BD26AEED75DBE5C5E8C33777CE140A37F3B0A6297
+      711D85A7386A73D5B9DF0B9F86AACF4CE1B8CD5F71C6F8DC8D0E5CCBA5BDDCCD
+      03C17CF19E40FE7AEA06FED689AD7C51923F5F944CDAEDCFFF9228E1298F72CA
+      63448FE7C62647AE85D6F875D76A5E567496A73EBEA6F0027DEA84B65ADECEF3
+      6D4D3CE5514E799477E7F329FFFAB3BB28C7257CD3C5649EFC00F901F203E407
+      C80F901F203F407E80F200E5315AE4B91827AE26FD6BEE6A8C13DF9CB197273F
+      407E805DE407BA5F9407280F887C76E85CAEFE4C22776DA72F5FFF630A4F7E80
+      FC10E6167CE3F527A85650356DB87B720B72A39DF47CD67A5BAEE54C125790E0
+      CDDF38B39D273F407E40AB5141A75143A7D59234F41C56519F1AD2C391F869FD
+      1C3D7F25DC8E6BB9769ECB8D73E52B3276F3E407C80F48BF0D81F4D006DC4E5D
+      879BFB03490128DBB716657BD72233C251CF9F771F959C1561CFE56C98C3377F
+      97C0931F203F5095168A4A52796A307E4B09C2ED7D01B8B9D71F2549BEB81032
+      1F3D9EDFE176E5944739F901F2031D1DF5686AAB410B536B0DB5EFA1A3B309D7
+      7707E094CF941E3CE5718CF228273F407EA0BEA316B69911F0E67642C2EDC25C
+      6ADF95D541BA3B0847968F85D1BF23E176A03C20A52F51CDB938202BC5017929
+      B650BB82FAA407227174C504A33CE5914379A038C61D955B7DF05BAC076EC578
+      A234DA0B85311E38EA390587967C84FFD6EF80FFA5766F0DAFCA3875107BB647
+      0AF59DD8FF8DD05EE66877EB51F8B8F0B55559674FB0F902BF6E953B0E27C781
+      E2DE7D10E7B7D2190713A311BF3918FBBEDE8809633E15F8E9961311E2B70291
+      813E42DF54F3B169A683063EFFCACB2F09EF0EE78EED37890A5E65951C1726E4
+      B931488279365698653D051BD678C0CBD511611EF638B43D183B22FC84B1E79F
+      7B2EF0E9A79FEACBF8A37BB6F53B99B2A3F2FC890308F3F71474647B10CEA7ED
+      C00F07E354A71243B12F3618E19E0E90B8CC17F2EBD7EFC98A3E7DFA3CC978CA
+      B53F5BF7DFA90958BF7A2558BDFE9E4BE1E1E2808F86FD43588FE521F6FBB82D
+      06B13A92F0FE12E0E3DA7F91DD4CE5A4F19FC3DED61AE33F1F855123CC3078E0
+      807BAFBDFAF791EFBCFD46FA9BAFBF0AAA196FBCF60A5E7CE16FE8DBB76F33F1
+      4FE87FBBCF9E9EC53C2BC83A8F4BA78FE0D0CE18E6D5613636FC03D3C3DB2202
+      70F9EC71618CEDC54B2FBE9065E8FD9CE9969AF0B5DE024FF940E2BE049F8DFA
+      E83A1BA375AF33EF19BFD67B1982246E78F619138D213F639A05445E9C33C2EC
+      7DE5D021EFF51DF0D6EBCDCC3391673E3CD5BF7F977BC7D2629CB0BFECDCB071
+      E6E3E84F3E04D5FEE2FBA6834A18CFF6471CA3FABBF0EC5C8CF974A4E01BD50B
+      5A170307BC05F2EF4DAAF5F673CF3E03DA6FB66FCC7B41FF2FF75B6E7D199884
+      DFEFF4DBEEB155770397E8772EE3337EBC88C7B9EECFD7E772FA4C3A143CFF48
+      D2E97460F3D34A7FC48192F3429C63278EEBC799C5C624EBEC147836FF9BAB27
+      B0953B2AF0070F7DABE7D91C6312D767F30DF3EFE73BF6B1F2DFBD770F823292
+      B0E65C8210C7E3FB38748F616B8B1E6AEFE810F81D09F1608CDBA96881773C12
+      06FB43215D6218E6DD219309AC58FF96B858084C5A08E6A406C266FF1A58EF59
+      85A9495E5D62C8150A74CAE5FA181DF7D78F88DA089B943F9989892B306E872B
+      466F77C6C7718B8518127A97EFAE367A8F60FCBAF5213D98E1310B3174D33C81
+      65B9B2B9AD6D6DF4F7BB15CD2D2D686A6E462BB519EFE7BFA68BFF8322676340
+      D84C8135AC97BDB7B4510CC6897118EFE1EDD5857F799DE51FECFD1AC5F5A3C9
+      5E43D5D7D70BFC5237D71EFB2FAE29E6CDD66C6C6C44434383C0D5D5D5A181BE
+      337ED192C55DF8B9F3E709FD8F2276B1F986FC4C1B1B3CAE4496DD0BEC3C3C4C
+      6C9EE1B35F141B53A954ADF45EA8A50B4CEC1DD1F093C68DC660FD8C95D33953
+      D079E3D9D963E78EED23F9D94CFBCEE2302FBBC7A0AB2FEB636BB0F74AB68EF8
+      8EC9E2B1FD6CA13D67E3625C318621CFE2B3BE8749AC8731DD795191D19B04B1
+      B57B139BD39D673133323204AEAAFA9E20D6667D866267F941EB8BBCE127EB67
+      B5333F98A7C6F8BCBCBC2E9C613B3F3F5F1867717AE3D56AB530EF87B3E7F4F9
+      1BD6C1F645DC9BEEFC8D4BDF9547590FD4AFC76288EB339D3E7D5A78B767FFEB
+      E8CEDFF939BB0F630B2E1C871843AC9989E5D55DA2FF866C7A7C200EC6AE1562
+      545757A3B2B212151515282F2F87542AD57F8A7119DF1BCB628AF740F77BC140
+      5A9137C61A32DDEE252DD5D06198BFC83ECA3D6C782FFF0752987795
+    }
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 568
+    Top = 8
+    object Nuevo: TAction
+      Caption = 'Nuevo'
+      ImageIndex = 4
+      OnExecute = NuevoExecute
+    end
+    object Editar: TAction
+      Caption = 'Editar'
+      ImageIndex = 5
+      OnExecute = EditarExecute
+    end
+    object Grabar: TAction
+      Caption = 'Grabar'
+      ImageIndex = 2
+      OnExecute = GrabarExecute
+    end
+    object Cancelar: TAction
+      Caption = 'Cancelar'
+      ImageIndex = 0
+      OnExecute = CancelarExecute
+    end
+    object Buscar: TAction
+      Caption = 'Buscar'
+      ImageIndex = 3
+      OnExecute = BuscarExecute
+    end
+  end
+  object D_Elemento: TDataSource
+    AutoEdit = False
+    OnStateChange = D_ElementoStateChange
+    Left = 144
+    Top = 371
+  end
+  object D_Categoria: TDataSource
+    AutoEdit = False
+    Left = 216
+    Top = 371
+  end
+  object D_Marca: TDataSource
+    AutoEdit = False
+    Left = 296
+    Top = 347
+  end
+  object D_Estado: TDataSource
+    AutoEdit = False
+    Left = 368
+    Top = 347
+  end
+  object D_Proveedor: TDataSource
+    AutoEdit = False
+    Left = 440
+    Top = 347
+  end
+  object D_Dependencia: TDataSource
+    AutoEdit = False
+    Left = 520
+    Top = 347
+  end
+  object D_funcionario: TDataSource
+    AutoEdit = False
+    Left = 616
+    Top = 347
+  end
+  object D_Movimiento: TDataSource
+    Left = 720
+    Top = 347
+  end
+  object D_Poliza: TDataSource
+    Left = 824
+    Top = 347
+  end
+  object D_Salidas: TDataSource
+    Left = 824
+    Top = 192
+  end
+  object D_Mantenimiento: TDataSource
+    Left = 688
+    Top = 192
+  end
+  object D_Ubicacion: TDataSource
+    AutoEdit = False
+    Left = 152
+    Top = 455
+  end
+end

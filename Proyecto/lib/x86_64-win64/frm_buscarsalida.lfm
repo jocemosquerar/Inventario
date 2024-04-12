@@ -1,0 +1,174 @@
+object frmbuscarsalida: Tfrmbuscarsalida
+  Left = -1657
+  Height = 411
+  Top = 410
+  Width = 776
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Buscar salidas'
+  ClientHeight = 411
+  ClientWidth = 776
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '2.0.0.4'
+  object DateTimePicker1: TDateTimePicker
+    Left = 85
+    Height = 28
+    Top = 20
+    Width = 101
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoDMY
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 0
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43692
+    Time = 0.722386597219156
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+    OnKeyDown = DateTimePicker1KeyDown
+  end
+  object Label1: TLabel
+    Left = 32
+    Height = 20
+    Top = 24
+    Width = 42
+    Caption = 'Desde'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 224
+    Height = 20
+    Top = 24
+    Width = 38
+    Caption = 'Hasta'
+    ParentColor = False
+  end
+  object DateTimePicker2: TDateTimePicker
+    Left = 274
+    Height = 28
+    Top = 20
+    Width = 101
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoDMY
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 1
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43692
+    Time = 0.722386597219156
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+    OnKeyDown = DateTimePicker1KeyDown
+  end
+  object Button1: TButton
+    Left = 408
+    Height = 31
+    Top = 18
+    Width = 94
+    Caption = 'Buscar'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 282
+    Top = 64
+    Width = 776
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Salida'
+        Width = 100
+        FieldName = 'fecha_salida'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Descripción'
+        Width = 400
+        FieldName = 'descripcion'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Inventario'
+        Width = 100
+        FieldName = 'inventario'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Regreso'
+        Width = 100
+        FieldName = 'fecha_regreso'
+      end>
+    DataSource = DataSource1
+    TabOrder = 3
+  end
+  object BitBtn1: TBitBtn
+    Left = 74
+    Height = 46
+    Top = 352
+    Width = 310
+    DefaultCaption = True
+    Enabled = False
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 4
+  end
+  object BitBtn2: TBitBtn
+    Left = 394
+    Height = 46
+    Top = 352
+    Width = 310
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 5
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 560
+    top = 81
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    AfterOpen = SQLQuery1AfterOpen
+    SQL.Strings = (
+      'Select s.id, s.fecha_salida, e.Descripcion, e.inventario, s.fecha_regreso'
+      'From SALIDA S'
+      'Left Join ELEMENTO E On (S.Id_Elemento = E.Id)'
+      'where S.fecha_salida between :Ini and :Fin'
+      'Order by S.Fecha_Salida'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Ini'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Fin'
+        ParamType = ptInput
+      end>
+    left = 671
+    top = 81
+  end
+end

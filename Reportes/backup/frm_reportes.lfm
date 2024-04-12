@@ -1,0 +1,300 @@
+object frmreportes: Tfrmreportes
+  Left = -1253
+  Height = 244
+  Top = 468
+  Width = 859
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Reportes'
+  ClientHeight = 244
+  ClientWidth = 859
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.6.4.0'
+  object RadioGroup1: TRadioGroup
+    Left = 15
+    Height = 138
+    Top = 24
+    Width = 225
+    AutoFill = True
+    Caption = '[ Reporte ]'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 116
+    ClientWidth = 221
+    ItemIndex = 0
+    Items.Strings = (
+      'Inventario general'
+      'Elementos por funcionario'
+      'Elementos por dependencia'
+      'Ficha de Elemento'
+    )
+    OnClick = RadioGroup1Click
+    OnSelectionChanged = RadioGroup1SelectionChanged
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 336
+    Height = 40
+    Top = 184
+    Width = 208
+    Caption = 'Generar'
+    Kind = bkYesToAll
+    OnClick = BitBtn1Click
+    TabOrder = 1
+  end
+  object GroupBox1: TGroupBox
+    Left = 463
+    Height = 138
+    Top = 24
+    Width = 368
+    Caption = '[ Funcionario ]'
+    ClientHeight = 116
+    ClientWidth = 364
+    TabOrder = 2
+    object DBLookupListBox1: TDBLookupListBox
+      Left = 0
+      Height = 116
+      Top = 0
+      Width = 364
+      Align = alClient
+      KeyField = 'id'
+      ListField = 'descripcion'
+      ListFieldIndex = 0
+      ListSource = DataSource1
+      LookupCache = False
+      ScrollListDataset = True
+      TabOrder = 0
+    end
+  end
+  object RadioGroup2: TRadioGroup
+    Left = 254
+    Height = 138
+    Top = 24
+    Width = 194
+    AutoFill = True
+    Caption = '[ Ordenado por ]'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 116
+    ClientWidth = 190
+    ItemIndex = 0
+    Items.Strings = (
+      'Descripcion'
+      'Dependencia'
+      'Marca'
+      'Nombre Responsable'
+      'Número de Inventario'
+    )
+    TabOrder = 3
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = 1
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    Options = []
+    Params = <>
+    left = 456
+    top = 72
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = SQLQuery1
+    left = 536
+    top = 72
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Options = []
+    left = 616
+    top = 72
+  end
+  object frReport1: TfrReport
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    left = 456
+    top = 125
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = SQLReport
+    left = 540
+    top = 122
+  end
+  object SQLReport: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'CATEGORIA'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ELEMENTO'
+        DataType = ftString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'MARCA'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'MODELO'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'SERIE'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'PROVEEDOR'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'FECHA_COMPRA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'NUMERO_FACTURA'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'VALOR_COMPRA'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'INVENTARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'CARACTERISTICAS'
+        DataType = ftMemo
+        Precision = -1
+        Size = 8
+      end    
+      item
+        Name = 'DEPENDENCIA'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'FUNCIONARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ASEGURADORA'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'ASEGURADO'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 2
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select elemento.id, categoria.descripcion categoria,'
+      'elemento.descripcion elemento, marca.descripcion marca, elemento.modelo, elemento.serie,'
+      'proveedor.descripcion proveedor, elemento.fecha_compra, elemento.numero_factura, elemento.valor_compra,'
+      'elemento.inventario, elemento.caracteristicas, Dependencia.Descripcion Dependencia,'
+      'funcionario.apellidos funcionario, estado.descripcion estado,'
+      'aseguradora.descripcion aseguradora,'
+      'iif(elemento.id_aseguradora is null, ''No'', ''Si'') Asegurado'
+      'From ELEMENTO'
+      'left join funcionario on (elemento.id_funcionario = funcionario.id)'
+      'left join estado on (elemento.id_estado = estado.id)'
+      'left join categoria on (elemento.id_categoria = categoria.id)'
+      'left join Dependencia on (elemento.id_dependencia = Dependencia.id)'
+      'left outer  join marca on (elemento.id_marca = marca.id)'
+      'left outer join proveedor on (elemento.id_proveedor = proveedor.id)'
+      'left outer join aseguradora on (elemento.id_aseguradora = aseguradora.id)'
+      'Where Elemento.inventario = 200'
+    )
+    Options = []
+    Params = <>
+    left = 692
+    top = 72
+  end
+  object frCSVExport1: TfrCSVExport
+    left = 772
+    top = 72
+  end
+  object SQLReport2: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'FECHA'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'OBSERVACION'
+        DataType = ftString
+        Precision = -1
+        Size = 256
+      end>
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 692
+    top = 122
+  end
+  object frDBDataSet2: TfrDBDataSet
+    DataSet = SQLReport2
+    left = 616
+    top = 122
+  end
+  object frTNPDFExport1: TfrTNPDFExport
+    left = 776
+    top = 123
+  end
+end

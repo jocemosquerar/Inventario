@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units Count="33">
+      <Unit0>
+        <Filename Value="Inventario.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="69" Y="12"/>
+        <UsageCount Value="186"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="frm_menu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmmenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="172"/>
+        <CursorPos X="13" Y="178"/>
+        <UsageCount Value="186"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\Accesoria\frm_accesoria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmaccesoria"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="86"/>
+        <CursorPos X="59" Y="60"/>
+        <UsageCount Value="186"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Inventario\frm_observacion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmobservacion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8" Y="2"/>
+        <UsageCount Value="155"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Funcionario\frm_funcionario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmfuncionario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="24" Y="9"/>
+        <UsageCount Value="153"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Reportes\frm_reportes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmreportes"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="96"/>
+        <CursorPos X="93" Y="112"/>
+        <UsageCount Value="141"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmreginventario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="301"/>
+        <CursorPos X="103" Y="322"/>
+        <UsageCount Value="129"/>
+        <Bookmarks Count="1">
+          <Item0 X="5" Y="341" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\Inventario\dm_reginventario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dmreginventario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="115"/>
+        <CursorPos X="42" Y="125"/>
+        <UsageCount Value="129"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\Buscador elementos\frm_buscadorelemento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmbuscadorelemento"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos X="15" Y="86"/>
+        <UsageCount Value="119"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\..\Repositorio\Acerca\frm_acerca.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmacerca"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="48"/>
+        <CursorPos X="92" Y="53"/>
+        <UsageCount Value="56"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\Salidas\frm_salida.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmsalida"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="101"/>
+        <CursorPos X="33" Y="102"/>
+        <UsageCount Value="45"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\Salidas\frm_buscarsalida.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmbuscarsalida"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="36"/>
+        <CursorPos X="26" Y="68"/>
+        <UsageCount Value="40"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\components\ScrollText\scrollingtext.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="32"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\Acerca\frm_acerca.pas"/>
+        <ComponentName Value="frmacerca"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="25"/>
+        <CursorPos X="51" Y="30"/>
+        <UsageCount Value="29"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\Inventario\frm_inventario.pas"/>
+        <ComponentName Value="frminventario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="295"/>
+        <CursorPos Y="309"/>
+        <UsageCount Value="135"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\Acceso\frm_acceso.pas"/>
+        <ComponentName Value="frmacceso"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\..\Distribuidores\Formas\Empresa\frm_empresa.pas"/>
+        <ComponentName Value="frmempresa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="60"/>
+        <CursorPos Y="80"/>
+        <UsageCount Value="8"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\..\MedAssist\Empresa\frm_empresa.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\..\MedAssist\Empresa\frm_empresa.pas"/>
+        <ComponentName Value="frmempresa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="63"/>
+        <CursorPos X="3" Y="65"/>
+        <UsageCount Value="9"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:\lazarus\lcl\include\application.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1420"/>
+        <CursorPos Y="1432"/>
+        <UsageCount Value="9"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2022"/>
+        <CursorPos Y="2034"/>
+        <UsageCount Value="10"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\..\MedAssist\Historia\frm_historia.pas"/>
+        <ComponentName Value="frmhistoria"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
+        <CursorPos X="13" Y="120"/>
+        <UsageCount Value="10"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\..\MedAssist\Menu\frm_menu.pas"/>
+        <ComponentName Value="frmmenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="9" Y="62"/>
+        <UsageCount Value="10"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="..\..\MedAssist\Login\frm_login.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos Y="68"/>
+        <UsageCount Value="10"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="349"/>
+        <CursorPos Y="366"/>
+        <UsageCount Value="1"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="C:\lazarus\powerpdf_0.9.14_20160714\PdfJpegImage.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="25"/>
+        <CursorPos X="44" Y="38"/>
+        <UsageCount Value="1"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="514"/>
+        <CursorPos X="18" Y="535"/>
+        <UsageCount Value="9"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="C:\lazarus\packager\registration\fcllaz.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="11"/>
+        <UsageCount Value="9"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="..\..\Codice\Fuentes\Hoja de ruta\dm_hojaderuta.pas"/>
+        <ComponentName Value="dmhojaderuta"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="3"/>
+        <UsageCount Value="10"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2714"/>
+        <CursorPos Y="2732"/>
+        <UsageCount Value="10"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="..\..\Codice\Fuentes\Menu\frm_menu.pas"/>
+        <ComponentName Value="frmmenu"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="53" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:\lazarus\lcl\lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="102"/>
+        <CursorPos Y="116"/>
+        <UsageCount Value="10"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="D:\lazarus\lcl\include\containedaction.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="83"/>
+        <CursorPos Y="98"/>
+        <UsageCount Value="10"/>
+      </Unit32>
+    </Units>
+    <JumpHistory Count="28" HistoryIndex="27">
+      <Position1>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="168" Column="14" TopLine="164"/>
+      </Position1>
+      <Position2>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="169" Column="14" TopLine="165"/>
+      </Position2>
+      <Position3>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="168" Column="14" TopLine="164"/>
+      </Position3>
+      <Position4>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="169" Column="14" TopLine="165"/>
+      </Position4>
+      <Position5>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="168" Column="14" TopLine="164"/>
+      </Position5>
+      <Position6>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="169" Column="14" TopLine="165"/>
+      </Position6>
+      <Position7>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="168" Column="14" TopLine="164"/>
+      </Position7>
+      <Position8>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="167" Column="14" TopLine="163"/>
+      </Position8>
+      <Position9>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="169" Column="14" TopLine="165"/>
+      </Position9>
+      <Position10>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="171" Column="17" TopLine="168"/>
+      </Position10>
+      <Position11>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="349" Column="40" TopLine="339"/>
+      </Position11>
+      <Position12>
+        <Filename Value="..\Inventario\dm_reginventario.pas"/>
+        <Caret Line="182" Column="22" TopLine="154"/>
+      </Position12>
+      <Position13>
+        <Filename Value="..\Inventario\dm_reginventario.pas"/>
+        <Caret Line="194" Column="18" TopLine="168"/>
+      </Position13>
+      <Position14>
+        <Filename Value="..\Inventario\dm_reginventario.pas"/>
+        <Caret Line="133" Column="2" TopLine="130"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\Inventario\dm_reginventario.pas"/>
+        <Caret Line="117" Column="49" TopLine="115"/>
+      </Position15>
+      <Position16>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="310" Column="30" TopLine="300"/>
+      </Position16>
+      <Position17>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="160" Column="36" TopLine="150"/>
+      </Position17>
+      <Position18>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="161" Column="36" TopLine="151"/>
+      </Position18>
+      <Position19>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="160" Column="36" TopLine="150"/>
+      </Position19>
+      <Position20>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="162" Column="36" TopLine="152"/>
+      </Position20>
+      <Position21>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="140" Column="39" TopLine="129"/>
+      </Position21>
+      <Position22>
+        <Filename Value="..\Inventario\frm_reginventario.pas"/>
+        <Caret Line="272" TopLine="247"/>
+      </Position22>
+      <Position23>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="183" Column="41" TopLine="169"/>
+      </Position23>
+      <Position24>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="184" Column="41" TopLine="170"/>
+      </Position24>
+      <Position25>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="185" Column="41" TopLine="171"/>
+      </Position25>
+      <Position26>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="187" Column="41" TopLine="173"/>
+      </Position26>
+      <Position27>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="179" Column="13" TopLine="173"/>
+      </Position27>
+      <Position28>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="178" Column="13" TopLine="172"/>
+      </Position28>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches>
+      <Item>
+        <Expression Value="accion"/>
+      </Item>
+    </Watches>
+  </Debugging>
+</CONFIG>

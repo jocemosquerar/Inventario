@@ -1,0 +1,175 @@
+object frmfuncionario: Tfrmfuncionario
+  Left = -1159
+  Height = 364
+  Top = 285
+  Width = 661
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Funcionarios'
+  ClientHeight = 364
+  ClientWidth = 661
+  DesignTimePPI = 120
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Century Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 364
+    Top = 0
+    Width = 661
+    Align = alClient
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Identificación'
+        Width = 110
+        FieldName = 'IDENTIFICACION'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Apellidos'
+        Width = 250
+        FieldName = 'APELLIDOS'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Nombres'
+        Width = 250
+        FieldName = 'NOMBRES'
+      end>
+    DataSource = D_Funcionario
+    TabOrder = 0
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Century Gothic'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+  end
+  object Funcionario: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'IDENTIFICACION'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'APELLIDOS'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'NOMBRES'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ID_DEPENDENCIA'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    AfterInsert = FuncionarioAfterInsert
+    AfterPost = FuncionarioAfterPost
+    BeforePost = FuncionarioBeforePost
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select id, identificacion, apellidos, nombres'
+      'from funcionario'
+      'order by apellidos, nombres'
+    )
+    InsertSQL.Strings = (
+      'insert into funcionario (id, identificacion, apellidos, nombres)'
+      'values (:id, :identificacion, :apellidos, :nombres)'
+    )
+    UpdateSQL.Strings = (
+      'update funcionario'
+      'set id = :id,'
+      'identificacion = :identificacion,'
+      'apellidos = :apellidos,'
+      'nombres = :nombres'
+      'where id = :OLD_id'
+    )
+    DeleteSQL.Strings = (
+      'Delete from funcionario'
+      'where id = :id'
+    )
+    RefreshSQL.Strings = (
+      'Select id, identificacion, apellidos, nombres'
+      'from funcionario'
+      'where id = Gen_id(gen_funcionario, 0);'
+    )
+    Options = [sqoRefreshUsingSelect]
+    Params = <>
+    Sequence.IncrementBy = 0
+    left = 299
+    top = 138
+    object FuncionarioID: TLongintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object FuncionarioIDENTIFICACION: TStringField
+      FieldKind = fkData
+      FieldName = 'IDENTIFICACION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object FuncionarioAPELLIDOS: TStringField
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 40
+    end
+    object FuncionarioNOMBRES: TStringField
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 40
+    end
+  end
+  object SQLQuery3: TSQLQuery
+    FieldDefs = <>
+    Transaction = SQLTransaction1
+    Params = <>
+    left = 440
+    top = 138
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    left = 528
+    top = 138
+  end
+  object D_Funcionario: TDataSource
+    DataSet = Funcionario
+    left = 296
+    top = 200
+  end
+end

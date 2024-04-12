@@ -1,0 +1,38 @@
+SET TERM ^ ;
+
+CREATE TRIGGER MOVIMIENTO_BI FOR MOVIMIENTO
+ACTIVE BEFORE INSERT
+POSITION 0
+AS
+BEGIN
+  if (new.id is null or new.id = -1) then
+  new.id = gen_id(gen_movimiento,1);
+END^
+
+CREATE TRIGGER FUNCIONARIO_BI FOR FUNCIONARIO
+ACTIVE BEFORE INSERT
+POSITION 0
+AS
+BEGIN
+ if (new.id is null or new.id = -1) then
+  new.id = gen_id(gen_funcionario,1);
+END^
+
+SET TERM ; ^
+
+update elemento set inventario = '-403' where id = 323;
+update elemento set inventario = '-402' where id = 322;
+update elemento set inventario = '-401' where id = 321;
+update elemento set inventario = '-404' where id = 139;
+
+GRANT USAGE ON GENERATOR GEN_CATEGORIA TO JORGE;
+GRANT USAGE ON GENERATOR GEN_DEPENDENCIA TO JORGE;
+GRANT USAGE ON GENERATOR GEN_ELEMENTO TO JORGE;
+GRANT USAGE ON GENERATOR GEN_ESTADO TO JORGE;
+GRANT USAGE ON GENERATOR GEN_FUNCIONARIO TO JORGE;
+GRANT USAGE ON GENERATOR GEN_MARCA TO JORGE;
+GRANT USAGE ON GENERATOR GEN_MOVIMIENTO TO JORGE;
+GRANT USAGE ON GENERATOR GEN_PROVEEDOR TO JORGE;
+
+
+
