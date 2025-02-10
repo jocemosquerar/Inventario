@@ -18,7 +18,6 @@ type
   { Tfrmmenu }
 
   Tfrmmenu = class(TForm)
-    Action1: TAction;
     admUbicacion: TAction;
     admResponsable: TAction;
     admSalida: TAction;

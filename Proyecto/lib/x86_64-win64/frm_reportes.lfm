@@ -1,27 +1,27 @@
 object frmreportes: Tfrmreportes
-  Left = -1690
-  Height = 305
-  Top = 444
-  Width = 1074
+  Left = -1675
+  Height = 369
+  Top = 383
+  Width = 1289
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Reportes'
-  ClientHeight = 305
-  ClientWidth = 1074
-  DesignTimePPI = 120
+  ClientHeight = 369
+  ClientWidth = 1289
+  DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
-  Font.Height = -16
+  Font.Height = -19
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.6.0.0'
   object RadioGroup1: TRadioGroup
-    Left = 19
-    Height = 172
-    Top = 30
-    Width = 281
+    Left = 23
+    Height = 206
+    Top = 36
+    Width = 337
     AutoFill = True
     Caption = '[ Reporte ]'
     ChildSizing.LeftRightSpacing = 6
@@ -31,10 +31,10 @@ object frmreportes: Tfrmreportes
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 146
-    ClientWidth = 277
+    ClientHeight = 179
+    ClientWidth = 333
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -16
+    Font.Height = -19
     Font.Name = 'Century Gothic'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -43,20 +43,21 @@ object frmreportes: Tfrmreportes
       'Inventario general'
       'Elementos por funcionario'
       'Elementos por dependencia'
-      'Ficha de Elemento'
+      'Ficha de elemento'
+      'Elementos asegurados'
     )
     OnClick = RadioGroup1Click
     ParentFont = False
     TabOrder = 0
   end
   object BitBtn1: TBitBtn
-    Left = 200
-    Height = 50
-    Top = 230
-    Width = 260
+    Left = 240
+    Height = 60
+    Top = 276
+    Width = 312
     Caption = 'Generar'
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -16
+    Font.Height = -19
     Font.Name = 'Century Gothic'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -66,16 +67,16 @@ object frmreportes: Tfrmreportes
     TabOrder = 1
   end
   object GroupBox1: TGroupBox
-    Left = 614
-    Height = 305
+    Left = 737
+    Height = 369
     Top = 0
-    Width = 460
+    Width = 552
     Align = alRight
     Caption = '[ Funcionario ]'
-    ClientHeight = 279
-    ClientWidth = 456
+    ClientHeight = 342
+    ClientWidth = 548
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -16
+    Font.Height = -19
     Font.Name = 'Century Gothic'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -83,32 +84,32 @@ object frmreportes: Tfrmreportes
     TabOrder = 2
     object DBGrid1: TDBGrid
       Left = 0
-      Height = 279
+      Height = 342
       Top = 0
-      Width = 456
+      Width = 548
       Align = alClient
       Color = clWindow
       Columns = <      
         item
           Title.Caption = 'descripcion'
-          Width = 400
+          Width = 480
           FieldName = 'descripcion'
         end>
       DataSource = DataSource1
       Options = [dgEditing, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
       TitleFont.CharSet = ANSI_CHARSET
-      TitleFont.Height = -16
+      TitleFont.Height = -19
       TitleFont.Name = 'Century Gothic'
       TitleFont.Pitch = fpVariable
       TitleFont.Quality = fqDraft
     end
   end
   object RadioGroup2: TRadioGroup
-    Left = 318
-    Height = 172
-    Top = 30
-    Width = 242
+    Left = 382
+    Height = 206
+    Top = 36
+    Width = 290
     AutoFill = True
     Caption = '[ Ordenado por ]'
     ChildSizing.LeftRightSpacing = 6
@@ -118,10 +119,10 @@ object frmreportes: Tfrmreportes
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 146
-    ClientWidth = 238
+    ClientHeight = 179
+    ClientWidth = 286
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -16
+    Font.Height = -19
     Font.Name = 'Century Gothic'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -141,22 +142,23 @@ object frmreportes: Tfrmreportes
     FieldDefs = <>
     Transaction = SQLTransaction1
     Params = <>
-    left = 570
-    top = 90
+    Macros = <>
+    Left = 684
+    Top = 108
   end
   object DataSource1: TDataSource
     AutoEdit = False
     DataSet = SQLQuery1
-    left = 670
-    top = 90
+    Left = 804
+    Top = 108
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
     Params.Strings = (
       'isc_tpb_read_committed'
     )
-    left = 770
-    top = 90
+    Left = 924
+    Top = 108
   end
   object frReport1: TfrReport
     Dataset = frDBDataSet1
@@ -164,71 +166,22 @@ object frmreportes: Tfrmreportes
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
     DataType = dtDataSet
-    left = 570
-    top = 156
+    Left = 684
+    Top = 187
   end
   object frDBDataSet1: TfrDBDataSet
     DataSet = SQLReport
-    left = 675
-    top = 153
+    Left = 810
+    Top = 184
   end
   object SQLReport: TSQLQuery
+    MaxIndexesCount = 4
     FieldDefs = <    
       item
-        Name = 'ID'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'CATEGORIA'
-        DataType = ftString
-        Precision = -1
-        Size = 40
-      end    
-      item
-        Name = 'ELEMENTO'
-        DataType = ftString
-        Precision = -1
-        Size = 60
-      end    
-      item
-        Name = 'MARCA'
+        Name = 'ASEGURADORA'
         DataType = ftString
         Precision = -1
         Size = 50
-      end    
-      item
-        Name = 'MODELO'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'SERIE'
-        DataType = ftString
-        Precision = -1
-        Size = 20
-      end    
-      item
-        Name = 'PROVEEDOR'
-        DataType = ftString
-        Precision = -1
-        Size = 50
-      end    
-      item
-        Name = 'FECHA_COMPRA'
-        DataType = ftDate
-        Precision = -1
-      end    
-      item
-        Name = 'NUMERO_FACTURA'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'VALOR_COMPRA'
-        DataType = ftInteger
-        Precision = -1
       end    
       item
         Name = 'INVENTARIO'
@@ -237,67 +190,55 @@ object frmreportes: Tfrmreportes
         Size = 10
       end    
       item
-        Name = 'CARACTERISTICAS'
-        DataType = ftMemo
-        Precision = -1
-        Size = 8
-      end    
-      item
-        Name = 'DEPENDENCIA'
+        Name = 'ELEMENTO'
         DataType = ftString
         Precision = -1
-        Size = 40
+        Size = 60
       end    
       item
-        Name = 'FUNCIONARIO'
+        Name = 'SERIE'
         DataType = ftString
         Precision = -1
-        Size = 40
+        Size = 20
+      end    
+      item
+        Name = 'MARCA'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'VALOR_COMPRA'
+        DataType = ftInteger
+        Precision = -1
       end    
       item
         Name = 'ESTADO'
         DataType = ftString
         Precision = -1
         Size = 40
-      end    
-      item
-        Name = 'ASEGURADORA'
-        DataType = ftString
-        Precision = -1
-        Size = 50
-      end    
-      item
-        Name = 'ASEGURADO'
-        DataType = ftFixedChar
-        Precision = -1
-        Size = 2
       end>
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'Select elemento.id, categoria.descripcion categoria,'
-      'elemento.descripcion elemento, marca.descripcion marca, elemento.modelo, elemento.serie,'
-      'proveedor.descripcion proveedor, elemento.fecha_compra, elemento.numero_factura, elemento.valor_compra,'
-      'elemento.inventario, elemento.caracteristicas, Dependencia.Descripcion Dependencia,'
-      'funcionario.apellidos funcionario, estado.descripcion estado,'
-      'aseguradora.descripcion aseguradora,'
-      'iif(elemento.id_aseguradora is null, ''No'', ''Si'') Asegurado'
-      'From ELEMENTO'
-      'left join funcionario on (elemento.id_funcionario = funcionario.id)'
+      'select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora,'
+      'elemento.inventario, elemento.descripcion elemento, elemento.serie,'
+      'marca.descripcion marca, elemento.valor_compra, estado.descripcion estado'
+      'from elemento'
       'left join estado on (elemento.id_estado = estado.id)'
-      'left join categoria on (elemento.id_categoria = categoria.id)'
-      'left join Dependencia on (elemento.id_dependencia = Dependencia.id)'
-      'left outer  join marca on (elemento.id_marca = marca.id)'
-      'left outer join proveedor on (elemento.id_proveedor = proveedor.id)'
+      'left join dependencia on (elemento.id_dependencia = dependencia.id)'
+      'left outer join marca on (elemento.id_marca = marca.id)'
       'left outer join aseguradora on (elemento.id_aseguradora = aseguradora.id)'
-      'Where Elemento.inventario = 200'
+      'order by aseguradora.descripcion, elemento.descripcion'
+      ''
     )
     Params = <>
-    left = 865
-    top = 90
+    Macros = <>
+    Left = 1038
+    Top = 108
   end
   object frCSVExport1: TfrCSVExport
-    left = 965
-    top = 90
+    Left = 1158
+    Top = 108
   end
   object SQLReport2: TSQLQuery
     FieldDefs = <    
@@ -317,16 +258,17 @@ object frmreportes: Tfrmreportes
       ''
     )
     Params = <>
-    left = 865
-    top = 153
+    Macros = <>
+    Left = 1038
+    Top = 184
   end
   object frDBDataSet2: TfrDBDataSet
     DataSet = SQLReport2
-    left = 770
-    top = 153
+    Left = 924
+    Top = 184
   end
   object frTNPDFExport1: TfrTNPDFExport
-    left = 970
-    top = 154
+    Left = 1164
+    Top = 185
   end
 end

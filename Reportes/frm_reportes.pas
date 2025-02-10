@@ -109,7 +109,8 @@ begin
      SqlQuery1.Close;
      SqlQuery1.Sql.Text := 'Select id, descripcion from dependencia order by 2';
      SQLQuery1.Open;
-    end;
+    end
+
 end;
 
 procedure Tfrmreportes.BitBtn1Click(Sender: TObject);
@@ -157,6 +158,18 @@ begin
           end;
         SQLReport.SQL.Text := Format(sqlFic1, [NumInve]);
         rpt := 'reportes/rptficha.lrf';
+       end;
+   4 : begin
+        SQLReport.SQL.Text := 'Select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora, elemento.inventario, elemento.descripcion elemento, elemento.serie, ' +
+                              'marca.descripcion marca, elemento.valor_compra, estado.descripcion estado ' +
+                              'from elemento ' +
+                              'left join estado on (elemento.id_estado = estado.id) ' +
+                              'left join dependencia on (elemento.id_dependencia = dependencia.id) ' +
+                              'left outer join marca on (elemento.id_marca = marca.id) ' +
+                              'left outer join aseguradora on (elemento.id_aseguradora = aseguradora.id) ' +
+                              'order by aseguradora.descripcion, elemento.descripcion';
+
+        rpt := 'reportes/rptAseguradora.lrf';
        end;
   end;
 

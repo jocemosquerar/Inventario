@@ -1,24 +1,24 @@
 object frmmenu: Tfrmmenu
-  Left = 3950
-  Height = 226
-  Top = 449
-  Width = 411
+  Left = -1284
+  Height = 271
+  Top = 701
+  Width = 493
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Control de Inventario'
-  ClientHeight = 201
-  ClientWidth = 411
-  DesignTimePPI = 120
+  ClientHeight = 271
+  ClientWidth = 493
+  DesignTimePPI = 144
   Menu = MainMenu2
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.6.0.0'
   object Image1: TImage
-    Left = 146
-    Height = 113
-    Top = 32
-    Width = 113
+    Left = 175
+    Height = 136
+    Top = 38
+    Width = 136
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963FA32000089504E47
       0D0A1A0A0000000D49484452000000C8000000C80806000000AD58AE9E000000
@@ -433,8 +433,9 @@ object frmmenu: Tfrmmenu
     Stretch = True
   end
   object IBConnection1: TIBConnection
-    Connected = False
+    Connected = True
     LoginPrompt = False
+    DatabaseName = 'C:\Desarrollo\GitHub\Inventario\Base\INVENTARIO.FDB'
     KeepConnection = False
     Params.Strings = (
       'lc_ctype=UTF-8'
@@ -443,12 +444,12 @@ object frmmenu: Tfrmmenu
     CharSet = 'NONE'
     CheckTransactionParams = False
     UseConnectionCharSetIfNone = False
-    Left = 48
-    Top = 16
+    Left = 58
+    Top = 19
   end
   object MainMenu1: TMainMenu
-    Left = 312
-    Top = 8
+    Left = 374
+    Top = 10
     object MenuItem1: TMenuItem
       Caption = 'Administrar'
       object MenuItem12: TMenuItem
@@ -467,7 +468,7 @@ object frmmenu: Tfrmmenu
           Action = admDependencia
         end
         object MenuItem22: TMenuItem
-          Caption = 'MenuItem22'
+          Action = admUbicacion
         end
         object MenuItem2: TMenuItem
           Action = admCategoria
@@ -513,8 +514,8 @@ object frmmenu: Tfrmmenu
     end
   end
   object ActionList1: TActionList
-    Left = 48
-    Top = 88
+    Left = 58
+    Top = 106
     object admCategoria: TAction
       Category = 'Administrar'
       Caption = 'Categoria'
@@ -580,9 +581,6 @@ object frmmenu: Tfrmmenu
       Caption = 'Responsable mantenimiento'
       OnExecute = admResponsableExecute
     end
-    object Action1: TAction
-      Caption = 'Action1'
-    end
     object admUbicacion: TAction
       Category = 'Administrar'
       Caption = 'Ubicación'
@@ -590,8 +588,8 @@ object frmmenu: Tfrmmenu
     end
   end
   object MainMenu2: TMainMenu
-    Left = 312
-    Top = 80
+    Left = 374
+    Top = 96
     object MenuItem13: TMenuItem
       Caption = 'Acceso'
       object MenuItem14: TMenuItem

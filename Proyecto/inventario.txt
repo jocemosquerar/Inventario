@@ -1,6 +1,9 @@
+C:\Desarrollo\GitHub\Inventario\Base\INVENTARIO.FDB
+
 192.168.1.35:inventario
 
-D:\Desarrollos\GitHub\inventario\Base\INVENTARIO.FDB
+
+
 
 
 
