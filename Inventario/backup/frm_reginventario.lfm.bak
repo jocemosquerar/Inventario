@@ -1,44 +1,44 @@
 object frmreginventario: Tfrmreginventario
-  Left = 2846
-  Height = 633
+  Left = 1198
+  Height = 760
   Top = 344
-  Width = 937
+  Width = 1124
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Registro de inventario'
-  ClientHeight = 633
-  ClientWidth = 937
-  DesignTimePPI = 120
+  ClientHeight = 760
+  ClientWidth = 1124
+  DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
-  Font.Height = -13
+  Font.Height = -16
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.6.0.0'
   object PageControl1: TPageControl
     Left = 0
-    Height = 584
-    Top = 49
-    Width = 937
+    Height = 701
+    Top = 59
+    Width = 1124
     ActivePage = TabSheet1
     Align = alClient
     TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Elemento'
-      ClientHeight = 554
-      ClientWidth = 929
+      ClientHeight = 667
+      ClientWidth = 1116
       object Label1: TLabel
-        Left = 30
-        Height = 16
-        Top = 15
-        Width = 77
+        Left = 36
+        Height = 19
+        Top = 18
+        Width = 91
         Caption = '# Inventario'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -47,10 +47,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBEdit1: TDBEdit
-        Left = 112
-        Height = 25
-        Top = 11
-        Width = 130
+        Left = 134
+        Height = 29
+        Top = 13
+        Width = 156
         DataField = 'inventario'
         DataSource = D_Elemento
         CharCase = ecUppercase
@@ -59,13 +59,13 @@ object frmreginventario: Tfrmreginventario
         OnKeyDown = DBEdit1KeyDown
       end
       object Label2: TLabel
-        Left = 30
-        Height = 16
-        Top = 46
-        Width = 77
+        Left = 36
+        Height = 19
+        Top = 55
+        Width = 91
         Caption = 'Descripción'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -74,10 +74,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBEdit2: TDBEdit
-        Left = 112
-        Height = 25
-        Top = 42
-        Width = 344
+        Left = 134
+        Height = 29
+        Top = 50
+        Width = 413
         DataField = 'descripcion'
         DataSource = D_Elemento
         CharCase = ecUppercase
@@ -86,13 +86,13 @@ object frmreginventario: Tfrmreginventario
         OnKeyDown = DBEdit1KeyDown
       end
       object Label3: TLabel
-        Left = 486
-        Height = 16
-        Top = 46
-        Width = 66
+        Left = 583
+        Height = 21
+        Top = 55
+        Width = 79
         Caption = 'Categoría'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -101,10 +101,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox1: TDBLookupComboBox
-        Left = 560
-        Height = 25
-        Top = 42
-        Width = 344
+        Left = 672
+        Height = 29
+        Top = 50
+        Width = 413
         DataField = 'id_categoria'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -117,13 +117,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 3
       end
       object Label4: TLabel
-        Left = 508
-        Height = 16
-        Top = 75
-        Width = 43
+        Left = 610
+        Height = 19
+        Top = 90
+        Width = 51
         Caption = 'Marca'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -132,11 +132,11 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox2: TDBLookupComboBox
-        Left = 560
-        Height = 25
+        Left = 672
+        Height = 29
         Hint = 'ESC Limpiar'#13#10'INS Insertar'
-        Top = 73
-        Width = 344
+        Top = 88
+        Width = 413
         DataField = 'id_marca'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -151,13 +151,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 5
       end
       object Label5: TLabel
-        Left = 58
-        Height = 16
-        Top = 75
-        Width = 49
+        Left = 70
+        Height = 19
+        Top = 90
+        Width = 59
         Caption = 'Modelo'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -166,10 +166,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBEdit3: TDBEdit
-        Left = 112
-        Height = 25
-        Top = 72
-        Width = 344
+        Left = 134
+        Height = 29
+        Top = 86
+        Width = 413
         DataField = 'modelo'
         DataSource = D_Elemento
         CharCase = ecUppercase
@@ -178,13 +178,13 @@ object frmreginventario: Tfrmreginventario
         OnKeyDown = DBEdit1KeyDown
       end
       object Label6: TLabel
-        Left = 519
-        Height = 16
-        Top = 108
-        Width = 32
+        Left = 623
+        Height = 19
+        Top = 130
+        Width = 37
         Caption = 'Serie'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -193,10 +193,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBEdit4: TDBEdit
-        Left = 560
-        Height = 25
-        Top = 104
-        Width = 344
+        Left = 672
+        Height = 29
+        Top = 125
+        Width = 413
         DataField = 'serie'
         DataSource = D_Elemento
         CharCase = ecUppercase
@@ -205,13 +205,13 @@ object frmreginventario: Tfrmreginventario
         OnKeyDown = DBEdit1KeyDown
       end
       object Label7: TLabel
-        Left = 64
-        Height = 16
-        Top = 108
-        Width = 43
+        Left = 77
+        Height = 19
+        Top = 130
+        Width = 50
         Caption = 'Estado'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -220,10 +220,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox3: TDBLookupComboBox
-        Left = 112
-        Height = 25
-        Top = 104
-        Width = 344
+        Left = 134
+        Height = 29
+        Top = 125
+        Width = 413
         DataField = 'id_estado'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -236,13 +236,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 6
       end
       object Label8: TLabel
-        Left = 466
-        Height = 16
-        Top = 136
-        Width = 86
+        Left = 559
+        Height = 19
+        Top = 163
+        Width = 102
         Caption = 'Aseguradora'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -251,11 +251,11 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox4: TDBLookupComboBox
-        Left = 560
-        Height = 25
+        Left = 672
+        Height = 29
         Hint = 'ESC Limpiar'#13#10'INS Insertar'
-        Top = 135
-        Width = 344
+        Top = 162
+        Width = 413
         DataField = 'id_aseguradora'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -270,13 +270,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 9
       end
       object Label9: TLabel
-        Left = 489
-        Height = 16
-        Top = 171
-        Width = 63
+        Left = 587
+        Height = 19
+        Top = 205
+        Width = 77
         Caption = 'F.Compra'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -285,15 +285,15 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBDateEdit1: TDBDateEdit
-        Left = 560
-        Height = 25
+        Left = 672
+        Height = 29
         Hint = 'ESC Limpiar'
-        Top = 168
-        Width = 130
+        Top = 202
+        Width = 156
         CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
         DateOrder = doDMY
         DateFormat = 'dd/mm/yyyy'
-        ButtonWidth = 23
+        ButtonWidth = 28
         NumGlyphs = 1
         MaxLength = 10
         OnKeyDown = DBDateEdit1KeyDown
@@ -305,13 +305,13 @@ object frmreginventario: Tfrmreginventario
         DataSource = D_Elemento
       end
       object Label10: TLabel
-        Left = 37
-        Height = 16
-        Top = 203
-        Width = 66
+        Left = 44
+        Height = 19
+        Top = 244
+        Width = 77
         Caption = 'Nº factura'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -320,10 +320,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBEdit5: TDBEdit
-        Left = 112
-        Height = 25
-        Top = 200
-        Width = 130
+        Left = 134
+        Height = 29
+        Top = 240
+        Width = 156
         DataField = 'numero_factura'
         DataSource = D_Elemento
         CharCase = ecUppercase
@@ -332,13 +332,13 @@ object frmreginventario: Tfrmreginventario
         OnKeyDown = DBEdit1KeyDown
       end
       object Label11: TLabel
-        Left = 24
-        Height = 16
-        Top = 138
-        Width = 83
+        Left = 29
+        Height = 19
+        Top = 166
+        Width = 98
         Caption = 'Responsable'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -347,10 +347,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox5: TDBLookupComboBox
-        Left = 112
-        Height = 25
-        Top = 135
-        Width = 344
+        Left = 134
+        Height = 29
+        Top = 162
+        Width = 413
         DataField = 'id_funcionario'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -363,13 +363,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 8
       end
       object Label12: TLabel
-        Left = 9
-        Height = 16
-        Top = 313
-        Width = 98
+        Left = 11
+        Height = 19
+        Top = 322
+        Width = 113
         Caption = 'Características'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -378,23 +378,23 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBMemo1: TDBMemo
-        Left = 112
-        Height = 136
-        Top = 313
-        Width = 792
+        Left = 134
+        Height = 163
+        Top = 322
+        Width = 950
         DataField = 'caracteristicas'
         DataSource = D_Elemento
         ScrollBars = ssAutoBoth
         TabOrder = 14
       end
       object Label13: TLabel
-        Left = 464
-        Height = 16
-        Top = 12
-        Width = 88
+        Left = 557
+        Height = 19
+        Top = 14
+        Width = 108
         Caption = 'Dependencia'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -403,10 +403,10 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox6: TDBLookupComboBox
-        Left = 560
-        Height = 25
-        Top = 11
-        Width = 344
+        Left = 672
+        Height = 29
+        Top = 13
+        Width = 413
         DataField = 'id_dependencia'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -419,13 +419,13 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 1
       end
       object Label14: TLabel
-        Left = 518
-        Height = 16
-        Top = 203
-        Width = 35
+        Left = 622
+        Height = 19
+        Top = 244
+        Width = 41
         Caption = 'Valor'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -434,13 +434,13 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object Label15: TLabel
-        Left = 41
-        Height = 16
-        Top = 171
-        Width = 65
+        Left = 49
+        Height = 19
+        Top = 205
+        Width = 79
         Caption = 'Proveedor'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -449,11 +449,11 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox7: TDBLookupComboBox
-        Left = 112
-        Height = 25
+        Left = 134
+        Height = 29
         Hint = 'ESC Limpiar'#13#10'INS Insertar'
-        Top = 168
-        Width = 344
+        Top = 202
+        Width = 413
         DataField = 'id_proveedor'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -468,10 +468,10 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 10
       end
       object RxDBCurrEdit1: TRxDBCurrEdit
-        Left = 560
-        Height = 25
-        Top = 199
-        Width = 132
+        Left = 672
+        Height = 29
+        Top = 239
+        Width = 158
         Alignment = taRightJustify
         DecimalPlaces = 0
         DisplayFormat = '$###,###'
@@ -482,13 +482,13 @@ object frmreginventario: Tfrmreginventario
         DataSource = D_Elemento
       end
       object Label16: TLabel
-        Left = 41
-        Height = 16
-        Top = 235
-        Width = 66
+        Left = 49
+        Height = 19
+        Top = 282
+        Width = 80
         Caption = 'Ubicación'
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Century Gothic'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -497,11 +497,11 @@ object frmreginventario: Tfrmreginventario
         ParentFont = False
       end
       object DBLookupComboBox8: TDBLookupComboBox
-        Left = 112
-        Height = 25
+        Left = 134
+        Height = 29
         Hint = 'ESC Limpiar'#13#10'INS Insertar'
-        Top = 232
-        Width = 344
+        Top = 278
+        Width = 413
         DataField = 'id_ubicacion'
         DataSource = D_Elemento
         KeyField = 'id'
@@ -509,7 +509,7 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Ubicacion
         LookupCache = False
-        OnKeyDown = DBLookupComboBox4KeyDown
+        OnKeyDown = DBLookupComboBox8KeyDown
         ParentShowHint = False
         ShowHint = True
         Style = csDropDownList
@@ -518,45 +518,45 @@ object frmreginventario: Tfrmreginventario
     end
     object TabSheet2: TTabSheet
       Caption = 'Novedades'
-      ClientHeight = 554
-      ClientWidth = 929
+      ClientHeight = 667
+      ClientWidth = 1116
       object DBGrid1: TDBGrid
         Left = 0
-        Height = 554
+        Height = 667
         Top = 0
-        Width = 929
+        Width = 1116
         Align = alClient
         Color = clWindow
         Columns = <        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Fecha'
-            Width = 90
+            Width = 108
             FieldName = 'Fecha'
           end        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Funcionario'
-            Width = 300
+            Width = 360
             FieldName = 'funcionario'
           end        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Estado'
-            Width = 150
+            Width = 180
             FieldName = 'estado'
           end        
           item
             ButtonStyle = cbsEllipsis
             Title.Alignment = taCenter
             Title.Caption = 'Observaciones'
-            Width = 325
+            Width = 390
             FieldName = 'observacion'
           end>
         DataSource = D_Movimiento
         TabOrder = 0
         TitleFont.CharSet = ANSI_CHARSET
-        TitleFont.Height = -13
+        TitleFont.Height = -16
         TitleFont.Name = 'Century Gothic'
         TitleFont.Pitch = fpVariable
         TitleFont.Quality = fqDraft
@@ -565,60 +565,60 @@ object frmreginventario: Tfrmreginventario
     end
     object TabSheet3: TTabSheet
       Caption = 'Salidas'
-      ClientHeight = 554
-      ClientWidth = 929
+      ClientHeight = 667
+      ClientWidth = 1116
       object DBGrid2: TDBGrid
         Left = 0
-        Height = 554
+        Height = 667
         Top = 0
-        Width = 250
+        Width = 300
         Align = alLeft
         Color = clWindow
         Columns = <        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Salida'
-            Width = 95
+            Width = 114
             FieldName = 'fecha_salida'
           end        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Regreso'
-            Width = 95
+            Width = 114
             FieldName = 'fecha_regreso'
           end>
         DataSource = D_Salidas
         TabOrder = 0
         TitleFont.CharSet = ANSI_CHARSET
-        TitleFont.Height = -13
+        TitleFont.Height = -16
         TitleFont.Name = 'Century Gothic'
         TitleFont.Pitch = fpVariable
         TitleFont.Quality = fqDraft
       end
       object Panel1: TPanel
-        Left = 250
-        Height = 554
+        Left = 300
+        Height = 667
         Top = 0
-        Width = 679
+        Width = 816
         Align = alClient
-        ClientHeight = 554
-        ClientWidth = 679
+        ClientHeight = 667
+        ClientWidth = 816
         TabOrder = 1
         object GroupBox1: TGroupBox
           Left = 1
-          Height = 187
+          Height = 224
           Top = 1
-          Width = 677
+          Width = 814
           Align = alTop
           Caption = '[ Observaciones de salida ]'
-          ClientHeight = 165
-          ClientWidth = 673
+          ClientHeight = 198
+          ClientWidth = 810
           TabOrder = 0
           object DBMemo2: TDBMemo
             Left = 0
-            Height = 165
+            Height = 198
             Top = 0
-            Width = 673
+            Width = 810
             Align = alClient
             DataField = 'observaciones_salida'
             DataSource = D_Salidas
@@ -627,19 +627,19 @@ object frmreginventario: Tfrmreginventario
         end
         object GroupBox2: TGroupBox
           Left = 1
-          Height = 365
-          Top = 188
-          Width = 677
+          Height = 441
+          Top = 225
+          Width = 814
           Align = alClient
           Caption = '[ Observaciones de regreso ]'
-          ClientHeight = 343
-          ClientWidth = 673
+          ClientHeight = 415
+          ClientWidth = 810
           TabOrder = 1
           object DBMemo3: TDBMemo
             Left = 0
-            Height = 343
+            Height = 415
             Top = 0
-            Width = 673
+            Width = 810
             Align = alClient
             DataField = 'observaciones_regreso'
             DataSource = D_Salidas
@@ -650,26 +650,26 @@ object frmreginventario: Tfrmreginventario
     end
     object TabSheet4: TTabSheet
       Caption = 'Mantenimiento'
-      ClientHeight = 554
-      ClientWidth = 929
+      ClientHeight = 667
+      ClientWidth = 1116
       object DBGrid3: TDBGrid
         Left = 0
-        Height = 554
+        Height = 667
         Top = 0
-        Width = 464
+        Width = 557
         Align = alLeft
         Color = clWindow
         Columns = <        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Fecha'
-            Width = 100
+            Width = 120
             FieldName = 'Fecha'
           end        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Responsable'
-            Width = 300
+            Width = 360
             FieldName = 'Descripcion'
           end>
         DataSource = D_Mantenimiento
@@ -677,20 +677,20 @@ object frmreginventario: Tfrmreginventario
         TabOrder = 0
       end
       object GroupBox3: TGroupBox
-        Left = 464
-        Height = 554
+        Left = 557
+        Height = 667
         Top = 0
-        Width = 465
+        Width = 559
         Align = alClient
         Caption = '[ Observaciones ]'
-        ClientHeight = 532
-        ClientWidth = 461
+        ClientHeight = 641
+        ClientWidth = 555
         TabOrder = 1
         object DBMemo4: TDBMemo
           Left = 0
-          Height = 532
+          Height = 641
           Top = 0
-          Width = 461
+          Width = 555
           Align = alClient
           DataField = 'observaciones'
           DataSource = D_Mantenimiento
@@ -702,11 +702,11 @@ object frmreginventario: Tfrmreginventario
   end
   object ToolBar1: TToolBar
     Left = 0
-    Height = 49
+    Height = 59
     Top = 0
-    Width = 937
-    ButtonHeight = 45
-    ButtonWidth = 40
+    Width = 1124
+    ButtonHeight = 54
+    ButtonWidth = 48
     Caption = 'ToolBar1'
     Images = ImageList1
     ShowCaptions = True
@@ -717,33 +717,33 @@ object frmreginventario: Tfrmreginventario
       Action = Nuevo
     end
     object ToolButton2: TToolButton
-      Left = 61
+      Left = 73
       Top = 2
       Action = Editar
     end
     object ToolButton3: TToolButton
-      Left = 115
+      Left = 139
       Top = 2
       Action = Buscar
     end
     object ToolButton4: TToolButton
-      Left = 53
-      Height = 45
+      Left = 63
+      Height = 54
       Top = 2
       Caption = 'ToolButton4'
       Style = tbsSeparator
     end
     object ToolButton5: TToolButton
-      Left = 107
-      Height = 45
+      Left = 129
+      Height = 54
       Top = 2
       Caption = 'ToolButton5'
       Style = tbsSeparator
     end
   end
   object ImageList1: TImageList
-    Left = 632
-    Top = 8
+    Left = 758
+    Top = 10
     Bitmap = {
       4C7A060000001000000010000000060B00000000000078DACD98095455D51AC7
       B5B46878B55ABDE62C537996585AF62C35451C90472AA2A228A2010AA84C5750
@@ -838,8 +838,8 @@ object frmreginventario: Tfrmreginventario
   end
   object ActionList1: TActionList
     Images = ImageList1
-    Left = 568
-    Top = 8
+    Left = 682
+    Top = 10
     object Nuevo: TAction
       Caption = 'Nuevo'
       ImageIndex = 4
@@ -869,58 +869,58 @@ object frmreginventario: Tfrmreginventario
   object D_Elemento: TDataSource
     AutoEdit = False
     OnStateChange = D_ElementoStateChange
-    Left = 144
-    Top = 371
+    Left = 173
+    Top = 445
   end
   object D_Categoria: TDataSource
     AutoEdit = False
-    Left = 216
-    Top = 371
+    Left = 259
+    Top = 445
   end
   object D_Marca: TDataSource
     AutoEdit = False
-    Left = 296
-    Top = 347
+    Left = 355
+    Top = 416
   end
   object D_Estado: TDataSource
     AutoEdit = False
-    Left = 368
-    Top = 347
+    Left = 442
+    Top = 416
   end
   object D_Proveedor: TDataSource
     AutoEdit = False
-    Left = 440
-    Top = 347
+    Left = 528
+    Top = 416
   end
   object D_Dependencia: TDataSource
     AutoEdit = False
-    Left = 520
-    Top = 347
+    Left = 624
+    Top = 416
   end
   object D_funcionario: TDataSource
     AutoEdit = False
-    Left = 616
-    Top = 347
+    Left = 739
+    Top = 416
   end
   object D_Movimiento: TDataSource
-    Left = 720
-    Top = 347
+    Left = 864
+    Top = 416
   end
   object D_Poliza: TDataSource
-    Left = 824
-    Top = 347
+    Left = 989
+    Top = 416
   end
   object D_Salidas: TDataSource
-    Left = 824
-    Top = 192
+    Left = 989
+    Top = 230
   end
   object D_Mantenimiento: TDataSource
-    Left = 688
-    Top = 192
+    Left = 826
+    Top = 230
   end
   object D_Ubicacion: TDataSource
     AutoEdit = False
-    Left = 152
-    Top = 455
+    Left = 182
+    Top = 546
   end
 end

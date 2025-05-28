@@ -18,8 +18,9 @@
         <ComponentName Value="frmmenu"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="107"/>
-        <CursorPos X="113" Y="122"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="135"/>
+        <CursorPos X="86" Y="151"/>
         <UsageCount Value="187"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -62,13 +63,10 @@
         <ComponentName Value="frmreportes"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="152"/>
-        <CursorPos X="57" Y="180"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="148"/>
+        <CursorPos X="12" Y="161"/>
         <UsageCount Value="142"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="..\Inventario\frm_reginventario.pas"/>
@@ -78,7 +76,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="292"/>
-        <CursorPos X="85" Y="304"/>
+        <CursorPos X="70" Y="309"/>
         <UsageCount Value="130"/>
         <Bookmarks Count="1">
           <Item0 X="5" Y="341" ID="1"/>
@@ -92,7 +90,7 @@
         <ResourceBaseClass Value="DataModule"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="115"/>
-        <CursorPos X="42" Y="125"/>
+        <CursorPos X="16" Y="123"/>
         <UsageCount Value="130"/>
       </Unit7>
       <Unit8>
@@ -288,13 +286,15 @@
         <UsageCount Value="10"/>
       </Unit29>
       <Unit30>
-        <Filename Value="..\..\Codice\Fuentes\Menu\frm_menu.pas"/>
+        <Filename Value="..\..\codice\Fuentes\Menu\frm_menu.pas"/>
         <ComponentName Value="frmmenu"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="53" Y="6"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="212"/>
+        <CursorPos Y="241"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit30>
       <Unit31>
         <Filename Value="C:\lazarus\lcl\lclmessageglue.pas"/>
@@ -312,7 +312,7 @@
         <UsageCount Value="10"/>
       </Unit32>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="19" HistoryIndex="18">
       <Position1>
         <Filename Value="frm_menu.pas"/>
         <Caret Line="168" Column="14" TopLine="164"/>
@@ -362,41 +362,33 @@
         <Caret Line="141" Column="3" TopLine="139"/>
       </Position12>
       <Position13>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="72" Column="69" TopLine="55"/>
-      </Position13>
-      <Position14>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="85" Column="74" TopLine="73"/>
-      </Position14>
-      <Position15>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="129" Column="78" TopLine="103"/>
-      </Position15>
-      <Position16>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="159" Column="73" TopLine="128"/>
-      </Position16>
-      <Position17>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="51" Column="75" TopLine="31"/>
-      </Position17>
-      <Position18>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="39" Column="50" TopLine="25"/>
-      </Position18>
-      <Position19>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="157" Column="41" TopLine="152"/>
-      </Position19>
-      <Position20>
-        <Filename Value="..\Reportes\frm_reportes.pas"/>
-        <Caret Line="153" Column="21" TopLine="152"/>
-      </Position20>
-      <Position21>
         <Filename Value="frm_menu.pas"/>
         <Caret Line="122" Column="113" TopLine="107"/>
-      </Position21>
+      </Position13>
+      <Position14>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="121" Column="81" TopLine="113"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\..\codice\Fuentes\Menu\frm_menu.pas"/>
+        <Caret Line="8" Column="88"/>
+      </Position15>
+      <Position16>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="208" Column="18" TopLine="180"/>
+      </Position16>
+      <Position17>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="13" Column="74"/>
+      </Position17>
+      <Position18>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="202" Column="35" TopLine="182"/>
+      </Position18>
+      <Position19>
+        <Filename Value="frm_menu.pas"/>
+        <Caret Line="20" Column="24"/>
+      </Position19>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

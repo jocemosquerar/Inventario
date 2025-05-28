@@ -10,7 +10,7 @@ interface
 
 uses
   Classes, SysUtils, IBConnection, FileUtil, Forms, Controls, Graphics, Dialogs,
-  Menus, ActnList, StdActns, ExtCtrls, StdCtrls, frm_accesoria,
+  Menus, ActnList, StdActns, ExtCtrls, StdCtrls, frm_accesoria, inifiles,
   frm_Reginventario, frm_funcionario, frm_reportes, frm_salida, frm_acerca;
 
 type
@@ -198,18 +198,22 @@ end;
 
 procedure Tfrmmenu.FormCreate(Sender: TObject);
 var
- Archivo : TextFile;
- rutabase : string;
+ Archivo : TIniFile;
+ h,p,d : string;
 begin
-  if not FileExists('inventario.txt') then begin
-    MessageDlg('No se encuentra el archivo "inventario.txt"', mtError, [mbOk], 0);
+  if not FileExists('inventario.ini') then begin
+    MessageDlg('No se encuentra el archivo "inventario.ini"', mtError, [mbOk], 0);
     Application.terminate;
    end;
-  AssignFile(Archivo,'inventario.txt');
-  reset(Archivo);
-  readln(Archivo, rutabase);
-  closefile(Archivo);
-  IBConnection1.DatabaseName := rutabase;
+
+  archivo := TiniFile.create('inventario.ini');
+  h       := archivo.ReadString('Config', 'Host', '');
+  p       := archivo.ReadString('Config', 'Port', '');
+  d       := archivo.ReadString('Config', 'Database', '');
+
+  IBConnection1.DatabaseName := d;
+  IBConnection1.HostName     := h;
+  IBConnection1.Port         := StrToInt(p);
 end;
 
 end.

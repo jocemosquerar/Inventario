@@ -1,7 +1,7 @@
 object frmmenu: Tfrmmenu
-  Left = -1284
+  Left = -2037
   Height = 271
-  Top = 701
+  Top = 450
   Width = 493
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
@@ -13,7 +13,7 @@ object frmmenu: Tfrmmenu
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '3.6.0.0'
+  LCLVersion = '3.8.0.0'
   object Image1: TImage
     Left = 175
     Height = 136
@@ -439,7 +439,6 @@ object frmmenu: Tfrmmenu
     Params.Strings = (
       'lc_ctype=UTF-8'
     )
-    Transaction = dmreginventario.SQLTransaction1
     CharSet = 'NONE'
     CheckTransactionParams = False
     UseConnectionCharSetIfNone = False

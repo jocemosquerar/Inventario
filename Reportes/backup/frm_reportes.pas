@@ -160,7 +160,7 @@ begin
         rpt := 'reportes/rptficha.lrf';
        end;
    4 : begin
-        SQLReport.SQL.Text := 'Select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora,, elemento.inventario, elemento.descripcion elemento, elemento.serie, ' +
+        SQLReport.SQL.Text := 'Select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora, elemento.inventario, elemento.descripcion elemento, elemento.serie, ' +
                               'marca.descripcion marca, elemento.valor_compra, estado.descripcion estado ' +
                               'from elemento ' +
                               'left join estado on (elemento.id_estado = estado.id) ' +

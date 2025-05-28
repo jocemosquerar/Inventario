@@ -1,7 +1,7 @@
 object frmreportes: Tfrmreportes
-  Left = -1675
+  Left = 758
   Height = 369
-  Top = 383
+  Top = 519
   Width = 1289
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
@@ -10,7 +10,7 @@ object frmreportes: Tfrmreportes
   ClientWidth = 1289
   DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
-  Font.Height = -19
+  Font.Height = -20
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft

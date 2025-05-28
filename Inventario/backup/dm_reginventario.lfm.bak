@@ -1,20 +1,19 @@
 object dmreginventario: Tdmreginventario
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 519
-  HorizontalOffset = 3185
-  VerticalOffset = 487
-  Width = 401
-  PPI = 120
+  Height = 623
+  HorizontalOffset = 2029
+  VerticalOffset = 586
+  Width = 481
+  PPI = 144
   object SQLTransaction1: TSQLTransaction
     Active = False
     Action = caCommitRetaining
-    Database = frmmenu.IBConnection1
     Params.Strings = (
       'isc_tpb_read_committed'
     )
-    Left = 50
-    Top = 20
+    Left = 60
+    Top = 24
   end
   object Elemento: TSQLQuery
     FieldDefs = <>
@@ -71,8 +70,8 @@ object dmreginventario: Tdmreginventario
       end>
     Macros = <>
     Sequence.IncrementBy = 0
-    Left = 50
-    Top = 101
+    Left = 60
+    Top = 121
   end
   object Categoria: TSQLQuery
     FieldDefs = <>
@@ -84,8 +83,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 140
-    Top = 101
+    Left = 168
+    Top = 121
   end
   object Marca: TSQLQuery
     FieldDefs = <>
@@ -97,8 +96,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 220
-    Top = 101
+    Left = 264
+    Top = 121
   end
   object Proveedor: TSQLQuery
     FieldDefs = <>
@@ -110,8 +109,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 50
-    Top = 190
+    Left = 60
+    Top = 228
   end
   object Funcionario: TSQLQuery
     FieldDefs = <>
@@ -124,8 +123,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 140
-    Top = 190
+    Left = 168
+    Top = 228
   end
   object Estado: TSQLQuery
     FieldDefs = <    
@@ -148,16 +147,16 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 220
-    Top = 190
+    Left = 264
+    Top = 228
   end
   object SQLQuery1: TSQLQuery
     FieldDefs = <>
     Transaction = SQLTransaction1
     Params = <>
     Macros = <>
-    Left = 50
-    Top = 280
+    Left = 60
+    Top = 336
   end
   object Movimiento: TSQLQuery
     PacketRecords = 1
@@ -238,8 +237,8 @@ object dmreginventario: Tdmreginventario
         ParamType = ptInput
       end>
     Macros = <>
-    Left = 136
-    Top = 280
+    Left = 163
+    Top = 336
     object MovimientoID: TLongintField
       FieldKind = fkData
       FieldName = 'ID'
@@ -347,8 +346,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 220
-    Top = 280
+    Left = 264
+    Top = 336
   end
   object SqlFuncionario: TSQLQuery
     FieldDefs = <    
@@ -372,8 +371,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 310
-    Top = 190
+    Left = 372
+    Top = 228
   end
   object SqlEstado: TSQLQuery
     FieldDefs = <    
@@ -396,8 +395,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 310
-    Top = 280
+    Left = 372
+    Top = 336
   end
   object Aseguradora: TSQLQuery
     FieldDefs = <>
@@ -409,8 +408,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 310
-    Top = 100
+    Left = 372
+    Top = 120
   end
   object SqlSalidas: TSQLQuery
     FieldDefs = <>
@@ -428,8 +427,8 @@ object dmreginventario: Tdmreginventario
         ParamType = ptInput
       end>
     Macros = <>
-    Left = 310
-    Top = 36
+    Left = 372
+    Top = 43
   end
   object Mantenimiento: TSQLQuery
     MaxIndexesCount = 4
@@ -499,8 +498,8 @@ object dmreginventario: Tdmreginventario
         ParamType = ptInput
       end>
     Macros = <>
-    Left = 56
-    Top = 368
+    Left = 67
+    Top = 442
     object MantenimientoID: TLongintField
       FieldKind = fkData
       FieldName = 'ID'
@@ -586,8 +585,8 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 216
-    Top = 368
+    Left = 259
+    Top = 442
   end
   object Ubicacion: TSQLQuery
     FieldDefs = <>
@@ -601,7 +600,7 @@ object dmreginventario: Tdmreginventario
     )
     Params = <>
     Macros = <>
-    Left = 312
-    Top = 360
+    Left = 374
+    Top = 432
   end
 end

@@ -102,6 +102,8 @@ type
       Shift: TShiftState);
     procedure DBLookupComboBox7KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure DBLookupComboBox8KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBMemo4Exit(Sender: TObject);
     procedure D_ElementoStateChange(Sender: TObject);
     procedure EditarExecute(Sender: TObject);
@@ -291,6 +293,33 @@ begin
       end;
 
      if not Dm.Insertar_Accesoria('Aseguradora', Trim(AnsiUpperCase(Cad)), 'Gen_Aseguradora', Dm.Aseguradora) then
+      MessageDlg('No fue posible insertar el registro', mtwarning, [mbOk], 0);
+    end;
+  end;
+end;
+
+procedure Tfrmreginventario.DBLookupComboBox8KeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+var
+ cad : string;
+begin
+ if (Key=VK_RETURN) then
+  SelectNext(ActiveControl,true, true);
+
+ if (Dm.Elemento.State in [dsInsert, dsEdit]) then begin
+
+   if (Key=VK_ESCAPE) then
+    Dm.Elemento.FieldByName('Id_Ubicacion').Clear;
+
+   if (Key=VK_INSERT) then begin
+     Cad := InputBox('Creación de ubicación', 'Nombre de la ubicación', '');
+
+     if Trim(Cad) = EmptyStr then begin
+       MessageDlg('Descripción incompleta', mtwarning, [mbOk], 0);
+       exit;
+      end;
+
+     if not Dm.Insertar_Accesoria('Ubicacion', Trim(AnsiUpperCase(Cad)), 'Gen_Ubicacion', Dm.Ubicacion) then
       MessageDlg('No fue posible insertar el registro', mtwarning, [mbOk], 0);
     end;
   end;
