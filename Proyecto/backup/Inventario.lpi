@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <AutoCreateForms Value="False"/>
       <Title Value="Inventario"/>
       <ResourceType Value="res"/>
@@ -17,8 +19,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="1"/>
+      <MajorVersionNr Value="3"/>
       <Language Value="040A"/>
       <StringTable Comments="Jmosquer@" CompanyName="Kimmel Insurance Ltda" InternalName="Control de Inventario" ProductName="Control de Inventario" ProductVersion="Inventario"/>
     </VersionInfo>
@@ -29,31 +30,38 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
-    <RequiredPackages Count="6">
+    <RequiredPackages Count="8">
       <Item1>
-        <PackageName Value="lazreportpdfexport"/>
+        <PackageName Value="rxnew"/>
       </Item1>
       <Item2>
-        <PackageName Value="lazreport"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item2>
       <Item3>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="lazreportpdfexport"/>
       </Item3>
       <Item4>
-        <PackageName Value="FCL"/>
+        <PackageName Value="lazreport"/>
       </Item4>
       <Item5>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item5>
       <Item6>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item6>
+      <Item7>
+        <PackageName Value="SQLDBLaz"/>
+      </Item7>
+      <Item8>
+        <PackageName Value="LCL"/>
+      </Item8>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="12">
       <Unit0>
         <Filename Value="Inventario.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -115,12 +123,26 @@
         <ResourceBaseClass Value="Form"/>
       </Unit8>
       <Unit9>
-        <Filename Value="..\Acerca\frm_acerca.pas"/>
+        <Filename Value="..\..\Repositorio\Acerca\frm_acerca.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmacerca"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="..\Salidas\frm_salida.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmsalida"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\Salidas\frm_buscarsalida.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmbuscarsalida"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -131,10 +153,13 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\Accesoria;..\Inventario;..\Funcionario;..\Acceso;..\Reportes;..\Buscador elementos;..\Acerca"/>
+      <OtherUnitFiles Value="..\Accesoria;..\Inventario;..\Funcionario;..\Acceso;..\Reportes;..\Buscador elementos;..\Acerca;..\..\Repositorio\Acerca;..\Salidas"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -143,7 +168,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="4">
+    <Exceptions Count="5">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -156,6 +181,9 @@
       <Item4>
         <Name Value="EDatabaseError"/>
       </Item4>
+      <Item5>
+        <Name Value="EUpdateError"/>
+      </Item5>
     </Exceptions>
   </Debugging>
 </CONFIG>

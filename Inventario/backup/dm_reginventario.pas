@@ -56,6 +56,7 @@ type
   private
     Fbase: TIBConnection;
     procedure Setbase(AValue: TIBConnection);
+    procedure AbrirAccesorias;
     { private declarations }
   public
     { public declarations }
@@ -195,8 +196,49 @@ begin
   Ubicacion.Open;
 end;
 
+procedure Tdmreginventario.AbrirAccesorias;
+begin
+ Categoria.Close;
+ Categoria.Open;
+
+ Marca.Close;
+ Marca.Open;
+
+ Proveedor.Close;
+ Proveedor.Open;
+
+ Movimiento.close;
+ Movimiento.Open;
+
+ Funcionario.Close;
+ Funcionario.Open;
+
+ Estado.Close;
+ Estado.Open;
+
+ Dependencia.Close;
+ Dependencia.Open;
+
+ SqlFuncionario.Close;
+ SqlFuncionario.Open;
+
+ SqlEstado.Close;
+ SqlEstado.Open;
+
+ Aseguradora.Close;
+ Aseguradora.Open;
+
+ Responsable.Close;
+ Responsable.Open;
+
+ Ubicacion.Close;
+ Ubicacion.Open;
+end;
+
 function Tdmreginventario.abrir_elemento(const id: integer): boolean;
 begin
+  AbrirAccesorias;
+
   Elemento.Close;
   Elemento.ParamByName('Id').AsInteger := Id;
   Elemento.Open;

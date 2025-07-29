@@ -1,13 +1,14 @@
 object frmfuncionario: Tfrmfuncionario
-  Left = 262
+  Left = -1159
   Height = 364
-  Top = 156
+  Top = 285
   Width = 661
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Funcionarios'
   ClientHeight = 364
   ClientWidth = 661
+  DesignTimePPI = 120
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Century Gothic'
@@ -15,7 +16,7 @@ object frmfuncionario: Tfrmfuncionario
   Font.Quality = fqDraft
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.6.2.0'
+  LCLVersion = '1.8.4.0'
   object DBGrid1: TDBGrid
     Left = 0
     Height = 364
@@ -157,14 +158,12 @@ object frmfuncionario: Tfrmfuncionario
   object SQLQuery3: TSQLQuery
     FieldDefs = <>
     Transaction = SQLTransaction1
-    Options = []
     Params = <>
     left = 440
     top = 138
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
-    Options = []
     left = 528
     top = 138
   end

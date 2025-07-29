@@ -149,8 +149,8 @@ begin
   frmreginventario.D_Mantenimiento.DataSet :=  FrmRegInventario.Dm.Mantenimiento;
   frmreginventario.D_Ubicacion.DataSet   :=  FrmRegInventario.Dm.Ubicacion;
 
-  FrmRegInventario.ShowModal;
-  FrmRegInventario.Free;
+  FrmRegInventario.Show;
+//  FrmRegInventario.Free;
 end;
 
 procedure Tfrmreginventario.DBEdit1KeyDown(Sender: TObject; var Key: Word;

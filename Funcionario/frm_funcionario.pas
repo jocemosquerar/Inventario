@@ -43,15 +43,17 @@ implementation
 
 procedure persona(const Base : TIBConnection);
 begin
- Application.createform(tfrmfuncionario, frmfuncionario);
+ if not assigned(frmfuncionario) then begin
+   Application.createform(tfrmfuncionario, frmfuncionario);
 
- frmfuncionario.SQLTransaction1.DataBase := base;
- frmfuncionario.Funcionario.DataBase     := base;
- frmfuncionario.SQLQuery3.DataBase       := base;
+   frmfuncionario.SQLTransaction1.DataBase := base;
+   frmfuncionario.Funcionario.DataBase     := base;
+   frmfuncionario.SQLQuery3.DataBase       := base;
 
- frmfuncionario.Funcionario.open;
+   frmfuncionario.Funcionario.open;
+ end;
 
- frmfuncionario.showmodal;
+ frmfuncionario.show;
 end;
 
 { Tfrmfuncionario }

@@ -14,10 +14,10 @@ object frmreginventario: Tfrmreginventario
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  Position = poScreenCenter
+  LCLVersion = '4.0.0.4'
   OnClose = FormClose
   OnCreate = FormCreate
-  Position = poScreenCenter
-  LCLVersion = '3.8.0.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 701
@@ -112,9 +112,9 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Categoria
         LookupCache = False
-        OnKeyDown = DBEdit1KeyDown
         Style = csDropDownList
         TabOrder = 3
+        OnKeyDown = DBEdit1KeyDown
       end
       object Label4: TLabel
         Left = 610
@@ -144,11 +144,11 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Marca
         LookupCache = False
-        OnKeyDown = DBLookupComboBox2KeyDown
         ParentShowHint = False
         ShowHint = True
         Style = csDropDownList
         TabOrder = 5
+        OnKeyDown = DBLookupComboBox2KeyDown
       end
       object Label5: TLabel
         Left = 70
@@ -231,9 +231,9 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Estado
         LookupCache = False
-        OnKeyDown = DBEdit1KeyDown
         Style = csDropDownList
         TabOrder = 6
+        OnKeyDown = DBEdit1KeyDown
       end
       object Label8: TLabel
         Left = 559
@@ -263,11 +263,11 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Poliza
         LookupCache = False
-        OnKeyDown = DBLookupComboBox7KeyDown
         ParentShowHint = False
         ShowHint = True
         Style = csDropDownList
         TabOrder = 9
+        OnKeyDown = DBLookupComboBox7KeyDown
       end
       object Label9: TLabel
         Left = 587
@@ -296,11 +296,11 @@ object frmreginventario: Tfrmreginventario
         ButtonWidth = 28
         NumGlyphs = 1
         MaxLength = 10
-        OnKeyDown = DBDateEdit1KeyDown
         ParentShowHint = False
         ShowHint = True
         TabOrder = 11
         Text = '  /  /    '
+        OnKeyDown = DBDateEdit1KeyDown
         DataField = 'fecha_compra'
         DataSource = D_Elemento
       end
@@ -358,9 +358,9 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_funcionario
         LookupCache = False
-        OnKeyDown = DBEdit1KeyDown
         Style = csDropDownList
         TabOrder = 8
+        OnKeyDown = DBEdit1KeyDown
       end
       object Label12: TLabel
         Left = 11
@@ -414,9 +414,9 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Dependencia
         LookupCache = False
-        OnKeyDown = DBEdit1KeyDown
         Style = csDropDownList
         TabOrder = 1
+        OnKeyDown = DBEdit1KeyDown
       end
       object Label14: TLabel
         Left = 622
@@ -461,11 +461,11 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Proveedor
         LookupCache = False
-        OnKeyDown = DBLookupComboBox4KeyDown
         ParentShowHint = False
         ShowHint = True
         Style = csDropDownList
         TabOrder = 10
+        OnKeyDown = DBLookupComboBox4KeyDown
       end
       object RxDBCurrEdit1: TRxDBCurrEdit
         Left = 672
@@ -509,11 +509,11 @@ object frmreginventario: Tfrmreginventario
         ListFieldIndex = 0
         ListSource = D_Ubicacion
         LookupCache = False
-        OnKeyDown = DBLookupComboBox8KeyDown
         ParentShowHint = False
         ShowHint = True
         Style = csDropDownList
         TabOrder = 15
+        OnKeyDown = DBLookupComboBox8KeyDown
       end
     end
     object TabSheet2: TTabSheet
@@ -694,8 +694,8 @@ object frmreginventario: Tfrmreginventario
           Align = alClient
           DataField = 'observaciones'
           DataSource = D_Mantenimiento
-          OnExit = DBMemo4Exit
           TabOrder = 0
+          OnExit = DBMemo4Exit
         end
       end
     end

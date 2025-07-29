@@ -2,13 +2,13 @@ object dmreginventario: Tdmreginventario
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 623
-  HorizontalOffset = -612
-  VerticalOffset = 462
+  HorizontalOffset = -1157
+  VerticalOffset = 780
   Width = 481
   PPI = 144
   object SQLTransaction1: TSQLTransaction
     Active = False
-    Action = caCommitRetaining
+    Action = caRollbackRetaining
     Params.Strings = (
       'isc_tpb_read_committed'
     )

@@ -132,25 +132,26 @@ implementation
 
 procedure RegInventario(const base: TIBConnection);
 begin
-  Application.CreateForm(TFrmRegInventario, FrmRegInventario);
-  FrmRegInventario.Dm      := TDmRegInventario.Create(nil);
-  FrmRegInventario.Dm.base := Base;
+  if not assigned(FrmRegInventario) then begin
+    Application.CreateForm(TFrmRegInventario, FrmRegInventario);
+    FrmRegInventario.Dm      := TDmRegInventario.Create(nil);
+    FrmRegInventario.Dm.base := Base;
 
-  frmreginventario.D_elemento.DataSet    :=  FrmRegInventario.Dm.Elemento;
-  frmreginventario.D_Categoria.DataSet   :=  FrmRegInventario.Dm.Categoria;
-  frmreginventario.D_marca.DataSet       :=  FrmRegInventario.Dm.marca;
-  frmreginventario.D_estado.DataSet      :=  FrmRegInventario.Dm.estado;
-  frmreginventario.D_proveedor.DataSet   :=  FrmRegInventario.Dm.proveedor;
-  frmreginventario.D_dependencia.DataSet :=  FrmRegInventario.Dm.dependencia;
-  frmreginventario.D_funcionario.DataSet :=  FrmRegInventario.Dm.Funcionario;
-  frmreginventario.D_movimiento.DataSet  :=  FrmRegInventario.Dm.Movimiento;
-  frmreginventario.D_poliza.DataSet      :=  FrmRegInventario.Dm.Aseguradora;
-  frmreginventario.D_Salidas.DataSet     :=  FrmRegInventario.Dm.SqlSalidas;
-  frmreginventario.D_Mantenimiento.DataSet :=  FrmRegInventario.Dm.Mantenimiento;
-  frmreginventario.D_Ubicacion.DataSet   :=  FrmRegInventario.Dm.Ubicacion;
-
-  FrmRegInventario.ShowModal;
-  FrmRegInventario.Free;
+    frmreginventario.D_elemento.DataSet    :=  FrmRegInventario.Dm.Elemento;
+    frmreginventario.D_Categoria.DataSet   :=  FrmRegInventario.Dm.Categoria;
+    frmreginventario.D_marca.DataSet       :=  FrmRegInventario.Dm.marca;
+    frmreginventario.D_estado.DataSet      :=  FrmRegInventario.Dm.estado;
+    frmreginventario.D_proveedor.DataSet   :=  FrmRegInventario.Dm.proveedor;
+    frmreginventario.D_dependencia.DataSet :=  FrmRegInventario.Dm.dependencia;
+    frmreginventario.D_funcionario.DataSet :=  FrmRegInventario.Dm.Funcionario;
+    frmreginventario.D_movimiento.DataSet  :=  FrmRegInventario.Dm.Movimiento;
+    frmreginventario.D_poliza.DataSet      :=  FrmRegInventario.Dm.Aseguradora;
+    frmreginventario.D_Salidas.DataSet     :=  FrmRegInventario.Dm.SqlSalidas;
+    frmreginventario.D_Mantenimiento.DataSet :=  FrmRegInventario.Dm.Mantenimiento;
+    frmreginventario.D_Ubicacion.DataSet   :=  FrmRegInventario.Dm.Ubicacion;
+   end;
+  FrmRegInventario.Show;
+//  FrmRegInventario.Free;
 end;
 
 procedure Tfrmreginventario.DBEdit1KeyDown(Sender: TObject; var Key: Word;

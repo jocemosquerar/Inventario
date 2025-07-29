@@ -41,12 +41,14 @@ implementation
 
 procedure accesoria(const Base : TIBConnection; const tabla : string);
 begin
- Application.CreateForm(TFrmAccesoria, FrmAccesoria);
- FrmAccesoria.Caption:= FrmAccesoria.Caption + tabla;
- FrmAccesoria.objeto := tabla;
- FrmAccesoria.SQLTransaction1.DataBase := Base;
- FrmAccesoria.Armar_Sql;
- FrmAccesoria.ShowModal;
+ if not assigned(FrmAccesoria) then begin
+   Application.CreateForm(TFrmAccesoria, FrmAccesoria);
+   FrmAccesoria.Caption:= FrmAccesoria.Caption + tabla;
+   FrmAccesoria.objeto := tabla;
+   FrmAccesoria.SQLTransaction1.DataBase := Base;
+   FrmAccesoria.Armar_Sql;
+ end;
+ FrmAccesoria.Show;
 end;
 
 { Tfrmaccesoria }

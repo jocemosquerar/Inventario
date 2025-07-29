@@ -1,52 +1,52 @@
 object frmfuncionario: Tfrmfuncionario
   Left = -1159
-  Height = 364
-  Top = 285
-  Width = 661
+  Height = 437
+  Top = 553
+  Width = 793
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Funcionarios'
-  ClientHeight = 364
-  ClientWidth = 661
-  DesignTimePPI = 120
+  ClientHeight = 437
+  ClientWidth = 793
+  DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
-  Font.Height = -13
+  Font.Height = -16
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
-  OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '4.0.0.4'
+  OnDestroy = FormDestroy
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 364
+    Height = 437
     Top = 0
-    Width = 661
+    Width = 793
     Align = alClient
     Color = clWindow
     Columns = <    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Identificación'
-        Width = 110
+        Width = 132
         FieldName = 'IDENTIFICACION'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Apellidos'
-        Width = 250
+        Width = 300
         FieldName = 'APELLIDOS'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Nombres'
-        Width = 250
+        Width = 300
         FieldName = 'NOMBRES'
       end>
     DataSource = D_Funcionario
     TabOrder = 0
     TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Height = -13
+    TitleFont.Height = -16
     TitleFont.Name = 'Century Gothic'
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
@@ -113,9 +113,10 @@ object frmfuncionario: Tfrmfuncionario
     )
     Options = [sqoRefreshUsingSelect]
     Params = <>
+    Macros = <>
     Sequence.IncrementBy = 0
-    left = 299
-    top = 138
+    Left = 359
+    Top = 166
     object FuncionarioID: TLongintField
       FieldKind = fkData
       FieldName = 'ID'
@@ -159,17 +160,18 @@ object frmfuncionario: Tfrmfuncionario
     FieldDefs = <>
     Transaction = SQLTransaction1
     Params = <>
-    left = 440
-    top = 138
+    Macros = <>
+    Left = 528
+    Top = 166
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
-    left = 528
-    top = 138
+    Left = 634
+    Top = 166
   end
   object D_Funcionario: TDataSource
     DataSet = Funcionario
-    left = 296
-    top = 200
+    Left = 355
+    Top = 240
   end
 end
