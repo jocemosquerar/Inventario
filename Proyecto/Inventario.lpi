@@ -154,7 +154,7 @@
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value="..\Accesoria;..\Inventario;..\Funcionario;..\Acceso;..\Reportes;..\Buscador elementos;..\Acerca;..\..\Repositorio\Acerca;..\Salidas"/>
-      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      <UnitOutputDirectory Value="R:\Inventario\lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Debugging>
