@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, sqldb, db, FileUtil, LR_Class, LR_DBSet, LR_E_CSV,
   lr_e_pdf, Forms, Controls, Graphics, Dialogs, ExtCtrls, DbCtrls, Buttons,
-  StdCtrls, DBGrids, IbConnection;
+  StdCtrls, DBGrids, frxClass, frxDBSet, frxExportPDF, frxExportCSV,
+  IbConnection;
 
 type
 
@@ -22,6 +23,10 @@ type
     frDBDataSet2: TfrDBDataSet;
     frReport1: TfrReport;
     frTNPDFExport1: TfrTNPDFExport;
+    frxCSVExport1: TfrxCSVExport;
+    frxDBDataset1: TfrxDBDataset;
+    frxPDFExport1: TfrxPDFExport;
+    frxReport1: TfrxReport;
     GroupBox1: TGroupBox;
     RadioGroup1: TRadioGroup;
     RadioGroup2: TRadioGroup;
@@ -30,6 +35,7 @@ type
     SQLReport: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure BitBtn1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
   private
@@ -126,7 +132,7 @@ var
     3 : SQLReport.SQL.Text := SQLReport.SQL.Text + ' Order By Funcionario.Apellidos, Funcionario.Nombres';
     4 : SQLReport.SQL.Text := SQLReport.SQL.Text + ' Order By Elemento.Inventario';
    end;
-   rpt := 'reportes/rptInventario.lrf';
+   rpt := 'reportes/rptInventario.fr3';
  end;
 //
 begin
@@ -169,17 +175,29 @@ begin
                               'left outer join aseguradora on (elemento.id_aseguradora = aseguradora.id) ' +
                               'order by aseguradora.descripcion, elemento.descripcion';
 
-        rpt := 'reportes/rptAseguradora.lrf';
+        rpt := 'reportes/rptAseguradora.fr3';
        end;
   end;
 
  SqlReport.Open;
- if RadioGroup1.ItemIndex = 3 then begin
-   SQLReport2.Sql.Text := Format(SqlFic2, [Sqlreport.FieldByName('Id').AsInteger]);
-   SqlReport2.Open;
+ if (RadioGroup1.ItemIndex = 0) or (RadioGroup1.ItemIndex = 4) then begin
+   frxReport1.LoadFromFile(rpt);
+   if frxReport1.PrepareReport then
+    frxReport1.ShowPreparedReport;
+  end
+ else begin
+   if RadioGroup1.ItemIndex = 3 then begin
+     SQLReport2.Sql.Text := Format(SqlFic2, [Sqlreport.FieldByName('Id').AsInteger]);
+     SqlReport2.Open;
+    end;
+   frReport1.LoadFromFile(rpt);
+   frReport1.ShowReport;
   end;
- frReport1.LoadFromFile(rpt);
- frReport1.ShowReport;
+end;
+
+procedure Tfrmreportes.FormCreate(Sender: TObject);
+begin
+//
 end;
 
 end.

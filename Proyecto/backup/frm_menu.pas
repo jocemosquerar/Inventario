@@ -198,7 +198,7 @@ end;
 
 procedure Tfrmmenu.FormCreate(Sender: TObject);
 var
- Archivo : IniFile;
+ Archivo : TIniFile;
  h,p,d : string;
 begin
   if not FileExists('inventario.ini') then begin

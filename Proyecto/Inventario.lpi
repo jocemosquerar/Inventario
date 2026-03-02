@@ -19,7 +19,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MajorVersionNr Value="3"/>
+      <MajorVersionNr Value="4"/>
       <Language Value="040A"/>
       <StringTable Comments="Jmosquer@" CompanyName="Kimmel Insurance Ltda" InternalName="Control de Inventario" ProductName="Control de Inventario" ProductVersion="Inventario"/>
     </VersionInfo>
@@ -35,31 +35,37 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="10">
       <Item1>
-        <PackageName Value="rxnew"/>
+        <PackageName Value="frxe_lazarus"/>
       </Item1>
       <Item2>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="fr_lazarus"/>
       </Item2>
       <Item3>
-        <PackageName Value="lazreportpdfexport"/>
+        <PackageName Value="rxnew"/>
       </Item3>
       <Item4>
-        <PackageName Value="lazreport"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item4>
       <Item5>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="lazreportpdfexport"/>
       </Item5>
       <Item6>
-        <PackageName Value="FCL"/>
+        <PackageName Value="lazreport"/>
       </Item6>
       <Item7>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item8>
+      <Item9>
+        <PackageName Value="SQLDBLaz"/>
+      </Item9>
+      <Item10>
+        <PackageName Value="LCL"/>
+      </Item10>
     </RequiredPackages>
     <Units Count="12">
       <Unit0>

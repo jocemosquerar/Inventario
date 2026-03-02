@@ -1,12 +1,12 @@
 object frmreportes: Tfrmreportes
-  Left = 758
-  Height = 369
-  Top = 519
+  Left = -1883
+  Height = 444
+  Top = 405
   Width = 1289
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Reportes'
-  ClientHeight = 369
+  ClientHeight = 444
   ClientWidth = 1289
   DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
@@ -14,9 +14,10 @@ object frmreportes: Tfrmreportes
   Font.Name = 'Century Gothic'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
-  OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '3.6.0.0'
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   object RadioGroup1: TRadioGroup
     Left = 23
     Height = 206
@@ -46,9 +47,9 @@ object frmreportes: Tfrmreportes
       'Ficha de elemento'
       'Elementos asegurados'
     )
-    OnClick = RadioGroup1Click
     ParentFont = False
     TabOrder = 0
+    OnClick = RadioGroup1Click
   end
   object BitBtn1: TBitBtn
     Left = 240
@@ -62,18 +63,18 @@ object frmreportes: Tfrmreportes
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     Kind = bkYesToAll
-    OnClick = BitBtn1Click
     ParentFont = False
     TabOrder = 1
+    OnClick = BitBtn1Click
   end
   object GroupBox1: TGroupBox
     Left = 737
-    Height = 369
+    Height = 444
     Top = 0
     Width = 552
     Align = alRight
     Caption = '[ Funcionario ]'
-    ClientHeight = 342
+    ClientHeight = 417
     ClientWidth = 548
     Font.CharSet = ANSI_CHARSET
     Font.Height = -19
@@ -84,7 +85,7 @@ object frmreportes: Tfrmreportes
     TabOrder = 2
     object DBGrid1: TDBGrid
       Left = 0
-      Height = 342
+      Height = 417
       Top = 0
       Width = 548
       Align = alClient
@@ -139,8 +140,79 @@ object frmreportes: Tfrmreportes
   end
   object SQLQuery1: TSQLQuery
     PacketRecords = 1
-    FieldDefs = <>
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'INVENTARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'ELEMENTO'
+        DataType = ftString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'SERIE'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'MARCA'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'MODELO'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'FUNCIONARIO'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end    
+      item
+        Name = 'DEPENDENCIA'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ESTADO'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ASEGURADO'
+        DataType = ftFixedChar
+        Precision = -1
+        Size = 2
+      end>
     Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select elemento.inventario, elemento.descripcion elemento, elemento.serie,'
+      'marca.descripcion marca, elemento.modelo, funcionario.apellidos ||  '''' || funcionario.nombres funcionario,'
+      'dependencia.descripcion dependencia, estado.descripcion estado, elemento.id,'
+      'iif(elemento.id_aseguradora is null, ''No'', ''Si'') Asegurado'
+      'from elemento'
+      'left join funcionario on (elemento.id_funcionario = funcionario.id)'
+      'left join estado on (elemento.id_estado = estado.id)'
+      'left join dependencia on (elemento.id_dependencia = dependencia.id)'
+      'left outer join marca on (elemento.id_marca = marca.id)'
+    )
     Params = <>
     Macros = <>
     Left = 684
@@ -158,7 +230,7 @@ object frmreportes: Tfrmreportes
       'isc_tpb_read_committed'
     )
     Left = 924
-    Top = 108
+    Top = 112
   end
   object frReport1: TfrReport
     Dataset = frDBDataSet1
@@ -175,6 +247,7 @@ object frmreportes: Tfrmreportes
     Top = 184
   end
   object SQLReport: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     MaxIndexesCount = 4
     FieldDefs = <    
       item
@@ -220,8 +293,16 @@ object frmreportes: Tfrmreportes
       end>
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora,'
+      '/*select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora,'
       'elemento.inventario, elemento.descripcion elemento, elemento.serie,'
+      'marca.descripcion marca, elemento.valor_compra, estado.descripcion estado'
+      'from elemento'
+      'left join estado on (elemento.id_estado = estado.id)'
+      'left join dependencia on (elemento.id_dependencia = dependencia.id)'
+      'left outer join marca on (elemento.id_marca = marca.id)'
+      'left outer join aseguradora on (elemento.id_aseguradora = aseguradora.id)'
+      'order by aseguradora.descripcion, elemento.descripcion     */'
+      'Select coalesce(aseguradora.descripcion, ''NO ASEGURADO'') aseguradora, elemento.inventario, elemento.descripcion elemento, elemento.serie,'
       'marca.descripcion marca, elemento.valor_compra, estado.descripcion estado'
       'from elemento'
       'left join estado on (elemento.id_estado = estado.id)'
@@ -270,5 +351,73 @@ object frmreportes: Tfrmreportes
   object frTNPDFExport1: TfrTNPDFExport
     Left = 1164
     Top = 185
+  end
+  object frxReport1: TfrxReport
+    Version = '2023.1.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 46083.6717083565
+    ReportOptions.LastChange = 46083.7220175926
+    ScriptLanguage = 'PascalScript'
+    ShowProgress = False
+    StoreInDFM = False
+    Left = 672
+    Top = 304
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSet = SQLReport
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 800
+    Top = 304
+  end
+  object frxPDFExport1: TfrxPDFExport
+    UseFileCache = True
+    ShowProgress = False
+    OverwritePrompt = False
+    DataOnly = False
+    EmbedFontsIfProtected = False
+    InteractiveFormsFontSubset = 'A-Z,a-z,0-9,#43-#47 '
+    OpenAfterExport = False
+    PrintOptimized = False
+    Outline = False
+    Background = False
+    HTMLTags = True
+    Quality = 95
+    Author = 'Kimmel Insurance ltda'
+    Subject = 'FastReport PDF export'
+    Creator = 'FastReport'
+    ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
+    HideToolbar = False
+    HideMenubar = False
+    HideWindowUI = False
+    FitWindow = False
+    CenterWindow = False
+    PrintScaling = False
+    PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
+    Left = 924
+    Top = 311
+  end
+  object frxCSVExport1: TfrxCSVExport
+    UseFileCache = True
+    ShowProgress = False
+    OverwritePrompt = False
+    DataOnly = True
+    Separator = ';'
+    OEMCodepage = False
+    UTF8 = False
+    OpenAfterExport = False
+    NoSysSymbols = True
+    ForcedQuotes = False
+    Left = 1055
+    Top = 308
   end
 end

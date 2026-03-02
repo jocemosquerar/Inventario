@@ -10,10 +10,10 @@ object frmmenu: Tfrmmenu
   ClientWidth = 493
   DesignTimePPI = 144
   Menu = MainMenu2
+  Position = poScreenCenter
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  Position = poScreenCenter
-  LCLVersion = '3.8.0.0'
   object Image1: TImage
     Left = 175
     Height = 136
@@ -435,10 +435,14 @@ object frmmenu: Tfrmmenu
   object IBConnection1: TIBConnection
     Connected = False
     LoginPrompt = False
+    DatabaseName = '192.168.1.35/3050:inventario'
     KeepConnection = False
     Params.Strings = (
       'lc_ctype=UTF-8'
     )
+    Password = '3Zcob@r16'
+    Transaction = frmreportes.SQLTransaction1
+    UserName = 'sysdba'
     CharSet = 'NONE'
     CheckTransactionParams = False
     UseConnectionCharSetIfNone = False
