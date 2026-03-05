@@ -226,6 +226,7 @@ object frmreportes: Tfrmreportes
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
+    Database = frmmenu.IBConnection1
     Params.Strings = (
       'isc_tpb_read_committed'
     )

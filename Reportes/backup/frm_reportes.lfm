@@ -1,12 +1,12 @@
 object frmreportes: Tfrmreportes
   Left = -1883
-  Height = 535
+  Height = 444
   Top = 405
   Width = 1289
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Reportes'
-  ClientHeight = 535
+  ClientHeight = 444
   ClientWidth = 1289
   DesignTimePPI = 144
   Font.CharSet = ANSI_CHARSET
@@ -69,12 +69,12 @@ object frmreportes: Tfrmreportes
   end
   object GroupBox1: TGroupBox
     Left = 737
-    Height = 535
+    Height = 444
     Top = 0
     Width = 552
     Align = alRight
     Caption = '[ Funcionario ]'
-    ClientHeight = 508
+    ClientHeight = 417
     ClientWidth = 548
     Font.CharSet = ANSI_CHARSET
     Font.Height = -19
@@ -85,7 +85,7 @@ object frmreportes: Tfrmreportes
     TabOrder = 2
     object DBGrid1: TDBGrid
       Left = 0
-      Height = 508
+      Height = 417
       Top = 0
       Width = 548
       Align = alClient
