@@ -15,7 +15,7 @@ object frmreportes: Tfrmreportes
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Position = poScreenCenter
-  LCLVersion = '4.4.0.0'
+  LCLVersion = '4.6.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object RadioGroup1: TRadioGroup
@@ -353,7 +353,7 @@ object frmreportes: Tfrmreportes
     Top = 185
   end
   object frxReport1: TfrxReport
-    Version = '2023.1.3'
+    Version = '2021.3.1'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]

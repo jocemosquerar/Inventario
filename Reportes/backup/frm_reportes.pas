@@ -47,14 +47,14 @@ type
 
 const
   SqlGeneral = 'select elemento.inventario, elemento.descripcion elemento, elemento.serie,' +
-               'marca.descripcion marca, elemento.modelo, funcionario.apellidos || '' '' || funcionario.nombres funcionario,' +
+               'marca.descripcion marca, elemento.modelo, categoria.descripcion categoria, elemento.valor_compra,' +
                'dependencia.descripcion dependencia, estado.descripcion estado, elemento.id, ' +
                'iif(elemento.id_aseguradora is null, ''No'', ''Si'') Asegurado ' +
                'from elemento ' +
-               'left join funcionario on (elemento.id_funcionario = funcionario.id) ' +
                'left join estado on (elemento.id_estado = estado.id) ' +
                'left join dependencia on (elemento.id_dependencia = dependencia.id) ' +
-               'left outer join marca on (elemento.id_marca = marca.id) ';
+               'left outer join marca on (elemento.id_marca = marca.id) ' +
+               'left outer join categoria on (elemento.id_categoria = categoria.id) ';
 
   SqlFic1 = 'Select elemento.id, categoria.descripcion categoria,' +
             'elemento.descripcion elemento, marca.descripcion marca, elemento.modelo, elemento.serie,' +

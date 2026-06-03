@@ -19,7 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="135"/>
-        <CursorPos Y="148"/>
+        <CursorPos X="107" Y="151"/>
         <UsageCount Value="194"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -64,8 +64,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="129"/>
-        <CursorPos X="10" Y="147"/>
+        <TopLine Value="37"/>
+        <CursorPos X="122" Y="59"/>
         <UsageCount Value="149"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -76,15 +76,13 @@
         <ComponentName Value="frmreginventario"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="384"/>
         <CursorPos X="98" Y="386"/>
         <UsageCount Value="137"/>
         <Bookmarks Count="1">
           <Item0 X="5" Y="342" ID="1"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\Inventario\dm_reginventario.pas"/>
@@ -315,7 +313,7 @@
         <UsageCount Value="10"/>
       </Unit32>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="frm_menu.pas"/>
         <Caret Line="185" Column="41" TopLine="171"/>
@@ -404,6 +402,18 @@
         <Filename Value="..\Reportes\frm_reportes.pas"/>
         <Caret Line="52" Column="86" TopLine="38"/>
       </Position22>
+      <Position23>
+        <Filename Value="..\Reportes\frm_reportes.pas"/>
+        <Caret Line="142" Column="17" TopLine="130"/>
+      </Position23>
+      <Position24>
+        <Filename Value="..\Reportes\frm_reportes.pas"/>
+        <Caret Line="85" Column="60" TopLine="61"/>
+      </Position24>
+      <Position25>
+        <Filename Value="..\Reportes\frm_reportes.pas"/>
+        <Caret Line="139" Column="78" TopLine="126"/>
+      </Position25>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
